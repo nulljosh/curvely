@@ -39,7 +39,7 @@ export default function EquationRow({ eq, onChange, onRemove, showRemove }) {
             color: 'var(--text)',
             fontSize: 16,
             minHeight: 44,
-            fontFamily: '"SF Mono", "Menlo", monospace',
+            fontFamily: '-apple-system, BlinkMacSystemFont, "Helvetica Neue", Helvetica, sans-serif',
             outline: 'none',
             transition: 'border-color 0.15s',
           }}
@@ -65,7 +65,7 @@ export default function EquationRow({ eq, onChange, onRemove, showRemove }) {
         <div style={{
           marginTop: 4, marginLeft: 20,
           fontSize: 11, color: 'rgba(220,53,69,0.85)',
-          fontFamily: '"SF Mono", "Menlo", monospace',
+          fontFamily: '-apple-system, BlinkMacSystemFont, "Helvetica Neue", Helvetica, sans-serif',
         }}>{eq.error}</div>
       )}
       {invalid && !eq.error && (

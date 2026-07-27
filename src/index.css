@@ -63,7 +63,7 @@ input:focus { outline: none; }
   font-weight: 600;
   letter-spacing: 0.02em;
   color: var(--text-secondary);
-  font-family: "SF Mono", "Menlo", monospace;
+  font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Helvetica, sans-serif;
   padding: 2px 0 4px;
   user-select: none;
 }

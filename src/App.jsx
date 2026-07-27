@@ -58,7 +58,7 @@ export default function App() {
         <span className="nav-hint" style={{
           marginLeft: 'auto', fontSize: 11,
           color: 'var(--text-secondary)',
-          fontFamily: '"SF Mono", "Menlo", monospace',
+          fontFamily: '-apple-system, BlinkMacSystemFont, "Helvetica Neue", Helvetica, sans-serif',
         }}>pinch or +/- to zoom · drag to pan</span>
       </div>
 
@@ -100,7 +100,7 @@ export default function App() {
                   borderRadius: 8, padding: '4px 9px',
                   color: 'var(--text-secondary)',
                   fontSize: 12,
-                  fontFamily: '"SF Mono", "Menlo", monospace',
+                  fontFamily: '-apple-system, BlinkMacSystemFont, "Helvetica Neue", Helvetica, sans-serif',
                   cursor: 'pointer',
                   transition: 'background 0.1s',
                 }}
