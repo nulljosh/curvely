@@ -7,11 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1B97E3DA499DF22514999A29 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1AADBB56C14E56A1BA678189 /* Assets.xcassets */; };
 		2875301B845FEDD04B732F73 /* web in Resources */ = {isa = PBXBuildFile; fileRef = 4E0B99A670312D5666D25D9E /* web */; };
 		423ED4A3183D015BE1632B37 /* GrapherApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33BAF1566E5B65359A8E905E /* GrapherApp.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1AADBB56C14E56A1BA678189 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		33BAF1566E5B65359A8E905E /* GrapherApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GrapherApp.swift; sourceTree = "<group>"; };
 		4E0B99A670312D5666D25D9E /* web */ = {isa = PBXFileReference; lastKnownFileType = folder; path = web; sourceTree = SOURCE_ROOT; };
 		AE1C63A1BCCEBBD832628DE5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
@@ -30,6 +32,7 @@
 		5C0DB00E89FC5F22AB560701 /* App */ = {
 			isa = PBXGroup;
 			children = (
+				1AADBB56C14E56A1BA678189 /* Assets.xcassets */,
 				33BAF1566E5B65359A8E905E /* GrapherApp.swift */,
 				AE1C63A1BCCEBBD832628DE5 /* Info.plist */,
 			);
@@ -75,6 +78,10 @@
 				BuildIndependentTargetsInParallel = YES;
 				LastUpgradeCheck = 1600;
 				TargetAttributes = {
+					6065910EB0C4B01B6E310464 = {
+						DevelopmentTeam = QMM486NPYC;
+						ProvisioningStyle = Automatic;
+					};
 				};
 			};
 			buildConfigurationList = E4C1B23272C235CB19C54903 /* Build configuration list for PBXProject "Grapher" */;
@@ -101,6 +108,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1B97E3DA499DF22514999A29 /* Assets.xcassets in Resources */,
 				2875301B845FEDD04B732F73 /* web in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -124,6 +132,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = QMM486NPYC;
 				GENERATE_INFOPLIST_FILE = NO;
 				INFOPLIST_FILE = App/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -141,6 +151,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = QMM486NPYC;
 				GENERATE_INFOPLIST_FILE = NO;
 				INFOPLIST_FILE = App/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (

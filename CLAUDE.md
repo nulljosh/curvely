@@ -25,7 +25,7 @@ npm run build:ios            # builds to ios/web with relative asset paths
 cd ios && xcodegen generate && open Grapher.xcodeproj
 ```
 
-No AppIcon asset catalog yet — generate one from `icon.svg` before App Store submission.
+AppIcon asset catalog at `ios/App/Assets.xcassets/AppIcon.appiconset` (1024×1024, flattened from `icon.svg`).
 
 ## Key files
 
