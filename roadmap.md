@@ -27,10 +27,11 @@ Current ASC facts (verified 2026-08-03):
 - `ios/project.yml` has `TARGETED_DEVICE_FAMILY: "1,2"` (iPhone + iPad) — this is *why* the iPad screenshot is demanded
 
 Done 2026-08-03:
+- [x] **iPad screenshot (`ipadPro129`)** — captured on the iPad Pro 13-inch (M5) sim (2064×2752, valid for `APP_IPAD_PRO_3GEN_129`) via plain xcodebuild + `simctl io screenshot`; `TARGETED_DEVICE_FAMILY` untouched so the VALID build stands. Saved to `ios/screenshots/ipad/01-graph.png`, uploaded with `asc screenshots upload --version-localization 5235dfcd-4909-47a4-8a5f-3adf5b8cca58 --device-type IPAD_PRO_3GEN_129` — asset `8ecbb239-2692-434b-a347-6dc32a54bf98`, state COMPLETE.
+  - Noticed while reviewing the capture: the in-app header still reads **"Grapher"**, not "Curvely" — the App Store name is Curvely, so the screenshot shows the old brand. Not fixed here (would need a code change + rebuild + re-upload, invalidating the VALID build). Worth fixing before the next build.
 
-Remaining (2 items, both were invisible to `asc validate`/`doctor`):
+Remaining (1 item, invisible to `asc validate`/`doctor`):
 - [ ] **App Privacy declarations unpublished** — not exposed by the public API. Needs `asc web privacy pull/plan/apply/publish` (web-session flow; expect to run the `asc-web-relogin` skill first), or manual dashboard at appstoreconnect.apple.com/apps/6794988370/appPrivacy. Declaration is trivial: no data collected at all (see the privacy page copy).
-- [ ] **iPad screenshot required (`ipadPro129`)** — capture on an iPad Pro 12.9" sim via `asc-shots-pipeline`, same launch-only approach as the iPhone pass (`ios/.asc/screenshots.json`; app seeds `x^2`/`sin(x)` by default). Cheaper than the alternative of setting `TARGETED_DEVICE_FAMILY: "1"` — that would drop iPad but forces a rebuild + re-upload, invalidating the already-VALID build. Budget ~10% session usage for the sim run; close the Simulator afterward.
 
 Then resubmit:
 `asc review submit --app 6794988370 --version-id 16c69982-180c-4bbc-81d0-de81632d7b97 --build 0103486e-91de-4ac5-8d09-da7b8d07f6b5 --confirm`
