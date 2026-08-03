@@ -1,4 +1,4 @@
-# Grapher Technical Whitepaper
+# Curvely Technical Whitepaper
 
 **v1.1.0** | July 2026
 

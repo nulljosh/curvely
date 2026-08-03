@@ -1,6 +1,6 @@
 <img src="icon.svg" width="80">
 
-# Grapher
+# Curvely
 
 ![version](https://img.shields.io/badge/version-v1.1.0-blue)
 

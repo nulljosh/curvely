@@ -1,4 +1,4 @@
-# Grapher
+# Curvely
 
 v1.1.0 — Desmos-style graphing calculator. Client-side only, no backend.
 

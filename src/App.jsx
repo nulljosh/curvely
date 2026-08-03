@@ -54,7 +54,7 @@ export default function App() {
         gap: 10,
       }}>
         <img src="/icon.svg" width={24} height={24} alt="" style={{ borderRadius: 6 }} />
-        <span style={{ fontSize: 16, fontWeight: 600, letterSpacing: '-0.01em' }}>Grapher</span>
+        <span style={{ fontSize: 16, fontWeight: 600, letterSpacing: '-0.01em' }}>Curvely</span>
         <span className="nav-hint" style={{
           marginLeft: 'auto', fontSize: 11,
           color: 'var(--text-secondary)',
