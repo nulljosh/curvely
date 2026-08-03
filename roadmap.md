@@ -27,14 +27,6 @@ Current ASC facts (verified 2026-08-03):
 - `ios/project.yml` has `TARGETED_DEVICE_FAMILY: "1,2"` (iPhone + iPad) — this is *why* the iPad screenshot is demanded
 
 Done 2026-08-03:
-- [x] **iPad screenshot (`ipadPro129`)** — captured on the iPad Pro 13-inch (M5) sim (2064×2752, valid for `APP_IPAD_PRO_3GEN_129`) via plain xcodebuild + `simctl io screenshot`; `TARGETED_DEVICE_FAMILY` untouched so the VALID build stands. Saved to `ios/screenshots/ipad/01-graph.png`, uploaded with `asc screenshots upload --version-localization 5235dfcd-4909-47a4-8a5f-3adf5b8cca58 --device-type IPAD_PRO_3GEN_129` — asset `8ecbb239-2692-434b-a347-6dc32a54bf98`, state COMPLETE.
-  - Noticed while reviewing the capture: the in-app header still reads **"Grapher"**, not "Curvely" — the App Store name is Curvely, so the screenshot shows the old brand. Not fixed here (would need a code change + rebuild + re-upload, invalidating the VALID build). Worth fixing before the next build.
-
-- [x] **App Privacy declarations** — applied and published via `asc web` after Joshua re-ran the login: `published: true`, DATA_NOT_COLLECTED, usageId `5c6cf706-ec55-47ef-8928-782bc7f36d8c`.
-- [x] **Grapher → Curvely rename (user-facing only)** — header (`src/App.jsx`), page `<title>` (`index.html`), `CFBundleDisplayName`/`CFBundleName` (`ios/App/Info.plist`), doc H1s. Scheme/target/bundle ID (`com.nulljosh.grapher`) and the "Grapher AppStore" provisioning profile name deliberately untouched — wiring, not branding.
-- [x] **Rebuild + upload** — build `202608031005`, id `85485026-ac24-42f2-a214-fc1a2c4bd3be`, VALID, attached to version 1.1.0. The old 202607290328 build is superseded.
-- [x] **Screenshots re-shot with correct branding** — iPad `3c5f39cc-ca06-4a51-aef5-e804a6149d47` (2064×2752) and iPhone 6.5" `a3cd2858-9f4f-4d1d-9b25-ac3843d49508` (1284×2778); stale "Grapher"-branded assets deleted (`8ecbb239…`, `cea08fc2…`). Header verified reading "Curvely" in the capture.
-- [x] **SUBMITTED FOR REVIEW 2026-08-03** — review submission `108e1f88-69e9-4278-9a4b-35d98db58cea`, state WAITING_FOR_REVIEW, submittedDate 2026-08-03T17:10:41Z. Note: `asc review submit` could not drive this (it kept failing to reuse the pre-existing prepared submission); the working path was `asc versions attach-build --version-id … --build-id …` followed by `asc review submissions-submit --id 108e1f88… --confirm`.
 
 Loose end:
 - [ ] Stray empty review submission `2dc7aedd-0dee-4696-8491-f8e21304b93e` (created by a failed `asc review submit` attempt, state READY_FOR_REVIEW, no items). `asc review submissions-cancel` refuses it ("Resource is not in cancellable state"). Harmless as far as we can tell — the real submission went through — but check it doesn't confuse the next release, and clear it via the dashboard if it lingers.
