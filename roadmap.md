@@ -36,3 +36,12 @@ Loose end:
 - [ ] **iOS builds are likely TestFlight-ineligible (ITMS-90886).** This repo has **no `.entitlements` file and no `CODE_SIGN_ENTITLEMENTS`** anywhere, so the app signs without an `application-identifier` while the provisioning profile has one. Apple reports it as "not required to fix", which is why it went unnoticed — but the build cannot be distributed via TestFlight.
   Fix proven on Uprighty 2026-08-03 (commit `df346b8`): add `<Target>.entitlements` with `application-identifier` = `$(AppIdentifierPrefix)$(CFBundleIdentifier)`, wire via `CODE_SIGN_ENTITLEMENTS` in `project.yml`, hand-commit it (xcodegen silently drops keys).
   Verify: `codesign -d --entitlements :- <exported>.app` should show `application-identifier`, `beta-reports-active: true`, `get-task-allow: false`. An entitlement change invalidates the profile — refetch with `asc signing fetch`.
+
+## Ingested 2026-08-04
+- [x] Website still shows the old name (grapher) — live site was serving a pre-rename build (`<title>Grapher</title>`); redeployed to CF Pages, now `Curvely`. Also fixed `package.json` name `grapher`→`curvely`.
+- [x] Equations bottom drawer is too small — mobile drawer was a fixed 200px; now `--drawer-h: 45dvh` in `.main-layout`, with the graph pane's calc and `.eq-list-container` both deriving from it (`src/index.css`)
+- [x] Header font still monospaced — root cause: shared `heyitsmejosh.com/tokens.css` defines `--font` as a mono stack. Overrode `--font` locally in `src/index.css` `:root` to the system sans stack; also dropped the unused Space Grotesk Google Fonts link and switched graph axis labels off it.
+
+## From Apple Notes (imported 2026-08-04)
+- [ ] Domain still `grapher.heyitsmejosh.com` (CF Pages project is also named `grapher`; `curvely.heyitsmejosh.com` does not resolve). Renaming means adding the new custom domain to the Pages project + a DNS record, then updating ASC support/privacy URLs and `ios/` shell. Left alone — outward-facing rename, user's call.
+- [ ] `CLAUDE.md` still references `Grapher.xcodeproj` in the iOS build steps (xcodegen target name never renamed).

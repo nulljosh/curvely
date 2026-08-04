@@ -9,6 +9,8 @@ html, body, #root {
 
 :root {
   --text-secondary: var(--text2);
+  /* ponytail: shared tokens.css sets --font to a mono stack; this app's UI is sans throughout */
+  --font: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Helvetica, system-ui, sans-serif;
 }
 
 body {
@@ -109,6 +111,9 @@ input:focus { outline: none; }
 }
 
 @media (max-width: 640px) {
+  /* ponytail: drawer height in one place so the graph pane's calc can't drift */
+  .main-layout { --drawer-h: 45dvh; }
+
   .nav-hint { display: none; }
 
   .main-layout {
@@ -118,7 +123,7 @@ input:focus { outline: none; }
   .graph-pane {
     order: 1;
     flex: none;
-    height: calc(100dvh - 53px - 200px);
+    height: calc(100dvh - 53px - var(--drawer-h));
     width: 100%;
   }
 
@@ -126,8 +131,8 @@ input:focus { outline: none; }
     order: 2;
     width: 100%;
     flex: none;
-    height: 200px;
-    max-height: 200px;
+    height: var(--drawer-h);
+    max-height: var(--drawer-h);
     border-left: none;
     border-top: 1px solid var(--border);
     padding: 10px 12px;
@@ -139,7 +144,7 @@ input:focus { outline: none; }
   }
 
   .eq-list-container {
-    max-height: 160px;
+    max-height: calc(var(--drawer-h) - 40px);
     overflow-y: auto;
     -webkit-overflow-scrolling: touch;
   }
