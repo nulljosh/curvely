@@ -33,7 +33,8 @@ Loose end:
 
 ## TestFlight signing defect (found 2026-08-03)
 
-- [ ] **iOS builds are likely TestFlight-ineligible (ITMS-90886).** This repo has **no `.entitlements` file and no `CODE_SIGN_ENTITLEMENTS`** anywhere, so the app signs without an `application-identifier` while the provisioning profile has one. Apple reports it as "not required to fix", which is why it went unnoticed — but the build cannot be distributed via TestFlight.
+- [x] **FIXED 2026-08-04.** Added `ios/Grapher.entitlements` (`application-identifier` = `$(AppIdentifierPrefix)$(CFBundleIdentifier)`) wired via `CODE_SIGN_ENTITLEMENTS` in `ios/project.yml`, mirroring the Uprighty pattern. Verified on a real Release archive: `codesign -d --entitlements` now shows `application-identifier => QMM486NPYC.com.nulljosh.grapher`. Note a simulator build can't verify this (no profile → empty entitlements); archive against `generic/platform=iOS`. Original report below.
+  Original report: iOS builds were TestFlight-ineligible (ITMS-90886). This repo had **no `.entitlements` file and no `CODE_SIGN_ENTITLEMENTS`** anywhere, so the app signs without an `application-identifier` while the provisioning profile has one. Apple reports it as "not required to fix", which is why it went unnoticed — but the build cannot be distributed via TestFlight.
   Fix proven on Uprighty 2026-08-03 (commit `df346b8`): add `<Target>.entitlements` with `application-identifier` = `$(AppIdentifierPrefix)$(CFBundleIdentifier)`, wire via `CODE_SIGN_ENTITLEMENTS` in `project.yml`, hand-commit it (xcodegen silently drops keys).
   Verify: `codesign -d --entitlements :- <exported>.app` should show `application-identifier`, `beta-reports-active: true`, `get-task-allow: false`. An entitlement change invalidates the profile — refetch with `asc signing fetch`.
 
@@ -44,4 +45,4 @@ Loose end:
 
 ## From Apple Notes (imported 2026-08-04)
 - [ ] Domain still `grapher.heyitsmejosh.com` (CF Pages project is also named `grapher`; `curvely.heyitsmejosh.com` does not resolve). Renaming means adding the new custom domain to the Pages project + a DNS record, then updating ASC support/privacy URLs and `ios/` shell. Left alone — outward-facing rename, user's call.
-- [ ] `CLAUDE.md` still references `Grapher.xcodeproj` in the iOS build steps (xcodegen target name never renamed).
+- [ ] `CLAUDE.md` references `Grapher.xcodeproj` in the iOS build steps. Checked 2026-08-04: **the doc is accurate, not stale** — `ios/project.yml` still has `name: Grapher` and target/scheme `Grapher-iOS`, so xcodegen really does produce `Grapher.xcodeproj`. The actual work is renaming the xcodegen project/target/scheme to Curvely, which also touches the scheme name used by any ship workflow, the bundle id `com.nulljosh.grapher`, and the new `ios/Grapher.entitlements`. Not a doc edit — left alone as part of the same outward-facing rename as the domain item above.
