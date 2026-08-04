@@ -7,3 +7,4 @@ dist/
 .asc/
 .vercel/
 ios/.build/
+signing/
