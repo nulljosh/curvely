@@ -1,5 +1,36 @@
 # Curvely Roadmap
 
+## App Review rejection reason — READ FROM RESOLUTION CENTER 2026-08-12
+
+**Guideline 5.6 — Developer Code of Conduct — Review Suspended.** Not an app-specific
+defect. Verbatim: *"the current submission does not meet the required quality standard for
+distribution on the App Store... this app is not eligible for resubmission before August
+18th, 2026. Replies and resubmissions before this date will not be reviewed."*
+
+Apple's listed next steps before resubmitting: no placeholder/unfinished/unrefined content;
+every screen reviewed and tested; stable across **all** supported devices (iPad included if
+the app is offered there); and **detailed notes of the improvements made** in the App Review
+Information → Notes field. Continued similar submissions are warned as grounds for removal
+from the Developer Program.
+
+This hit 4 apps at once on 2026-08-09: curvely, nyc, transcriptly, wiretext.
+
+Source: `asc web review show --app 6794988370 --apple-id trommatic@icloud.com` (needs `asc-login`;
+the public API only returns a generic "unresolved issues" wrapper). Submissions frozen
+until 2026-08-18 regardless — fix and stage, do not submit.
+
+## ASC state VERIFIED 2026-08-12 (`asc versions list`)
+
+**iOS 1.1.0 is `REJECTED`** — not "blocked on three pre-submission items" as the section
+below says. It was submitted 2026-08-03 and came back rejected. The privacy-policy /
+App Privacy / iPad-screenshot blockers listed below were all cleared before submission.
+The actual rejection reason lives only in Resolution Center (`asc web review show`, needs
+`asc-login`) — the public API returns a generic wrapper. Also: "What's New" is empty,
+fix via `asc metadata push` regardless.
+
+Submissions frozen until 2026-08-18 (Guideline 5.6 review) — build and stage only, no
+`asc review submit`. Anything below this heading predates this check; trust this block.
+
 ## Ship to App Store (blocked 2026-07-29 — three items left, all dashboard/manual)
 Build 202607290328 (v1.1.0) uploaded and VALID on App Store Connect. Metadata complete: all ratings/content rights/categories/copyright/review contact set via asc CLI. Encryption exemption applied. Screenshot done 2026-07-29 (iPhone 6.5", `ios/.asc/screenshots.json`, launch-only capture — app seeds `x^2`/`sin(x)` by default). Availability + free pricing set via ASC dashboard (claude-in-chrome) 2026-07-29, 175 countries. `asc review submit` was attempted and rejected with THREE remaining blockers not caught by `asc validate` until submit-time:
 1. **Privacy policy URL missing** — no privacy policy page exists for grapher.heyitsmejosh.com yet. Need to create one (client-side app, no data collection, should be a quick static page) and set via `asc apps info edit --support-url`-equivalent for privacy (check `asc app-setup info set --privacy-policy-url`).
