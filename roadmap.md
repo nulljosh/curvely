@@ -77,3 +77,27 @@ alone will not clear Guideline 4.2 — a paid wrapper is still a wrapper.
 - [ ] Do not resubmit until that exists AND it is past 2026-08-18.
 
 > Resume note (2026-08-11): a `wip: partial work from /work notes ingest` commit holds unfinished, unverified changes for the items above. Review `git show HEAD` before building on it — it was committed mid-flight, not reviewed, and is unpushed.
+
+## Guideline 5.6 resubmission checklist — prepared 2026-08-12, DO NOT SUBMIT BEFORE 2026-08-18
+
+Apple's 5.6 notice makes one thing mandatory that is easy to miss: **"Include detailed notes
+of the improvements made to the app in the Notes field of the App Review Information section."**
+A resubmission without those notes is a wasted attempt, and 5.6 warns that repeat submissions
+with the same issues can mean removal from the Developer Program.
+
+The notes must describe improvements that were **actually made**. Nothing has been written into
+ASC yet on purpose — there is nothing truthful to claim until the work below is done.
+
+Before resubmitting:
+
+- [ ] Fix something real, and write down what. No placeholder, unfinished, or unrefined content
+      anywhere in the app.
+- [ ] Walk every screen and interaction once, on device. 5.6 is a quality judgement, not a
+      spec violation — the reviewer decided the app felt unfinished.
+- [ ] Test on **every** device family the app is offered on. If `TARGETED_DEVICE_FAMILY` is
+      `"1,2"` the app must be genuinely good on iPad, not merely launchable. Narrowing to
+      iPhone-only is a legitimate alternative to making iPad good.
+- [ ] Confirm a non-empty "What's New" (`asc metadata push`).
+- [ ] Then write the improvement notes:
+      `asc review details-update --id b9dead75-aa07-4aaa-878e-25b27bebf133 --notes "..."`
+- [ ] Only then submit. Review detail id for this version: `b9dead75-aa07-4aaa-878e-25b27bebf133`.
