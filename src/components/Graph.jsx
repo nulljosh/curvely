@@ -1,4 +1,5 @@
 import { useRef, useEffect, useCallback, useState } from 'react';
+import { isAsymptoteJump } from '../utils/evaluate.js';
 
 function graphColors() {
   const dark = window.matchMedia('(prefers-color-scheme: dark)').matches;
@@ -80,14 +81,17 @@ export default function Graph({ equations }) {
       ctx.lineJoin = 'round';
       ctx.beginPath();
       let penDown = false;
+      let prevY = 0;
       for (let px = 0; px < W; px++) {
         const x = (px - cx) / scale;
         let y;
         try { y = fn(x); } catch { penDown = false; continue; }
         if (!isFinite(y)) { penDown = false; continue; }
         const py = cy - y * scale;
+        if (penDown && isAsymptoteJump(prevY, y, scale, H)) penDown = false;
         if (!penDown) { ctx.moveTo(px, py); penDown = true; }
         else ctx.lineTo(px, py);
+        prevY = y;
       }
       ctx.stroke();
     });

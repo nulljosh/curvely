@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest';
-import { evaluate } from './evaluate.js';
+import { evaluate, isAsymptoteJump } from './evaluate.js';
 
 describe('evaluate', () => {
   it('returns null fn for empty string', () => {
@@ -49,5 +49,33 @@ describe('evaluate', () => {
     const { fn, error } = evaluate('   ');
     expect(fn).toBeNull();
     expect(error).toBeNull();
+  });
+});
+
+describe('isAsymptoteJump', () => {
+  const scale = 60, height = 700;
+
+  it('breaks the stroke across a tan(x) asymptote', () => {
+    // adjacent pixels either side of pi/2: finite, huge, opposite sign
+    const { fn } = evaluate('tan(x)');
+    const a = fn(Math.PI / 2 - 0.001);
+    const b = fn(Math.PI / 2 + 0.001);
+    expect(isFinite(a) && isFinite(b)).toBe(true);
+    expect(isAsymptoteJump(a, b, scale, height)).toBe(true);
+  });
+
+  it('breaks the stroke across the 1/x pole', () => {
+    const { fn } = evaluate('1/x');
+    expect(isAsymptoteJump(fn(-0.001), fn(0.001), scale, height)).toBe(true);
+  });
+
+  it('keeps a steep but continuous curve joined', () => {
+    const { fn } = evaluate('x^3');
+    expect(isAsymptoteJump(fn(4), fn(4.02), scale, height)).toBe(false);
+  });
+
+  it('keeps an ordinary zero crossing joined', () => {
+    const { fn } = evaluate('sin(x)');
+    expect(isAsymptoteJump(fn(-0.01), fn(0.01), scale, height)).toBe(false);
   });
 });

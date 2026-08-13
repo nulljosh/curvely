@@ -3,9 +3,9 @@ export const COLORS = [
   '#ff453a',
   '#30d158',
   '#ffd60a',
-  '#bf5af2',
+  '#a2845e',
   '#ff9f0a',
-  '#64d2ff',
+  '#8e8e93',
   '#ff375f',
 ];
 

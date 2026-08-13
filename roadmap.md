@@ -76,7 +76,13 @@ alone will not clear Guideline 4.2 — a paid wrapper is still a wrapper.
 - [ ] Needs genuine app-only functionality before resubmit (offline graphing, native input, export, widget — something the website can't do). Today it is 4 Swift files / 150 lines around a web view.
 - [ ] Do not resubmit until that exists AND it is past 2026-08-18.
 
-> Resume note (2026-08-11): a `wip: partial work from /work notes ingest` commit holds unfinished, unverified changes for the items above. Review `git show HEAD` before building on it — it was committed mid-flight, not reviewed, and is unpushed.
+> ~~Resume note (2026-08-11): a `wip: partial work from /work notes ingest` commit holds unfinished,
+> unverified changes for the items above. Review `git show HEAD` before building on it — it was
+> committed mid-flight, not reviewed, and is unpushed.~~
+> **STALE — resolved 2026-08-13.** That commit is `f307318` and it is a single complete 19-line
+> `ios/ExportOptions.plist` (app-store-connect method, manual signing, `Grapher AppStore` profile).
+> Nothing unfinished, and it has been on `origin/main` since 08-11 — the "unpushed" claim was wrong.
+> Same false-unpushed-wip note turned up in bookrank, talli, litigate and healstack the same day.
 
 ## Guideline 5.6 resubmission checklist — prepared 2026-08-12, DO NOT SUBMIT BEFORE 2026-08-18
 
@@ -90,8 +96,23 @@ ASC yet on purpose — there is nothing truthful to claim until the work below i
 
 Before resubmitting:
 
-- [ ] Fix something real, and write down what. No placeholder, unfinished, or unrefined content
-      anywhere in the app.
+- [x] Fix something real, and write down what. **Done 2026-08-13 — two real defects fixed:**
+      1. **False vertical lines at every asymptote.** The curve loop only lifted the pen on a
+         non-finite `y`. At a pole (`tan(x)`, `1/x`) both sides are *finite* but huge and opposite
+         in sign, so `lineTo` drew a full-height vertical streak through the asymptote. Both of
+         those expressions are one tap away in Quick examples, so it was visible on first use —
+         exactly the "unrefined content" 5.6 complains about. Fixed with `isAsymptoteJump()` in
+         `src/utils/evaluate.js`, which breaks the stroke on a sign flip whose screen-space jump
+         exceeds two canvas heights; steep-but-continuous curves and ordinary zero crossings stay
+         joined. Covered by 4 tests in `src/utils/evaluate.test.js`.
+      2. **Palette shipped purple (`#bf5af2`) and cyan (`#64d2ff`)**, against the standing
+         no-teal/no-purple rule. Replaced with `#a2845e` / `#8e8e93`, still 8 distinguishable
+         curve colors.
+      Remaining for this checkbox: these are the improvements to cite in the App Review notes.
+- [ ] Known, not yet fixed: the canvas reads `prefers-color-scheme` inside `graphColors()` on every
+      draw but nothing re-draws on a theme change, so switching system appearance mid-session
+      leaves the graph on the old background until a pan/zoom/resize forces a redraw. One
+      `matchMedia(...).addEventListener('change', draw)` in `Graph.jsx`.
 - [ ] Walk every screen and interaction once, on device. 5.6 is a quality judgement, not a
       spec violation — the reviewer decided the app felt unfinished.
 - [ ] Test on **every** device family the app is offered on. If `TARGETED_DEVICE_FAMILY` is
