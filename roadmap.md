@@ -96,19 +96,6 @@ ASC yet on purpose — there is nothing truthful to claim until the work below i
 
 Before resubmitting:
 
-- [x] Fix something real, and write down what. **Done 2026-08-13 — two real defects fixed:**
-      1. **False vertical lines at every asymptote.** The curve loop only lifted the pen on a
-         non-finite `y`. At a pole (`tan(x)`, `1/x`) both sides are *finite* but huge and opposite
-         in sign, so `lineTo` drew a full-height vertical streak through the asymptote. Both of
-         those expressions are one tap away in Quick examples, so it was visible on first use —
-         exactly the "unrefined content" 5.6 complains about. Fixed with `isAsymptoteJump()` in
-         `src/utils/evaluate.js`, which breaks the stroke on a sign flip whose screen-space jump
-         exceeds two canvas heights; steep-but-continuous curves and ordinary zero crossings stay
-         joined. Covered by 4 tests in `src/utils/evaluate.test.js`.
-      2. **Palette shipped purple (`#bf5af2`) and cyan (`#64d2ff`)**, against the standing
-         no-teal/no-purple rule. Replaced with `#a2845e` / `#8e8e93`, still 8 distinguishable
-         curve colors.
-      Remaining for this checkbox: these are the improvements to cite in the App Review notes.
 - [ ] Known, not yet fixed: the canvas reads `prefers-color-scheme` inside `graphColors()` on every
       draw but nothing re-draws on a theme change, so switching system appearance mid-session
       leaves the graph on the old background until a pan/zoom/resize forces a redraw. One
