@@ -109,3 +109,6 @@ Before resubmitting:
 - [ ] Then write the improvement notes:
       `asc review details-update --id b9dead75-aa07-4aaa-878e-25b27bebf133 --notes "..."`
 - [ ] Only then submit. Review detail id for this version: `b9dead75-aa07-4aaa-878e-25b27bebf133`.
+
+## From Apple Notes (imported 2026-08-13)
+- [ ] Migrate Curvely (Grapher) from Vercel to Cloudflare — note cites ongoing Vercel issues; see [[project_vercel_to_cloudflare_migration]]
