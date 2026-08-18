@@ -1,0 +1,143 @@
+import SwiftUI
+
+struct ContentView: View {
+    @State private var equations: [Equation] = defaultEquations
+    @State private var transform = GraphTransform()
+    @State private var exportedImage: ExportedGraph?
+
+    var body: some View {
+        VStack(spacing: 0) {
+            header
+            Divider().overlay(Theme.border)
+            content
+        }
+        .background(Theme.graphBackground)
+        .preferredColorScheme(.dark)
+        .onAppear(perform: restore)
+        .sheet(item: $exportedImage) { export in
+            ShareSheet(items: [export.image])
+        }
+    }
+
+    // MARK: - Layout
+
+    /// iPad gets the web app's side-by-side layout; iPhone stacks, since a 320pt-wide
+    /// sidebar next to a plot is unusable.
+    private var content: some View {
+        ViewThatFits(in: .horizontal) {
+            HStack(spacing: 0) {
+                graph
+                Divider().overlay(Theme.border)
+                sidebar.frame(width: 320)
+            }
+            VStack(spacing: 0) {
+                graph.frame(minHeight: 280)
+                Divider().overlay(Theme.border)
+                sidebar.frame(maxHeight: 300)
+            }
+        }
+    }
+
+    private var graph: some View {
+        GraphView(equations: equations, transform: $transform)
+            .overlay(alignment: .bottomTrailing) { zoomCluster }
+    }
+
+    private var sidebar: some View {
+        ScrollView {
+            EquationListView(equations: $equations, onChange: persist)
+                .padding(16)
+        }
+        .background(Theme.graphBackground)
+    }
+
+    private var header: some View {
+        HStack(spacing: 10) {
+            Text("Curvely")
+                .font(.headline)
+                .foregroundStyle(Theme.text)
+
+            Spacer()
+
+            Button(action: exportGraph) {
+                Image(systemName: "square.and.arrow.up")
+                    .foregroundStyle(Theme.text)
+            }
+            .buttonStyle(.plain)
+            .accessibilityLabel("Export graph as an image")
+        }
+        .padding(.horizontal, 20)
+        .padding(.vertical, 12)
+    }
+
+    private var zoomCluster: some View {
+        VStack(spacing: 8) {
+            Text("\(transform.zoomPercent)%")
+                .font(.caption2.monospacedDigit())
+                .foregroundStyle(Theme.secondary)
+
+            zoomButton("plus", label: "Zoom in") { zoom(by: 1.3) }
+            zoomButton("minus", label: "Zoom out") { zoom(by: 1 / 1.3) }
+            zoomButton("house", label: "Reset view") { transform = GraphTransform() }
+        }
+        .padding(10)
+        .background(Theme.panel.opacity(0.9))
+        .overlay(RoundedRectangle(cornerRadius: 12).strokeBorder(Theme.border, lineWidth: 1))
+        .clipShape(RoundedRectangle(cornerRadius: 12))
+        .padding(16)
+    }
+
+    private func zoomButton(_ symbol: String, label: String, action: @escaping () -> Void) -> some View {
+        Button(action: action) {
+            Image(systemName: symbol)
+                .font(.footnote)
+                .foregroundStyle(Theme.text)
+                .frame(width: 28, height: 28)
+        }
+        .buttonStyle(.plain)
+        .accessibilityLabel(label)
+    }
+
+    // MARK: - Actions
+
+    private func zoom(by factor: Double) {
+        // Buttons zoom about the middle of the plot, matching the web app's zoomBy().
+        let size = CGSize(width: 1, height: 1)
+        transform.zoom(by: factor, about: CGPoint(x: 0.5, y: 0.5), in: size)
+    }
+
+    /// ponytail: ImageRenderer over the same GraphView — one source of truth for what a
+    /// curve looks like, rather than a second drawing path just for export.
+    private func exportGraph() {
+        let snapshot = GraphView(equations: equations, transform: .constant(transform))
+            .frame(width: 1200, height: 900)
+        let renderer = ImageRenderer(content: snapshot)
+        renderer.scale = 2
+        guard let image = renderer.uiImage else { return }
+        exportedImage = ExportedGraph(image: image)
+    }
+
+    private func restore() {
+        guard let saved = Store.load() else { return }
+        equations = saved
+    }
+
+    private func persist() {
+        Store.save(equations)
+    }
+}
+
+struct ExportedGraph: Identifiable {
+    let id = UUID()
+    let image: UIImage
+}
+
+struct ShareSheet: UIViewControllerRepresentable {
+    let items: [Any]
+
+    func makeUIViewController(context: Context) -> UIActivityViewController {
+        UIActivityViewController(activityItems: items, applicationActivities: nil)
+    }
+
+    func updateUIViewController(_ controller: UIActivityViewController, context: Context) {}
+}
