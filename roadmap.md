@@ -110,6 +110,3 @@ Before resubmitting:
 
 ## From Apple Notes (imported 2026-08-13)
 - [ ] Migrate Curvely (Grapher) from Vercel to Cloudflare — note cites ongoing Vercel issues; see [[project_vercel_to_cloudflare_migration]]
-
-## Ingested 2026-08-18
-- [ ] Needs a landing page.
