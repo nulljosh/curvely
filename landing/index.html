@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Curvely — a graphing calculator that stays out of the way</title>
+<meta name="description" content="Plot several equations at once, pan and zoom the plane, and read values straight off the curve. Free in the browser, native on iOS and macOS.">
+<meta name="theme-color" content="#5B9BD5">
+<meta property="og:title" content="Curvely — a graphing calculator that stays out of the way">
+<meta property="og:description" content="Plot several equations at once, pan and zoom the plane, and read values straight off the curve.">
+<meta property="og:type" content="website">
+<link rel="icon" href="icon.svg">
+<style>
+:root {
+  --accent: #5B9BD5;
+  --accent-soft: #eaf2fa;
+  --bg: #ffffff;
+  --bg2: #f7f7f8;
+  --text: #1c1d22;
+  --text2: #5c5f6a;
+  --border: #e6e7ea;
+  --font-body: 'DM Sans', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #111111; --bg2: #1a1a1a; --text: #e8e8f0;
+    --text2: rgba(232,232,240,0.60); --border: rgba(232,232,240,0.10);
+    --accent-soft: #1b2530;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #111111; --bg2: #1a1a1a; --text: #e8e8f0;
+  --text2: rgba(232,232,240,0.60); --border: rgba(232,232,240,0.10);
+  --accent-soft: #1b2530;
+}
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--bg); color: var(--text); font-family: var(--font-body); line-height: 1.6; -webkit-font-smoothing: antialiased; }
+.container { max-width: 62rem; margin: 0 auto; padding: 0 1.5rem; }
+.hero { padding: 5rem 0 4rem; text-align: center; border-bottom: 1px solid var(--border); }
+.hero-icon { width: 88px; height: 88px; border-radius: 20px; }
+h1 { font-size: clamp(2.1rem, 5vw, 3.1rem); margin: 1.25rem 0 0.75rem; letter-spacing: -0.02em; }
+.hero p { font-size: 1.15rem; color: var(--text2); max-width: 34rem; margin: 0 auto; }
+.buttons { display: flex; gap: 0.75rem; justify-content: center; flex-wrap: wrap; margin-top: 2rem; }
+.btn { display: inline-block; padding: 0.7rem 1.5rem; border-radius: 10px; text-decoration: none; font-weight: 600; font-size: 0.98rem; border: 1px solid transparent; }
+.btn-primary { background: var(--accent); color: #fff; }
+.btn-outline { border-color: var(--border); color: var(--text); }
+.features { padding: 4rem 0; }
+h2 { font-size: 1.75rem; text-align: center; margin: 0 0 2.5rem; letter-spacing: -0.01em; }
+.grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr)); gap: 1.25rem; }
+.feature { background: var(--bg2); border: 1px solid var(--border); border-radius: 14px; padding: 1.5rem; }
+.feature h3 { margin: 0 0 0.5rem; font-size: 1.05rem; }
+.feature p { margin: 0; color: var(--text2); font-size: 0.95rem; }
+.closing { padding: 4rem 0 4.5rem; text-align: center; background: var(--bg2); border-top: 1px solid var(--border); }
+.closing p { color: var(--text2); max-width: 32rem; margin: 0 auto; }
+footer { padding: 2.5rem 0 3.5rem; text-align: center; font-size: 0.9rem; color: var(--text2); }
+</style>
+</head>
+<body>
+<section class="hero">
+  <div class="container">
+    <img class="hero-icon" src="icon.svg" alt="Curvely icon" width="88" height="88">
+    <h1>Curvely</h1>
+    <p>A graphing calculator that stays out of the way. Type an equation, watch it draw, then pan and zoom the plane to find what you came for.</p>
+    <div class="buttons">
+      <a href="/app" class="btn btn-primary">Open Curvely</a>
+      <a href="https://github.com/nulljosh/curvely" class="btn btn-outline">Source</a>
+    </div>
+  </div>
+</section>
+<section class="features">
+  <div class="container">
+    <h2>Everything you need to read a curve</h2>
+    <div class="grid">
+      <div class="feature"><h3>Several equations at once</h3><p>Stack as many expressions as you like and give each its own colour, so relationships between curves are obvious.</p></div>
+      <div class="feature"><h3>Pan and zoom</h3><p>Drag the plane and scroll to scale. The axes and gridlines relabel themselves as you go.</p></div>
+      <div class="feature"><h3>Native on iOS and macOS</h3><p>A real SwiftUI app on Apple platforms, not a wrapped web page — built from the same maths as the web version.</p></div>
+      <div class="feature"><h3>Runs in the browser</h3><p>Nothing to install and no account to make. Open the page and start plotting.</p></div>
+      <div class="feature"><h3>Readable in the dark</h3><p>Light and dark themes that follow your system, with contrast tuned for long sessions.</p></div>
+      <div class="feature"><h3>Free and open source</h3><p>No ads, no purchases, no tracking. The source is on GitHub.</p></div>
+    </div>
+  </div>
+</section>
+<section class="closing">
+  <div class="container">
+    <h2>Plot something</h2>
+    <p>The web version runs straight in the browser — nothing to download.</p>
+    <div class="buttons"><a href="/app" class="btn btn-primary">Open Curvely</a></div>
+  </div>
+</section>
+<footer><div class="container"><p>Built by Joshua. <a href="/app/privacy.html" style="color:var(--text2)">Privacy</a></p></div></footer>
+</body>
+</html>

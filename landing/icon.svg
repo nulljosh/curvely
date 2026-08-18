@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="200" height="200" viewBox="0 0 200 200">
+  <rect width="200" height="200" rx="44" style="fill:#0a0a0f"/>
+  <!-- grid lines -->
+  <line x1="50" y1="20" x2="50" y2="180" style="stroke:rgba(255,255,255,0.08);stroke-width:1"/>
+  <line x1="100" y1="20" x2="100" y2="180" style="stroke:rgba(255,255,255,0.08);stroke-width:1"/>
+  <line x1="150" y1="20" x2="150" y2="180" style="stroke:rgba(255,255,255,0.08);stroke-width:1"/>
+  <line x1="20" y1="50" x2="180" y2="50" style="stroke:rgba(255,255,255,0.08);stroke-width:1"/>
+  <line x1="20" y1="100" x2="180" y2="100" style="stroke:rgba(255,255,255,0.08);stroke-width:1"/>
+  <line x1="20" y1="150" x2="180" y2="150" style="stroke:rgba(255,255,255,0.08);stroke-width:1"/>
+  <!-- axes -->
+  <line x1="20" y1="100" x2="180" y2="100" style="stroke:rgba(255,255,255,0.3);stroke-width:1.5"/>
+  <line x1="100" y1="20" x2="100" y2="180" style="stroke:rgba(255,255,255,0.3);stroke-width:1.5"/>
+  <!-- parabola y=x^2 curve, scaled to canvas -->
+  <polyline points="20,164 30,145 40,128 50,113 60,100 70,89 80,80 90,73 100,68 110,65 120,64 130,65 140,68 150,73 160,80 170,89 180,100" style="fill:none;stroke:#0071e3;stroke-width:3;stroke-linecap:round;stroke-linejoin:round"/>
+  <!-- sin curve -->
+  <polyline points="20,100 30,88 45,68 60,80 75,104 90,118 100,100 110,82 125,68 140,80 155,104 170,118 180,100" style="fill:none;stroke:#30d158;stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round"/>
+</svg>
