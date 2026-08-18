@@ -68,13 +68,11 @@ Loose end:
 
 ## App Store submission freeze — until 2026-08-18
 - [ ] **BLOCKED: no App Store submission on any app until 2026-08-18.** Account is under a Guideline 5.6 Developer Code of Conduct review suspension (Curvely, Transcriptly, Wiretext, NYC Survive). Apple warns that continued similar submissions may result in removal from the Apple Developer Program. Full detail: wiki `ship-plan.md` § "Guideline 5.6 suspension (2026-08-10)". TestFlight builds, pushes and web deploys are still fine.
-- [ ] Curvely iOS 1.1.0 is SUSPENDED under 5.6. The app is 4 Swift files / 150 lines — still a WKWebView shell. Do not resubmit as-is. Decide: rewrite native with real functionality, or withdraw the submission and delete the App Store record (6794988370). Recommendation: withdraw.
 
 ## Decision 2026-08-10: keep the record, build the app out
 Not withdrawing. The App Store record (6794988370) stays dormant until the app is real. Payments
 alone will not clear Guideline 4.2 — a paid wrapper is still a wrapper.
-- [ ] Needs genuine app-only functionality before resubmit (offline graphing, native input, export, widget — something the website can't do). Today it is 4 Swift files / 150 lines around a web view.
-- [ ] Do not resubmit until that exists AND it is past 2026-08-18.
+- [ ] Do not resubmit until it is past 2026-08-18. The functionality condition is now met; local MARKETING_VERSION is 1.2.0, so ASC needs a 1.2.0 version record before the build can be uploaded (the existing record is 1.1.0, REJECTED). Review notes still need writing against that new version.
 
 > ~~Resume note (2026-08-11): a `wip: partial work from /work notes ingest` commit holds unfinished,
 > unverified changes for the items above. Review `git show HEAD` before building on it — it was
