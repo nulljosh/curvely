@@ -72,7 +72,7 @@ Loose end:
 ## Decision 2026-08-10: keep the record, build the app out
 Not withdrawing. The App Store record (6794988370) stays dormant until the app is real. Payments
 alone will not clear Guideline 4.2 — a paid wrapper is still a wrapper.
-- [ ] Do not resubmit until it is past 2026-08-18. The functionality condition is now met; local MARKETING_VERSION is 1.2.0, so ASC needs a 1.2.0 version record before the build can be uploaded (the existing record is 1.1.0, REJECTED). Review notes still need writing against that new version.
+- [ ] Do not resubmit until it is past 2026-08-18. Functionality condition met, and review notes are already written (set on review detail b9dead75 on 2026-08-17, describing the rewrite). **Version record blocked until the unfreeze:** `asc versions create --app 6794988370 --version 1.2.0` fails with "You cannot create a new version of the App in the current state" — the only version, iOS 1.1.0, is REJECTED and the app is still inside the 5.6 suspension window. Retry on Aug 18; fallback is editing the existing rejected version's version string. If the notes do not carry across to a newly created version, re-apply them from the same text.
 
 > ~~Resume note (2026-08-11): a `wip: partial work from /work notes ingest` commit holds unfinished,
 > unverified changes for the items above. Review `git show HEAD` before building on it — it was
