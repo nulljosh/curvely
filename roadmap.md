@@ -110,3 +110,24 @@ Before resubmitting:
 
 ## From Apple Notes (imported 2026-08-13)
 - [ ] Migrate Curvely (Grapher) from Vercel to Cloudflare — note cites ongoing Vercel issues; see [[project_vercel_to_cloudflare_migration]]
+
+## 5.6 defect verification 2026-08-18
+
+**Verdict: cited defect disproven as still-present — it was fixed before the resubmission.**
+
+- iOS 1.2.0 is `WAITING_FOR_REVIEW` (submitted ~04:06 today), build `202608180347` uploaded
+  03:50, VALID. Not a state this repo should touch further.
+- Apple's actual 5.6 complaint was minimum functionality — "Curvely 4 files / 150 lines … still
+  a WKWebView shell" (`ship-plan.md`). Current `ios/App/` is 911 lines across 9 Swift files
+  (`Expression.swift` 279, `GraphView.swift` 180, `EquationListView.swift` 184 …) plus a
+  125-line `Checks/main.swift`. **No WebKit import anywhere in the sources** — the only
+  `WKWebView` grep hits are stale generated headers under `ios/.build/`.
+- "No landing page" (2026-08-18 Notes review) no longer holds: commit `ae4dce4` added a
+  marketing landing page at `/` and moved the app to `/app`. `grapher.heyitsmejosh.com` → 200
+  (title "Curvely — a graphing calculator that stays out of the way"), `/app` → 200.
+- Registered ASC support URL is `https://grapher.heyitsmejosh.com` (live); no marketing URL set.
+  The dead `curvely.heyitsmejosh.com` host is **not** referenced by the ASC record, so it is a
+  cosmetic rename item only, not a review risk.
+
+No code change was needed. Do not submit anything further until this review clears —
+`ship-plan.md` step 5 is one app at a time, and Wiretext went in alongside this one.
