@@ -17,7 +17,7 @@ This hit 4 apps at once on 2026-08-09: curvely, nyc, transcriptly, wiretext.
 
 Source: `asc web review show --app 6794988370 --apple-id trommatic@icloud.com` (needs `asc-login`;
 the public API only returns a generic "unresolved issues" wrapper). Submissions frozen
-until 2026-08-18 regardless — fix and stage, do not submit.
+The freeze lifted 2026-08-18; submission is now gated only on the four in-flight review verdicts.
 
 ## ASC state VERIFIED 2026-08-12 (`asc versions list`)
 
@@ -28,8 +28,11 @@ The actual rejection reason lives only in Resolution Center (`asc web review sho
 `asc-login`) — the public API returns a generic wrapper. Also: "What's New" is empty,
 fix via `asc metadata push` regardless.
 
-Submissions frozen until 2026-08-18 (Guideline 5.6 review) — build and stage only, no
-`asc review submit`. Anything below this heading predates this check; trust this block.
+Freeze lifted 2026-08-18 (Guideline 5.6 suspension expired). Submitted that day and now
+WAITING_FOR_REVIEW: Curvely iOS 1.2.0, Wiretext iOS 1.1.0, Wordroot iOS 1.0, Healstack iOS 2.3.4.
+**Held pending those four verdicts — never a batch:** Sparkjar iOS+Mac, BCGD iOS+Mac, Wordroot Mac,
+Lexly Mac. All six are `asc validate` clean (0 errors, 0 blocking) with a VALID build attached, so
+each is one `asc review submit` away. Do not submit until the in-flight verdicts land.
 
 ## Ship to App Store (blocked 2026-07-29 — three items left, all dashboard/manual)
 Build 202607290328 (v1.1.0) uploaded and VALID on App Store Connect. Metadata complete: all ratings/content rights/categories/copyright/review contact set via asc CLI. Encryption exemption applied. Screenshot done 2026-07-29 (iPhone 6.5", `ios/.asc/screenshots.json`, launch-only capture — app seeds `x^2`/`sin(x)` by default). Availability + free pricing set via ASC dashboard (claude-in-chrome) 2026-07-29, 175 countries. `asc review submit` was attempted and rejected with THREE remaining blockers not caught by `asc validate` until submit-time:
@@ -60,19 +63,23 @@ Current ASC facts (verified 2026-08-03):
 Done 2026-08-03:
 
 Loose end:
-- [ ] Stray empty review submission `2dc7aedd-0dee-4696-8491-f8e21304b93e` (created by a failed `asc review submit` attempt, state READY_FOR_REVIEW, no items). `asc review submissions-cancel` refuses it ("Resource is not in cancellable state"). Harmless as far as we can tell — the real submission went through — but check it doesn't confuse the next release, and clear it via the dashboard if it lingers.
+- [ ] **Blocked on Joshua (dashboard only).** Stray empty review submission `2dc7aedd-0dee-4696-8491-f8e21304b93e` (IOS, READY_FOR_REVIEW, zero items). Retried `asc review submissions-cancel --confirm` on 2026-08-18: still refuses with "Resource is not in cancellable state". It now sits alongside the real 1.2.0 submission `20a19766…`. No CLI path exists — cancel it in the App Store Connect dashboard.
 
 ## From Apple Notes (imported 2026-08-04)
 - [ ] Domain still `grapher.heyitsmejosh.com` (CF Pages project is also named `grapher`; `curvely.heyitsmejosh.com` does not resolve). Renaming means adding the new custom domain to the Pages project + a DNS record, then updating ASC support/privacy URLs and `ios/` shell. Left alone — outward-facing rename, user's call.
 - [ ] `CLAUDE.md` references `Grapher.xcodeproj` in the iOS build steps. Checked 2026-08-04: **the doc is accurate, not stale** — `ios/project.yml` still has `name: Grapher` and target/scheme `Grapher-iOS`, so xcodegen really does produce `Grapher.xcodeproj`. The actual work is renaming the xcodegen project/target/scheme to Curvely, which also touches the scheme name used by any ship workflow, the bundle id `com.nulljosh.grapher`, and the new `ios/Grapher.entitlements`. Not a doc edit — left alone as part of the same outward-facing rename as the domain item above.
 
-## App Store submission freeze — until 2026-08-18
-- [ ] **BLOCKED: no App Store submission on any app until 2026-08-18.** Account is under a Guideline 5.6 Developer Code of Conduct review suspension (Curvely, Transcriptly, Wiretext, NYC Survive). Apple warns that continued similar submissions may result in removal from the Apple Developer Program. Full detail: wiki `ship-plan.md` § "Guideline 5.6 suspension (2026-08-10)". TestFlight builds, pushes and web deploys are still fine.
+## App Store submission freeze — LIFTED 2026-08-18
+Freeze lifted 2026-08-18 (Guideline 5.6 suspension expired). Submitted that day and now
+WAITING_FOR_REVIEW: Curvely iOS 1.2.0, Wiretext iOS 1.1.0, Wordroot iOS 1.0, Healstack iOS 2.3.4.
+**Held pending those four verdicts — never a batch:** Sparkjar iOS+Mac, BCGD iOS+Mac, Wordroot Mac,
+Lexly Mac. All six are `asc validate` clean (0 errors, 0 blocking) with a VALID build attached, so
+each is one `asc review submit` away. Do not submit until the in-flight verdicts land.
 
 ## Decision 2026-08-10: keep the record, build the app out
 Not withdrawing. The App Store record (6794988370) stays dormant until the app is real. Payments
 alone will not clear Guideline 4.2 — a paid wrapper is still a wrapper.
-- [ ] Do not resubmit until it is past 2026-08-18. Functionality condition met, and review notes are already written (set on review detail b9dead75 on 2026-08-17, describing the rewrite). **Version record blocked until the unfreeze:** `asc versions create --app 6794988370 --version 1.2.0` fails with "You cannot create a new version of the App in the current state" — the only version, iOS 1.1.0, is REJECTED and the app is still inside the 5.6 suspension window. Retry on Aug 18; fallback is editing the existing rejected version's version string. If the notes do not carry across to a newly created version, re-apply them from the same text.
+- [x] DONE 2026-08-18: freeze lifted, version 1.2.0 created and **submitted** (review submission `20a19766-9b33-4db6-94ed-86c45c230a17`, WAITING_FOR_REVIEW since 10:55 UTC). The old `asc versions create` failure was a symptom of the suspension window and cleared with it.
 
 > ~~Resume note (2026-08-11): a `wip: partial work from /work notes ingest` commit holds unfinished,
 > unverified changes for the items above. Review `git show HEAD` before building on it — it was
