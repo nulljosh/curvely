@@ -63,7 +63,7 @@ Current ASC facts (verified 2026-08-03):
 Done 2026-08-03:
 
 Loose end:
-- [ ] **Blocked on Joshua (dashboard only).** Stray empty review submission `2dc7aedd-0dee-4696-8491-f8e21304b93e` (IOS, READY_FOR_REVIEW, zero items). Retried `asc review submissions-cancel --confirm` on 2026-08-18: still refuses with "Resource is not in cancellable state". It now sits alongside the real 1.2.0 submission `20a19766…`. No CLI path exists — cancel it in the App Store Connect dashboard.
+- [x] DONE 2026-08-18: stray submission `2dc7aedd-0dee-4696-8491-f8e21304b93e` deleted via the ASC dashboard. It was a **draft submission started by the API on Aug 3** with zero items — not a cancellable review submission, which is why `submissions-cancel` always refused it. The dashboard exposes a `Delete Submission` action that the API does not. Live 1.2.0 (`20a19766…`) verified still WAITING_FOR_REVIEW afterwards.
 
 ## From Apple Notes (imported 2026-08-04)
 - [ ] Domain still `grapher.heyitsmejosh.com` (CF Pages project is also named `grapher`; `curvely.heyitsmejosh.com` does not resolve). Renaming means adding the new custom domain to the Pages project + a DNS record, then updating ASC support/privacy URLs and `ios/` shell. Left alone — outward-facing rename, user's call.
