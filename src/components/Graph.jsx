@@ -118,6 +118,15 @@ export default function Graph({ equations }) {
 
   useEffect(() => { draw(); }, [draw]);
 
+  // graphColors() reads prefers-color-scheme at draw time, but nothing triggered
+  // a draw when the system appearance changed -- the graph kept the old
+  // background until a pan/zoom/resize happened to force one.
+  useEffect(() => {
+    const mq = window.matchMedia('(prefers-color-scheme: dark)');
+    mq.addEventListener('change', draw);
+    return () => mq.removeEventListener('change', draw);
+  }, [draw]);
+
   const syncReadout = useCallback(() => {
     setZoomPct(Math.round(transform.current.scale / DEFAULT_SCALE * 100));
   }, []);

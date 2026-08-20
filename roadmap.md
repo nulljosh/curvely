@@ -101,10 +101,10 @@ ASC yet on purpose — there is nothing truthful to claim until the work below i
 
 Before resubmitting:
 
-- [ ] Known, not yet fixed: the canvas reads `prefers-color-scheme` inside `graphColors()` on every
-      draw but nothing re-draws on a theme change, so switching system appearance mid-session
-      leaves the graph on the old background until a pan/zoom/resize forces a redraw. One
-      `matchMedia(...).addEventListener('change', draw)` in `Graph.jsx`.
+- [x] Fixed 2026-08-19: `Graph.jsx` now subscribes to
+      `matchMedia('(prefers-color-scheme: dark)')` and redraws on change, so switching system
+      appearance mid-session repaints the canvas immediately instead of waiting for a
+      pan/zoom/resize. Listener is torn down on unmount. Build clean.
 - [ ] Walk every screen and interaction once, on device. 5.6 is a quality judgement, not a
       spec violation — the reviewer decided the app felt unfinished.
 - [ ] Test on **every** device family the app is offered on. If `TARGETED_DEVICE_FAMILY` is
