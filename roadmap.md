@@ -63,7 +63,6 @@ Current ASC facts (verified 2026-08-03):
 Done 2026-08-03:
 
 Loose end:
-- [x] DONE 2026-08-18: stray submission `2dc7aedd-0dee-4696-8491-f8e21304b93e` deleted via the ASC dashboard. It was a **draft submission started by the API on Aug 3** with zero items — not a cancellable review submission, which is why `submissions-cancel` always refused it. The dashboard exposes a `Delete Submission` action that the API does not. Live 1.2.0 (`20a19766…`) verified still WAITING_FOR_REVIEW afterwards.
 
 ## From Apple Notes (imported 2026-08-04)
 - [ ] Domain still `grapher.heyitsmejosh.com` (CF Pages project is also named `grapher`; `curvely.heyitsmejosh.com` does not resolve). Renaming means adding the new custom domain to the Pages project + a DNS record, then updating ASC support/privacy URLs and `ios/` shell. Left alone — outward-facing rename, user's call.
@@ -79,7 +78,6 @@ each is one `asc review submit` away. Do not submit until the in-flight verdicts
 ## Decision 2026-08-10: keep the record, build the app out
 Not withdrawing. The App Store record (6794988370) stays dormant until the app is real. Payments
 alone will not clear Guideline 4.2 — a paid wrapper is still a wrapper.
-- [x] DONE 2026-08-18: freeze lifted, version 1.2.0 created and **submitted** (review submission `20a19766-9b33-4db6-94ed-86c45c230a17`, WAITING_FOR_REVIEW since 10:55 UTC). The old `asc versions create` failure was a symptom of the suspension window and cleared with it.
 
 > ~~Resume note (2026-08-11): a `wip: partial work from /work notes ingest` commit holds unfinished,
 > unverified changes for the items above. Review `git show HEAD` before building on it — it was
@@ -101,10 +99,6 @@ ASC yet on purpose — there is nothing truthful to claim until the work below i
 
 Before resubmitting:
 
-- [x] Fixed 2026-08-19: `Graph.jsx` now subscribes to
-      `matchMedia('(prefers-color-scheme: dark)')` and redraws on change, so switching system
-      appearance mid-session repaints the canvas immediately instead of waiting for a
-      pan/zoom/resize. Listener is torn down on unmount. Build clean.
 - [ ] Walk every screen and interaction once, on device. 5.6 is a quality judgement, not a
       spec violation — the reviewer decided the app felt unfinished.
 - [ ] Test on **every** device family the app is offered on. If `TARGETED_DEVICE_FAMILY` is
