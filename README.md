@@ -17,3 +17,7 @@ Desmos-style graphing calculator. Multi-equation, zoom/pan, Apple Liquid Glass U
 - [ ] iOS build via `ios/` WKWebView shell — test on device
 - [ ] App Store Connect registration + first TestFlight build
 - [ ] Screenshots + metadata for submission
+
+## Whitepaper
+
+[Technical whitepaper](WHITEPAPER.md)
