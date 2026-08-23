@@ -31,9 +31,14 @@ struct ContentView: View {
                 sidebar.frame(width: 320)
             }
             VStack(spacing: 0) {
-                graph.frame(minHeight: 280)
+                // The graph is the point of the app, so it takes the screen and the
+                // equation list gets a proportional slice of what is left. A fixed
+                // 300pt sidebar cap left the plot cramped on shorter iPhones.
+                graph
+                    .frame(maxHeight: .infinity)
+                    .layoutPriority(1)
                 Divider().overlay(Theme.border)
-                sidebar.frame(maxHeight: 300)
+                sidebar.containerRelativeFrame(.vertical) { height, _ in height * 0.34 }
             }
         }
     }
