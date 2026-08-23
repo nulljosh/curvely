@@ -140,3 +140,19 @@ No code change was needed. Do not submit anything further until this review clea
 iOS 1.2.0 is Ready for Distribution, but HEAD (cc734fe "fix(ios): give the graph the screen on
 iPhone") landed after that build. It is pushed to origin/main and NOT in the shipped binary.
 - [ ] Bump to 1.2.1, archive, upload, submit so the fix actually reaches users.
+
+### 2026-08-23 — ship-ios workflow bug (fixed locally, NOT in git)
+`.asc/` is gitignored, so `ios/.asc/workflow.json` is untracked and this fix lives only on this
+machine. Recorded here so it survives a reclone.
+
+The `publish` step ran `asc publish appstore --ipa .asc/artifacts/grapher.ipa`, but
+`ExportOptions.plist` sets `destination=upload` — the export step uploads to ASC itself and
+writes NO local .ipa. Every run died with "failed to stat IPA" after a successful upload.
+Replaced the step with `asc review submit --app $IOS_APP_ID --version $VERSION --platform IOS
+--confirm --output json`, since the build is already on ASC by then.
+
+Also: the archive step fails if a previous `.asc/artifacts/grapher.xcarchive` exists
+("use --overwrite"). Add `--overwrite` or rm the artifacts dir before a rerun.
+
+**voxprint has the identical bug** (same destination=upload + --ipa publish combo) — it will
+fail the same way on its next ship-ios run.
