@@ -132,3 +132,6 @@ Before resubmitting:
 
 No code change was needed. Do not submit anything further until this review clears —
 `ship-plan.md` step 5 is one app at a time, and Wiretext went in alongside this one.
+
+## Ingested 2026-08-22
+- [ ] Graph view is too small — first amendment to ship now that v1.0 is submitted and approved on the App Store. (From Notes: "Submitted and approved on App Store / First version / Graph view too small / That's the first amendment".)
