@@ -156,3 +156,14 @@ Also: the archive step fails if a previous `.asc/artifacts/grapher.xcarchive` ex
 
 **voxprint has the identical bug** (same destination=upload + --ipa publish combo) — it will
 fail the same way on its next ship-ios run.
+
+### 2026-08-23 — 1.2.1 SUBMITTED
+Build 202608230311, version id 64646f7b, submission a02c52a2 -> WAITING_FOR_REVIEW 10:15 UTC.
+Ships cc734fe (iPhone graph gets the full screen), which was live in git but NOT in 1.2.0.
+What's New was missing entirely on the new version (metadata pull returned no whatsNew field);
+written and pushed with `asc metadata push` before submitting.
+
+`asc review submit` again threw the known FALSE negative "does not contain target version".
+`asc review items-list --submission <id>` showed one item READY_FOR_REVIEW, so
+`asc review submissions-submit --id <id> --confirm` completed it. Note the flag is
+`--submission`, not `--submission-id`.
