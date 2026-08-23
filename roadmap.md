@@ -135,3 +135,8 @@ No code change was needed. Do not submit anything further until this review clea
 
 ## Ingested 2026-08-22
 - [ ] Graph view is too small — first amendment to ship now that v1.0 is submitted and approved on the App Store. (From Notes: "Submitted and approved on App Store / First version / Graph view too small / That's the first amendment".)
+
+## 2026-08-23 — 1.2.1 to ship the iPhone graph fix
+iOS 1.2.0 is Ready for Distribution, but HEAD (cc734fe "fix(ios): give the graph the screen on
+iPhone") landed after that build. It is pushed to origin/main and NOT in the shipped binary.
+- [ ] Bump to 1.2.1, archive, upload, submit so the fix actually reaches users.
