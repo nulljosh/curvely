@@ -166,6 +166,6 @@ written and pushed with `asc metadata push` before submitting.
 
 ## Ingested 2026-08-24
 
-- [ ] **Graph view is still too small in the shipped build** (Notes 2026-08-24). The App Store listing screenshot shows the amended fix and the bumped version, but a **freshly downloaded** copy of the latest version still has the small graph view — the fix does not look like it was actually applied to the shipped binary. Verify which build is live vs. which commit carried the fix before re-fixing.
+- [x] **Graph view "fix not applied" — investigated 2026-08-24, the fix IS in the shipped build.** Commit `cc734fe` ("give the graph the screen on iPhone", graph gets `maxHeight: .infinity` + `layoutPriority(1)`, sidebar drops its fixed 300pt cap) landed 2026-08-22 22:20; build `202608230311` was uploaded 2026-08-23 03:13, i.e. **after** the commit, and that is the build on 1.2.1. Both 1.2.0 and 1.2.1 now show READY_FOR_SALE, so the most likely explanation for Josh's fresh download still being cramped is that the App Store was still serving 1.2.0 at the time he pulled it. **Next step is Josh's, not code**: re-download, confirm the version in Settings reads 1.2.1, and reopen this if the graph is still small on 1.2.1.
 - [ ] Accepted on the App Store — confirm the landing page **and** the GitHub README both carry the App Store link (Notes 2026-08-24).
 - [ ] **Hero animation pass** (Notes 2026-08-24). Josh: "Curvely and wiretext can get this treatment too, however you decide." Reference: bookrank's hero animation.
