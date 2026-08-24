@@ -36,7 +36,39 @@
 * { box-sizing: border-box; }
 body { margin: 0; background: var(--bg); color: var(--text); font-family: var(--font-body); line-height: 1.6; -webkit-font-smoothing: antialiased; }
 .container { max-width: 62rem; margin: 0 auto; padding: 0 1.5rem; }
-.hero { padding: 5rem 0 4rem; text-align: center; border-bottom: 1px solid var(--border); }
+.hero {
+  position: relative; isolation: isolate; overflow: hidden;
+  background: var(--accent-soft); padding: 5.5rem 0 4.5rem; text-align: center;
+}
+.hero .container { position: relative; z-index: 2; }
+
+/* a slow-drifting wall of curves the app can plot */
+.hero-wall {
+  position: absolute; inset: -8%; z-index: 0;
+  display: grid; grid-auto-flow: column; grid-auto-columns: 1fr; gap: 10px;
+  opacity: 0.55;
+  pointer-events: none; user-select: none;
+}
+.wall-col { display: flex; min-width: 0; flex-direction: column; gap: 10px; }
+.wall-card {
+  aspect-ratio: 1/1; border-radius: 4px; overflow: hidden;
+  background: var(--bg2); border: 1px solid var(--border);
+}
+.wall-card svg { display: block; width: 100%; height: 100%; }
+.wall-col.up   { animation: wall-up   var(--dur) linear infinite; }
+.wall-col.down { animation: wall-down var(--dur) linear infinite; }
+@keyframes wall-up   { from { transform: translateY(0); }    to { transform: translateY(-50%); } }
+@keyframes wall-down { from { transform: translateY(-50%); } to { transform: translateY(0); } }
+@media (prefers-reduced-motion: reduce) { .wall-col { animation: none; } }
+
+/* scrim: keeps the headline readable over the wall, in either theme */
+.hero::after {
+  content: ''; position: absolute; inset: 0; z-index: 1; pointer-events: none;
+  background:
+    radial-gradient(ellipse 55% 60% at 50% 45%, var(--bg) 20%, transparent 80%),
+    linear-gradient(var(--bg), transparent 30%, transparent 62%, var(--bg) 96%),
+    color-mix(in srgb, var(--bg) 50%, transparent);
+}
 .hero-icon { width: 88px; height: 88px; border-radius: 20px; }
 h1 { font-size: clamp(2.1rem, 5vw, 3.1rem); margin: 1.25rem 0 0.75rem; letter-spacing: -0.02em; }
 .hero p { font-size: 1.15rem; color: var(--text2); max-width: 34rem; margin: 0 auto; }
@@ -57,6 +89,7 @@ footer { padding: 2.5rem 0 3.5rem; text-align: center; font-size: 0.9rem; color:
 </head>
 <body>
 <section class="hero">
+  <div class="hero-wall" id="heroWall" aria-hidden="true"></div>
   <div class="container">
     <img class="hero-icon" src="icon.svg" alt="Curvely icon" width="88" height="88">
     <h1>Curvely</h1>
@@ -88,5 +121,63 @@ footer { padding: 2.5rem 0 3.5rem; text-align: center; font-size: 0.9rem; color:
   </div>
 </section>
 <footer><div class="container"><p>Built by Joshua. <a href="/app/privacy.html" style="color:var(--text2)">Privacy</a></p></div></footer>
+<script>
+// Wall of plotted curves -- the app's own output, drawn as the backdrop. Every
+// path is generated here, so there is nothing to fetch and nothing to fail.
+(function () {
+  var wall = document.getElementById('heroWall');
+  if (!wall) return;
+  var NS = 'http://www.w3.org/2000/svg';
+  var FNS = [
+    function (x) { return Math.sin(x * 3); },
+    function (x) { return x * x * 2 - 1; },
+    function (x) { return Math.cos(x * 4) * 0.7; },
+    function (x) { return Math.tanh(x * 4); },
+    function (x) { return Math.sin(x * 6) / (Math.abs(x) * 4 + 1); },
+    function (x) { return x * x * x * 1.5; },
+    function (x) { return Math.abs(x) * 2 - 1; },
+    function (x) { return Math.sin(x * 2) + Math.cos(x * 5) * 0.3; },
+    function (x) { return Math.exp(x) * 0.4 - 1; },
+    function (x) { return Math.sin(1 / (Math.abs(x) + 0.25)); }
+  ];
+  function plot(fn) {
+    var svg = document.createElementNS(NS, 'svg');
+    svg.setAttribute('viewBox', '-1 -1 2 2');
+    svg.setAttribute('preserveAspectRatio', 'none');
+    var d = '';
+    for (var i = 0; i <= 48; i++) {
+      var x = -1 + (i / 48) * 2;
+      var y = fn(x);
+      if (!isFinite(y)) { d = ''; continue; }
+      y = Math.max(-1, Math.min(1, y));
+      d += (d ? 'L' : 'M') + x.toFixed(3) + ' ' + (-y).toFixed(3) + ' ';
+    }
+    var path = document.createElementNS(NS, 'path');
+    path.setAttribute('d', d);
+    path.setAttribute('fill', 'none');
+    path.setAttribute('stroke', 'currentColor');
+    path.setAttribute('stroke-width', '0.05');
+    path.setAttribute('vector-effect', 'non-scaling-stroke');
+    svg.appendChild(path);
+    return svg;
+  }
+  var cols = Math.max(4, Math.ceil(window.innerWidth / 120));
+  for (var c = 0; c < cols; c++) {
+    var col = document.createElement('div');
+    col.className = 'wall-col ' + (c % 2 ? 'down' : 'up');
+    col.style.setProperty('--dur', (70 + c * 11) + 's');
+    var slice = [];
+    for (var k = 0; k < 5; k++) slice.push(FNS[(c * 5 + k) % FNS.length]);
+    slice.concat(slice).forEach(function (fn) {  // doubled, so the loop is seamless
+      var card = document.createElement('div');
+      card.className = 'wall-card';
+      card.appendChild(plot(fn));
+      col.appendChild(card);
+    });
+    wall.appendChild(col);
+  }
+})();
+</script>
+
 </body>
 </html>
