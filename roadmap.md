@@ -163,3 +163,9 @@ written and pushed with `asc metadata push` before submitting.
 `asc review items-list --submission <id>` showed one item READY_FOR_REVIEW, so
 `asc review submissions-submit --id <id> --confirm` completed it. Note the flag is
 `--submission`, not `--submission-id`.
+
+## Ingested 2026-08-24
+
+- [ ] **Graph view is still too small in the shipped build** (Notes 2026-08-24). The App Store listing screenshot shows the amended fix and the bumped version, but a **freshly downloaded** copy of the latest version still has the small graph view — the fix does not look like it was actually applied to the shipped binary. Verify which build is live vs. which commit carried the fix before re-fixing.
+- [ ] Accepted on the App Store — confirm the landing page **and** the GitHub README both carry the App Store link (Notes 2026-08-24).
+- [ ] **Hero animation pass** (Notes 2026-08-24). Josh: "Curvely and wiretext can get this treatment too, however you decide." Reference: bookrank's hero animation.
