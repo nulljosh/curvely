@@ -2,7 +2,7 @@
 
 # Curvely
 
-![version](https://img.shields.io/badge/version-v1.1.0-blue)
+![version](https://img.shields.io/badge/version-v1.2.1-blue) [![App Store](https://img.shields.io/badge/App%20Store-Download-0D96F6?logo=appstore&logoColor=white)](https://apps.apple.com/us/app/curvely/id6794988370)
 
 Desmos-style graphing calculator. Multi-equation, zoom/pan, Apple Liquid Glass UI.
 
