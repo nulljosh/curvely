@@ -1,5 +1,12 @@
 # Curvely Roadmap
 
+## LIVE 2026-08-25 — iOS 1.2.1 `READY_FOR_SALE`
+
+Verified against `asc versions list --app 6794988370`. 1.2.0 is live too; 1.2.1 (the
+full-screen iPhone graph, cc734fe) shipped on top of it. The 5.6 suspension and the
+submission logs below are **history** — resolved, kept for the reasons and the CLI
+recipes, not as open work.
+
 ## App Review rejection reason — READ FROM RESOLUTION CENTER 2026-08-12
 
 **Guideline 5.6 — Developer Code of Conduct — Review Suspended.** Not an app-specific
