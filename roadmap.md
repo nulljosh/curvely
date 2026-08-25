@@ -109,9 +109,6 @@ Before resubmitting:
       `asc review details-update --id b9dead75-aa07-4aaa-878e-25b27bebf133 --notes "..."`
 - [ ] Only then submit. Review detail id for this version: `b9dead75-aa07-4aaa-878e-25b27bebf133`.
 
-## From Apple Notes (imported 2026-08-13)
-- [x] **Migrate Curvely (Grapher) from Vercel to Cloudflare — ALREADY DONE (verified 2026-08-24).** `grapher.heyitsmejosh.com` returns 200 with `server: cloudflare` + a `cf-ray` header, and `wrangler pages project list` shows Pages project **`grapher`** serving `grapher-c2q.pages.dev, grapher.heyitsmejosh.com`. Nothing to migrate. Leftover: a legacy `.vercel/` directory still sits in the repo root (untouched — cosmetic only, deleting it is a separate call).
-
 ## 5.6 defect verification 2026-08-18
 
 **Verdict: cited defect disproven as still-present — it was fixed before the resubmission.**
@@ -166,6 +163,4 @@ written and pushed with `asc metadata push` before submitting.
 
 ## Ingested 2026-08-24
 
-- [x] **Graph view "fix not applied" — investigated 2026-08-24, the fix IS in the shipped build.** Commit `cc734fe` ("give the graph the screen on iPhone", graph gets `maxHeight: .infinity` + `layoutPriority(1)`, sidebar drops its fixed 300pt cap) landed 2026-08-22 22:20; build `202608230311` was uploaded 2026-08-23 03:13, i.e. **after** the commit, and that is the build on 1.2.1. Both 1.2.0 and 1.2.1 now show READY_FOR_SALE, so the most likely explanation for Josh's fresh download still being cramped is that the App Store was still serving 1.2.0 at the time he pulled it. **Next step is Josh's, not code**: re-download, confirm the version in Settings reads 1.2.1, and reopen this if the graph is still small on 1.2.1.
-- [x] **Accepted on the App Store — both surfaces now carry the link (done 2026-08-24).** Verified via `asc versions list --app 6794988370`: iOS **1.2.1 READY_FOR_SALE / READY_FOR_DISTRIBUTION** (1.2.0 also READY_FOR_SALE), and `https://apps.apple.com/app/id6794988370` returns 200 → `apps.apple.com/us/app/curvely/id6794988370`. Landing page already had it (`landing/index.html:99`); added the matching shields.io badge to `README.md` (bookrank badge style). Also corrected the README version badge, which still read v1.1.0.
 - [ ] **Hero animation pass** (Notes 2026-08-24). Josh: "Curvely and wiretext can get this treatment too, however you decide." Reference: bookrank's hero animation.
