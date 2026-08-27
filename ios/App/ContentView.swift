@@ -1,6 +1,8 @@
 import SwiftUI
 
 struct ContentView: View {
+    @Environment(\.horizontalSizeClass) private var horizontalSizeClass
+
     @State private var equations: [Equation] = defaultEquations
     @State private var transform = GraphTransform()
     @State private var exportedImage: ExportedGraph?
@@ -23,22 +25,32 @@ struct ContentView: View {
 
     /// iPad gets the web app's side-by-side layout; iPhone stacks, since a 320pt-wide
     /// sidebar next to a plot is unusable.
+    ///
+    /// This branches on the size class rather than `ViewThatFits`. `ViewThatFits` measures
+    /// each branch at its *ideal* size, and `graph` is a `GeometryReader`, which has no
+    /// intrinsic width — it reports SwiftUI's 10pt default against an unspecified proposal.
+    /// That made the side-by-side branch measure ~331pt (10 + divider + 320 sidebar), which
+    /// "fits" every iPhone from the 375pt SE up, so iPhones took the HStack and the plot was
+    /// left with whatever the 320pt sidebar didn't eat — about 69pt. That is the squashed
+    /// graph. The size class is the actual signal for "is this a phone", so ask it directly.
+    @ViewBuilder
     private var content: some View {
-        ViewThatFits(in: .horizontal) {
-            HStack(spacing: 0) {
-                graph
-                Divider().overlay(Theme.border)
-                sidebar.frame(width: 320)
-            }
+        if horizontalSizeClass == .compact {
+            // The graph is the point of the app, so it takes the screen and the
+            // equation list gets a proportional slice of what is left. A fixed
+            // 300pt sidebar cap left the plot cramped on shorter iPhones.
             VStack(spacing: 0) {
-                // The graph is the point of the app, so it takes the screen and the
-                // equation list gets a proportional slice of what is left. A fixed
-                // 300pt sidebar cap left the plot cramped on shorter iPhones.
                 graph
-                    .frame(maxHeight: .infinity)
+                    .frame(maxWidth: .infinity, maxHeight: .infinity)
                     .layoutPriority(1)
                 Divider().overlay(Theme.border)
                 sidebar.containerRelativeFrame(.vertical) { height, _ in height * 0.34 }
+            }
+        } else {
+            HStack(spacing: 0) {
+                graph.frame(maxWidth: .infinity, maxHeight: .infinity)
+                Divider().overlay(Theme.border)
+                sidebar.frame(width: 320)
             }
         }
     }

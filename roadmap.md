@@ -171,3 +171,6 @@ written and pushed with `asc metadata push` before submitting.
 ## Ingested 2026-08-24
 
 - [ ] **Hero animation pass** (Notes 2026-08-24). Josh: "Curvely and wiretext can get this treatment too, however you decide." Reference: bookrank's hero animation.
+
+## From Apple Notes (imported 2026-08-27)
+- [x] Third attempt: fix the graph UI. Root cause was `ViewThatFits(in: .horizontal)` in `ContentView.content`: it measures branches at their *ideal* size, and `GraphView` is a `GeometryReader` with no intrinsic width (reports SwiftUI's 10pt default), so the side-by-side branch measured ~331pt and "fit" every iPhone — phones took the HStack and the plot got ~69pt beside the 320pt sidebar. The 1.2.1 fix had been applied to the VStack branch, which iPhones never selected, which is why two attempts appeared to do nothing. Now branches on `horizontalSizeClass`. Verified by screenshot on iPhone 14 Plus (full-width graph, equation drawer below) and iPad Pro 11 (side-by-side intact). Web CSS was already correct via its `@media (max-width: 640px)` rules — no change needed there.
