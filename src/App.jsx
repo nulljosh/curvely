@@ -3,6 +3,7 @@ import Graph from './components/Graph.jsx';
 import EquationList from './components/EquationList.jsx';
 import { evaluate } from './utils/evaluate.js';
 import { colorAt } from './utils/colors.js';
+import { useWebMCP } from './lib/webmcp.js';
 
 let nextId = 3;
 
@@ -29,10 +30,18 @@ export default function App() {
     setEquations((prev) => prev.filter((eq) => eq.id !== id));
   }, []);
 
-  const handleAdd = useCallback(() => {
+  const handleAdd = useCallback((expr = '') => {
     const id = nextId++;
-    setEquations((prev) => [...prev, makeEq(id, '')]);
+    setEquations((prev) => [...prev, makeEq(id, expr)]);
+    return id;
   }, []);
+
+  useWebMCP({
+    equations,
+    addEquation: handleAdd,
+    changeEquation: handleChange,
+    removeEquation: handleRemove,
+  });
 
   return (
     <div style={{
@@ -72,7 +81,7 @@ export default function App() {
             equations={equations}
             onChange={handleChange}
             onRemove={handleRemove}
-            onAdd={handleAdd}
+            onAdd={() => handleAdd()}
           />
 
           <div style={{
@@ -89,10 +98,7 @@ export default function App() {
               <button
                 key={ex}
                 className="example-btn"
-                onClick={() => {
-                  const id = nextId++;
-                  setEquations((prev) => [...prev, makeEq(id, ex)]);
-                }}
+                onClick={() => handleAdd(ex)}
                 style={{
                   display: 'inline-block', margin: '3px 4px 3px 0',
                   background: 'var(--bg2)',

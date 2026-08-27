@@ -1,8 +1,8 @@
 # Curvely Technical Whitepaper
 
-**v1.1.0** | July 2026
+**v1.2.0** | August 2026
 
-Grapher is a Desmos-style graphing calculator: type an equation, see it
+Curvely is a Desmos-style graphing calculator: type an equation, see it
 plotted instantly. Entirely client-side — no backend, no server round-trip
 for evaluation.
 
@@ -29,7 +29,7 @@ plotted equation is visually distinct.
 | Platform | Framework | Notes |
 |----------|-----------|-------|
 | Web | React (client-only, no backend) | Dark mode only, Apple Liquid Glass UI |
-| iOS | WKWebView shell (xcodegen) | Serves the build over a custom `app://` scheme, since ES module `<script>` tags are blocked cross-origin under `file://` |
+| iOS | Native SwiftUI (xcodegen) | v1.2.0 in review. Replaced the original WKWebView shell in August 2026 — the shell needed a custom `app://` scheme because ES module `<script>` tags are blocked cross-origin under `file://`, and that whole workaround went away with the native rewrite |
 
 ## Security / Privacy
 
