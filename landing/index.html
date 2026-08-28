@@ -46,7 +46,7 @@ body { margin: 0; background: var(--bg); color: var(--text); font-family: var(--
 .hero-wall {
   position: absolute; inset: -8%; z-index: 0;
   display: grid; grid-auto-flow: column; grid-auto-columns: 1fr; gap: 10px;
-  opacity: 0.55;
+  opacity: 0.9;
   pointer-events: none; user-select: none;
 }
 .wall-col { display: flex; min-width: 0; flex-direction: column; gap: 10px; }
@@ -65,9 +65,9 @@ body { margin: 0; background: var(--bg); color: var(--text); font-family: var(--
 .hero::after {
   content: ''; position: absolute; inset: 0; z-index: 1; pointer-events: none;
   background:
-    radial-gradient(ellipse 55% 60% at 50% 45%, var(--bg) 20%, transparent 80%),
+    radial-gradient(ellipse 45% 50% at 50% 45%, var(--bg) 10%, transparent 85%),
     linear-gradient(var(--bg), transparent 30%, transparent 62%, var(--bg) 96%),
-    color-mix(in srgb, var(--bg) 50%, transparent);
+    color-mix(in srgb, var(--bg) 25%, transparent);
 }
 .hero-icon { width: 88px; height: 88px; border-radius: 20px; }
 h1 { font-size: clamp(2.1rem, 5vw, 3.1rem); margin: 1.25rem 0 0.75rem; letter-spacing: -0.02em; }
@@ -157,7 +157,7 @@ footer { padding: 2.5rem 0 3.5rem; text-align: center; font-size: 0.9rem; color:
     path.setAttribute('d', d);
     path.setAttribute('fill', 'none');
     path.setAttribute('stroke', 'currentColor');
-    path.setAttribute('stroke-width', '0.05');
+    path.setAttribute('stroke-width', '1.5');  // px: non-scaling-stroke makes this screen units
     path.setAttribute('vector-effect', 'non-scaling-stroke');
     svg.appendChild(path);
     return svg;
@@ -166,7 +166,7 @@ footer { padding: 2.5rem 0 3.5rem; text-align: center; font-size: 0.9rem; color:
   for (var c = 0; c < cols; c++) {
     var col = document.createElement('div');
     col.className = 'wall-col ' + (c % 2 ? 'down' : 'up');
-    col.style.setProperty('--dur', (70 + c * 11) + 's');
+    col.style.setProperty('--dur', (40 + c * 7) + 's');
     var slice = [];
     for (var k = 0; k < 5; k++) slice.push(FNS[(c * 5 + k) % FNS.length]);
     slice.concat(slice).forEach(function (fn) {  // doubled, so the loop is seamless
