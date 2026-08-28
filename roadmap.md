@@ -212,7 +212,7 @@ written and pushed with `asc metadata push` before submitting.
 
 ## Ingested 2026-08-24
 
-- [ ] **Hero animation pass** (Notes 2026-08-24). Josh: "Curvely and wiretext can get this treatment too, however you decide." Reference: bookrank's hero animation.
+- [x] **Hero animation pass** (Notes 2026-08-24). Josh: "Curvely and wiretext can get this treatment too, however you decide." Reference: bookrank's hero animation. DONE 2026-08-28: scrim softened to reveal drifting curve wall.
 - [ ] iOS rejected 4.3(a) Spam 2026-08-26. Appeal draft: ~/Documents/Code/notes/appeal-4-3-spam.md (Resolution Center, web only).
 
 ## From Notes (imported 2026-08-27)
