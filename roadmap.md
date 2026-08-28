@@ -1,22 +1,23 @@
 # Curvely Roadmap
 
-## Blocked on Joshua — finish the grapher -> curvely hostname rename
+## In flight — grapher -> curvely hostname rename
 
-Verified 2026-08-27: `grapher.heyitsmejosh.com` returns 200 and is what both the
-App Store `supportUrl` and `privacyPolicyUrl` point at. `curvely.heyitsmejosh.com`
-returns 000 (no DNS). So the listing URL is CORRECT as it stands — do not repoint
-it to curvely until the hostname actually resolves, or the support link breaks and
-that is its own rejection cause.
+Done 2026-08-27: Pages custom domain `curvely.heyitsmejosh.com` added to the `grapher`
+project, and CNAME `curvely -> grapher-c2q.pages.dev` (proxied) created in the
+heyitsmejosh.com zone. Cloudflare reports the domain `pending` while the cert issues.
 
-To finish it, in order:
-1. Add the `curvely` DNS record and attach it to the Pages project.
-2. Confirm `curl -o /dev/null -w '%{http_code}' https://curvely.heyitsmejosh.com` is 200.
-3. Only then update `ios/metadata/app-info/en-US.json` (privacyPolicyUrl) and
-   `ios/metadata/version/1.2.2/en-US.json` (supportUrl).
+Remaining, one step:
+- [ ] Once `curl -o /dev/null -w '%{http_code}' https://curvely.heyitsmejosh.com` is 200,
+      update `ios/metadata/app-info/en-US.json` (privacyPolicyUrl) and
+      `ios/metadata/version/1.2.2/en-US.json` (supportUrl) from grapher to curvely.
+      Do NOT flip them before it returns 200 — a dead support URL is its own rejection cause.
 
-Cannot be done headlessly right now: there is no `CLOUDFLARE_API_TOKEN` in the
-environment and `wrangler` is not installed. Needs either the token restored or a
-browser. (A previous plan of mine claimed this was pure-CLI work — that was wrong.)
+Correction: an earlier version of this file said this could not be done headlessly because
+there was no Cloudflare token and no wrangler. Both were wrong. wrangler runs via `npx`
+(4.127.0, OAuth authenticated) and the DNS token is `CLOUDFLARE_DNS_TOKEN` in
+`~/.config/fish/secrets.fish` — deliberately not named CLOUDFLARE_API_TOKEN because that
+name makes wrangler skip OAuth. wrangler 4.x has no `pages domain` command; use the REST
+API. The OAuth token can read zones but not write DNS records — use the DNS token for that.
 
 ## Blocked on Joshua — the 4.3(a) domain split needs domains bought
 
