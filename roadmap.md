@@ -1,5 +1,30 @@
 # Curvely Roadmap
 
+## Blocked on Joshua — finish the grapher -> curvely hostname rename
+
+Verified 2026-08-27: `grapher.heyitsmejosh.com` returns 200 and is what both the
+App Store `supportUrl` and `privacyPolicyUrl` point at. `curvely.heyitsmejosh.com`
+returns 000 (no DNS). So the listing URL is CORRECT as it stands — do not repoint
+it to curvely until the hostname actually resolves, or the support link breaks and
+that is its own rejection cause.
+
+To finish it, in order:
+1. Add the `curvely` DNS record and attach it to the Pages project.
+2. Confirm `curl -o /dev/null -w '%{http_code}' https://curvely.heyitsmejosh.com` is 200.
+3. Only then update `ios/metadata/app-info/en-US.json` (privacyPolicyUrl) and
+   `ios/metadata/version/1.2.2/en-US.json` (supportUrl).
+
+Cannot be done headlessly right now: there is no `CLOUDFLARE_API_TOKEN` in the
+environment and `wrangler` is not installed. Needs either the token restored or a
+browser. (A previous plan of mine claimed this was pure-CLI work — that was wrong.)
+
+## Blocked on Joshua — the 4.3(a) domain split needs domains bought
+
+All 19 App Store listings resolve to one apex, `heyitsmejosh.com`, which is the single
+biggest template-farm signal in the portfolio. Genuinely splitting them means buying
+per-app domains: money and a decision, not a code task. Same blocker shape as the
+jaybulb.com purchase.
+
 ## Blocked on Joshua — file the 4.3(a) appeal (needs a browser)
 
 Resolution Center is web-only; `asc web review` is read-only, so there is no CLI path.
