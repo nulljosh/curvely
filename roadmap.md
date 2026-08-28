@@ -1,5 +1,9 @@
 # Curvely Roadmap
 
+## Rejected 2026-08-27 — iOS 1.2.2 rejected (4.3a Spam), appeal filed
+
+iOS 1.2.2 rejected 2026-08-26 under Guideline 4.3(a) Design: Spam. Apple flagged an account-level pattern — five apps submitted the same day (Sparkjar, NYC Survive, Talli, Curvely, Doorstock) all landed on the same violation. Live version iOS 1.2.1 unaffected. Do not attempt resubmit; appeal filed 2026-08-27 via Resolution Center. Monitor appeal verdict only.
+
 ## LIVE 2026-08-25 — iOS 1.2.1 `READY_FOR_SALE`
 
 Verified against `asc versions list --app 6794988370`. 1.2.0 is live too; 1.2.1 (the
@@ -171,3 +175,4 @@ written and pushed with `asc metadata push` before submitting.
 ## Ingested 2026-08-24
 
 - [ ] **Hero animation pass** (Notes 2026-08-24). Josh: "Curvely and wiretext can get this treatment too, however you decide." Reference: bookrank's hero animation.
+- [ ] iOS rejected 4.3(a) Spam 2026-08-26. Appeal draft: notes/appeal-4-3-spam.md (Resolution Center, web only).
