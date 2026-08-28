@@ -1,6 +1,6 @@
 {
-  "description": "Curvely is a Desmos-style graphing calculator. Plot multiple equations at once, pan and zoom smoothly, and explore functions with a clean, fast, native interface. No account, no ads, no backend \u2014 everything runs on your device.",
-  "keywords": "graphing,calculator,math,equation,plot,graph,function,algebra",
+  "description": "Type an equation and it draws. Type another and both draw, in different colours, on the same canvas.\n\nCurvely keeps up as fast as you can type. Polynomials, trig, exponentials, logs, rational functions, absolute value — the parser reads the notation you would actually write by hand, and it was checked against 3,636 reference points before it shipped, so the curve on screen is the curve you asked for.\n\nPinch to zoom. Drag to pan. The equation list slides out of the way when you want the whole screen for the graph, which on a phone is most of the time.\n\nThere is no account to make. The app never opens a network connection, not as a privacy feature but because a graphing calculator has no reason to talk to a server.",
+  "keywords": "graphing calculator,plot equations,function plotter,math graph,algebra,precalculus,trig",
   "supportUrl": "https://grapher.heyitsmejosh.com",
   "whatsNew": "Fixes a layout bug where some iPhones got the wider iPad arrangement, cramping the graph and the equation list."
 }

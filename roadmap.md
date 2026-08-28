@@ -1,8 +1,8 @@
 # Curvely Roadmap
 
-## Rejected 2026-08-27 — iOS 1.2.2 rejected (4.3a Spam), appeal filed
+## Rejected 2026-08-27 — iOS 1.2.2 rejected (4.3a Spam), appeal DRAFTED not yet filed
 
-iOS 1.2.2 rejected 2026-08-26 under Guideline 4.3(a) Design: Spam. Apple flagged an account-level pattern — five apps submitted the same day (Sparkjar, NYC Survive, Talli, Curvely, Doorstock) all landed on the same violation. Live version iOS 1.2.1 unaffected. Do not attempt resubmit; appeal filed 2026-08-27 via Resolution Center. Monitor appeal verdict only.
+iOS 1.2.2 rejected 2026-08-26 under Guideline 4.3(a) Design: Spam. Apple flagged an account-level pattern — five apps submitted the same day (Sparkjar, NYC Survive, Talli, Curvely, Doorstock) all landed on the same violation. Live version iOS 1.2.1 unaffected. Do not attempt resubmit; appeal DRAFTED 2026-08-27 at notes/appeal-4-3-spam.md — NOT yet filed (Resolution Center is web-only, paste by hand). Monitor appeal verdict only.
 
 ## LIVE 2026-08-25 — iOS 1.2.1 `READY_FOR_SALE`
 
