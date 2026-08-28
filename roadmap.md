@@ -217,8 +217,6 @@ written and pushed with `asc metadata push` before submitting.
 
 ## From Notes (imported 2026-08-27)
 - [ ] App Review flagged **Curvely 1.2.2 for iOS** (submitted Aug 27 2026 01:41 PM PDT, submission `51db38d2-6a6a-4845-8bf5-fe9442830e76`). Get the reason via `asc web review show`, fix, resubmit.
-- [x] Landing page hero animation is hardly visible — raise contrast/scale so it actually reads. (FIXED 2026-08-28: scrim darkening limited to headline area, fades out below)
-curvely/roadmap.md
 
 ### 4.3(a) status — verified 2026-08-27
   - Curvely iOS 1.2.2 REJECTED under **Guideline 4.3(a) Design: Spam**, same account-level wave as Sparkjar, NYC Survive, Talli and Doorstock.
