@@ -214,3 +214,16 @@ written and pushed with `asc metadata push` before submitting.
 
 - [ ] **Hero animation pass** (Notes 2026-08-24). Josh: "Curvely and wiretext can get this treatment too, however you decide." Reference: bookrank's hero animation.
 - [ ] iOS rejected 4.3(a) Spam 2026-08-26. Appeal draft: notes/appeal-4-3-spam.md (Resolution Center, web only).
+
+## From Notes (imported 2026-08-27)
+- [ ] App Review flagged **Curvely 1.2.2 for iOS** (submitted Aug 27 2026 01:41 PM PDT, submission `51db38d2-6a6a-4845-8bf5-fe9442830e76`). Get the reason via `asc web review show`, fix, resubmit.
+- [ ] Landing page hero animation is hardly visible — raise contrast/scale so it actually reads.
+curvely/roadmap.md
+
+### 4.3(a) status — verified 2026-08-27
+  - Curvely iOS 1.2.2 REJECTED under **Guideline 4.3(a) Design: Spam**, same account-level wave as Sparkjar, NYC Survive, Talli and Doorstock.
+  - iOS **1.2.1 is still live** — only the update is held. The 1.2.2 change was solely the `ViewThatFits` iPhone/iPad layout fix, which cannot plausibly be the stated cause.
+  - **This is not a per-app content problem — do not fix code and do not resubmit.** Apple's letter is byte-identical boilerplate across all five with no named comparison app. Resubmitting the same build will fail again and adds to the pattern.
+  - **The appeal draft is at `~/Documents/Code/notes/appeal-4-3-spam.md` (repo root, 113 lines) — NOT at `<repo>/notes/appeal-4-3-spam.md`.** Several roadmap lines point at the per-repo path; that file does not exist in any of the five repos. Fix the pointer, do not write a second draft.
+  - **Status: DRAFTED, NOT FILED.** Filing is Resolution Center, which is browser-only (`asc web review` is read-only). Blocked on Joshua. Reply order in the draft is Talli, Curvely, Doorstock; hold Sparkjar and NYC Survive.
+  - Verified via API 2026-08-27: submission is UNRESOLVED_ISSUES with a single appStoreVersion item REJECTED — no phantom-IAP item, so the "mislabeled inAppPurchaseVersion" trap does not apply. `asc validate` and `asc review doctor` are otherwise clean, confirming this is a guideline call and not a readiness gap.
