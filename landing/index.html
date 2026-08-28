@@ -64,10 +64,10 @@ body { margin: 0; background: var(--bg); color: var(--text); font-family: var(--
 /* scrim: keeps the headline readable over the wall, in either theme */
 .hero::after {
   content: ''; position: absolute; inset: 0; z-index: 1; pointer-events: none;
+  /* ponytail: scrim only where the text sits; the wall stays visible elsewhere */
   background:
-    radial-gradient(ellipse 45% 50% at 50% 45%, var(--bg) 10%, transparent 85%),
-    linear-gradient(var(--bg), transparent 30%, transparent 62%, var(--bg) 96%),
-    color-mix(in srgb, var(--bg) 25%, transparent);
+    radial-gradient(ellipse 38% 42% at 50% 45%, var(--bg) 0%, color-mix(in srgb, var(--bg) 55%, transparent) 55%, transparent 100%),
+    linear-gradient(var(--bg), transparent 22%, transparent 78%, var(--bg) 100%);
 }
 .hero-icon { width: 88px; height: 88px; border-radius: 20px; }
 h1 { font-size: clamp(2.1rem, 5vw, 3.1rem); margin: 1.25rem 0 0.75rem; letter-spacing: -0.02em; }
