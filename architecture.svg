@@ -1,27 +1,18 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="600" height="320" viewBox="0 0 600 320" style="background:#fff;font-family:-apple-system,BlinkMacSystemFont,'SF Pro Display',sans-serif">
-  <!-- nodes -->
-  <rect x="20" y="130" width="100" height="44" rx="8" style="fill:#f5f5f7;stroke:#d1d1d6;stroke-width:1.5"/>
-  <text x="70" y="156" style="font-size:11px;text-anchor:middle;fill:#1c1c1e;font-weight:600">App.jsx</text>
-
-  <rect x="180" y="60" width="110" height="44" rx="8" style="fill:#f5f5f7;stroke:#d1d1d6;stroke-width:1.5"/>
-  <text x="235" y="86" style="font-size:11px;text-anchor:middle;fill:#1c1c1e;font-weight:600">Graph.jsx</text>
-
-  <rect x="180" y="200" width="110" height="44" rx="8" style="fill:#f5f5f7;stroke:#d1d1d6;stroke-width:1.5"/>
-  <text x="235" y="226" style="font-size:11px;text-anchor:middle;fill:#1c1c1e;font-weight:600">EquationList</text>
-
-  <rect x="360" y="60" width="110" height="44" rx="8" style="fill:#e8f4fd;stroke:#0071e3;stroke-width:1.5"/>
-  <text x="415" y="86" style="font-size:11px;text-anchor:middle;fill:#0071e3;font-weight:600">Canvas API</text>
-
-  <rect x="360" y="200" width="110" height="44" rx="8" style="fill:#f5f5f7;stroke:#d1d1d6;stroke-width:1.5"/>
-  <text x="415" y="226" style="font-size:11px;text-anchor:middle;fill:#1c1c1e;font-weight:600">evaluate.js</text>
-
-  <rect x="480" y="200" width="100" height="44" rx="8" style="fill:#f5f5f7;stroke:#d1d1d6;stroke-width:1.5"/>
-  <text x="530" y="226" style="font-size:11px;text-anchor:middle;fill:#1c1c1e;font-weight:600">mathjs</text>
-
-  <!-- lines -->
-  <line x1="120" y1="152" x2="180" y2="82" style="stroke:#8e8e93;stroke-width:1.5"/>
-  <line x1="120" y1="152" x2="180" y2="222" style="stroke:#8e8e93;stroke-width:1.5"/>
-  <line x1="290" y1="82" x2="360" y2="82" style="stroke:#0071e3;stroke-width:1.5"/>
-  <line x1="290" y1="222" x2="360" y2="222" style="stroke:#8e8e93;stroke-width:1.5"/>
-  <line x1="470" y1="222" x2="480" y2="222" style="stroke:#8e8e93;stroke-width:1.5"/>
+<svg xmlns="http://www.w3.org/2000/svg" width="640" height="330" style="background:#fff;font-family:-apple-system,BlinkMacSystemFont,sans-serif" viewBox="0 0 640 330">
+<text x="320" y="28" fill="#333" font-size="16" font-weight="600" text-anchor="middle">Curvely Architecture</text>
+<rect width="166" height="40" x="41" y="55" fill="#f5f5f7" stroke="#d1d1d6" rx="8"/>
+<text x="124" y="72" fill="#333" font-size="12" text-anchor="middle">Web (Vite)</text>
+<text x="124" y="86" fill="#333" font-size="12" text-anchor="middle">src/</text>
+<rect width="166" height="40" x="237" y="55" fill="#f5f5f7" stroke="#d1d1d6" rx="8"/>
+<text x="320" y="72" fill="#333" font-size="12" text-anchor="middle">iOS app</text>
+<text x="320" y="86" fill="#333" font-size="12" text-anchor="middle">native SwiftUI</text>
+<rect width="166" height="40" x="433" y="55" fill="#f5f5f7" stroke="#d1d1d6" rx="8"/>
+<text x="516" y="79" fill="#333" font-size="12" text-anchor="middle">landing/</text>
+<rect width="200" height="40" x="220" y="145" fill="#c04a2b" fill-opacity=".15" stroke="#c04a2b" rx="8"/>
+<text x="320" y="162" fill="#333" font-size="12" font-weight="500" text-anchor="middle">Expression parser + plotter</text>
+<text x="320" y="176" fill="#333" font-size="12" font-weight="500" text-anchor="middle">multi-equation, pan/zoom</text>
+<rect width="200" height="40" x="220" y="235" fill="#c04a2b" fill-opacity=".15" stroke="#c04a2b" rx="8"/>
+<text x="320" y="252" fill="#333" font-size="12" font-weight="500" text-anchor="middle">localStorage</text>
+<text x="320" y="266" fill="#333" font-size="12" font-weight="500" text-anchor="middle">saved equations</text>
+<path stroke="#d1d1d6" fill="none" d="M124 95v25M320 95v25M516 95v25M124 120H516M320 120V145M320 185V235"/>
 </svg>
