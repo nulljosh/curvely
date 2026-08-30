@@ -6,11 +6,10 @@ Done 2026-08-27: Pages custom domain `curvely.heyitsmejosh.com` added to the `gr
 project, and CNAME `curvely -> grapher-c2q.pages.dev` (proxied) created in the
 heyitsmejosh.com zone. Cloudflare reports the domain `pending` while the cert issues.
 
-Remaining, one step:
-- [ ] Once `curl -o /dev/null -w '%{http_code}' https://curvely.heyitsmejosh.com` is 200,
-      update `ios/metadata/app-info/en-US.json` (privacyPolicyUrl) and
-      `ios/metadata/version/1.2.2/en-US.json` (supportUrl) from grapher to curvely.
-      Do NOT flip them before it returns 200 — a dead support URL is its own rejection cause.
+Done 2026-08-30: `curvely.heyitsmejosh.com` and its `/privacy.html` both return 200, so
+`ios/metadata/app-info/en-US.json` (privacyPolicyUrl) and
+`ios/metadata/version/1.2.2/en-US.json` (supportUrl) now point at curvely, not grapher.
+Not yet pushed to ASC — `asc metadata` push is the next submission's job.
 
 Correction: an earlier version of this file said this could not be done headlessly because
 there was no Cloudflare token and no wrangler. Both were wrong. wrangler runs via `npx`
