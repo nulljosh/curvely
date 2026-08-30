@@ -51,7 +51,9 @@ assets are bundled any more; `npm run build:ios` is gone.
   nothing that graphs on the web fails here.
 - `App/GraphView.swift` — SwiftUI Canvas: grid, axes, labels, curves, pen-up across asymptotes
 - `App/Store.swift` — equations persist to Application Support
-- `Checks/main.swift` — evaluate.test.js + colors.test.js as plain asserts
+- `App/PNG.swift` — CGImage to PNG via ImageIO, so the export has no UIKit/AppKit branch
+- `Checks/main.swift` — evaluate.test.js + colors.test.js as plain asserts, plus a real check
+  that the export produces decodable PNG bytes
 
 ```bash
 cd ios && xcodegen generate
@@ -64,7 +66,8 @@ xcodebuild build -scheme Grapher-iOS -destination 'platform=macOS' \
   -derivedDataPath /tmp/dd-curvely-mac -skipPackagePluginValidation -allowProvisioningUpdates
 
 # parser self-check, no framework needed
-swiftc -o /tmp/curvecheck ios/App/Expression.swift ios/App/Palette.swift ios/Checks/main.swift && /tmp/curvecheck
+swiftc -o /tmp/curvecheck ios/App/Expression.swift ios/App/Palette.swift ios/App/PNG.swift \
+  ios/Checks/main.swift && /tmp/curvecheck
 ```
 
 Native-only capabilities the web build cannot offer: equations persist across launches, and the

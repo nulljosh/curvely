@@ -1,4 +1,6 @@
+import CoreTransferable
 import SwiftUI
+import UniformTypeIdentifiers
 
 struct ContentView: View {
     @Environment(\.horizontalSizeClass) private var horizontalSizeClass
@@ -132,8 +134,8 @@ struct ContentView: View {
         renderer.scale = 2
         // cgImage, not uiImage: UIImage does not exist on macOS and NSImage does not exist
         // on iOS, so CoreGraphics is the one type both destinations share.
-        guard let cgImage = renderer.cgImage else { return }
-        exportedImage = ExportedGraph(image: Image(decorative: cgImage, scale: 2))
+        guard let cgImage = renderer.cgImage, let png = pngData(from: cgImage) else { return }
+        exportedImage = ExportedGraph(image: Image(decorative: cgImage, scale: 2), png: png)
     }
 
     private func restore() {
@@ -146,9 +148,19 @@ struct ContentView: View {
     }
 }
 
-struct ExportedGraph: Identifiable {
+struct ExportedGraph: Identifiable, Transferable {
     let id = UUID()
+    /// On-screen preview only.
     let image: Image
+    /// What actually gets shared. Sharing the `Image` instead would hand the receiver an
+    /// unnamed image and give us nothing testable; PNG bytes with a filename arrive as a
+    /// real file in Mail, Messages, Finder and every other share target.
+    let png: Data
+
+    static var transferRepresentation: some TransferRepresentation {
+        DataRepresentation(exportedContentType: .png) { $0.png }
+            .suggestedFileName("curvely-graph.png")
+    }
 }
 
 /// ponytail: replaced a `UIViewControllerRepresentable` over `UIActivityViewController`,
@@ -166,7 +178,7 @@ struct ExportSheet: View {
                 .frame(maxWidth: 600)
                 .clipShape(RoundedRectangle(cornerRadius: 8))
 
-            ShareLink(item: export.image, preview: SharePreview("Graph", image: export.image)) {
+            ShareLink(item: export, preview: SharePreview("Graph", image: export.image)) {
                 Label("Share graph", systemImage: "square.and.arrow.up")
             }
             .buttonStyle(.borderedProminent)

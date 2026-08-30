@@ -2,12 +2,15 @@
 // plus the parser cases the JS suite never needed because mathjs handled them.
 //
 // Run with no build system, no framework:
-//   swiftc -o /tmp/curvecheck ios/App/Expression.swift ios/App/Palette.swift ios/Checks/main.swift && /tmp/curvecheck
+//   swiftc -o /tmp/curvecheck ios/App/Expression.swift ios/App/Palette.swift \
+//     ios/App/PNG.swift ios/Checks/main.swift && /tmp/curvecheck
 //
 // Palette.swift imports SwiftUI, so this compiles for the host platform (macOS) — fine,
 // Color is only constructed, never rendered.
 
+import CoreGraphics
 import Foundation
+import ImageIO
 
 var checks = 0
 func check(_ condition: @autoclosure () -> Bool, _ label: String) {
@@ -121,5 +124,39 @@ check(Palette.hex(at: 8) == Palette.hex(at: 0), "palette wraps")
 check(Palette.hex(at: 9) == Palette.hex(at: 1), "palette wraps by modulo")
 check(Palette.hex(at: -1) == Palette.hex(at: 7), "negative indices wrap instead of trapping")
 check(Set(Palette.curveHex).count == 8, "colors are distinct")
+
+// MARK: - PNG export
+//
+// The export path is the one thing that changed when the iOS-only UIActivityViewController
+// was removed, so it gets a real check rather than a clean build and a hope.
+
+func makeTestImage(width: Int, height: Int) -> CGImage? {
+    let space = CGColorSpaceCreateDeviceRGB()
+    guard let ctx = CGContext(
+        data: nil as UnsafeMutableRawPointer?, width: width, height: height,
+        bitsPerComponent: 8, bytesPerRow: 0,
+        space: space, bitmapInfo: CGImageAlphaInfo.premultipliedLast.rawValue
+    ) else { return nil }
+    ctx.setFillColor(red: 0, green: 0.44, blue: 0.89, alpha: 1)
+    ctx.fill(CGRect(x: 0, y: 0, width: width, height: height))
+    return ctx.makeImage()
+}
+
+if let image = makeTestImage(width: 8, height: 4), let data = pngData(from: image) {
+    check(data.count > 0, "export produces bytes")
+    // The PNG magic number. Without this the check would pass on any non-empty Data,
+    // which is exactly the kind of test that fails to notice a broken encoder.
+    check(Array(data.prefix(8)) == [0x89, 0x50, 0x4E, 0x47, 0x0D, 0x0A, 0x1A, 0x0A],
+          "export is a real PNG, not just non-empty data")
+    // Round-trip it: the bytes have to be decodable back to the same dimensions.
+    if let source = CGImageSourceCreateWithData(data as CFData, nil),
+       let decoded = CGImageSourceCreateImageAtIndex(source, 0, nil) {
+        check(decoded.width == 8 && decoded.height == 4, "exported PNG round-trips at the right size")
+    } else {
+        check(false, "exported PNG could not be decoded back")
+    }
+} else {
+    check(false, "could not build a test image to export")
+}
 
 print("ok — \(checks) checks passed")

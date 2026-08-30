@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		10ED5084C4878F324C2DD049 /* Expression.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEEE028BDA5B5BFB0FA22153 /* Expression.swift */; };
+		13555941744209238AE2F8D5 /* PNG.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBD862E69EA2241DB146619E /* PNG.swift */; };
 		1B97E3DA499DF22514999A29 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1AADBB56C14E56A1BA678189 /* Assets.xcassets */; };
 		423ED4A3183D015BE1632B37 /* GrapherApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33BAF1566E5B65359A8E905E /* GrapherApp.swift */; };
 		476653002BAA07389E40B45F /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1582ADCBFF6E67489C16C613 /* Theme.swift */; };
@@ -31,6 +32,7 @@
 		AE1C63A1BCCEBBD832628DE5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		AEEE028BDA5B5BFB0FA22153 /* Expression.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Expression.swift; sourceTree = "<group>"; };
 		C1F29FE8F58495B83C60B6D7 /* Grapher-iOS.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = "Grapher-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		CBD862E69EA2241DB146619E /* PNG.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PNG.swift; sourceTree = "<group>"; };
 		FF61276498AC7273D2C00E08 /* EquationListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EquationListView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -55,6 +57,7 @@
 				0960079B53E2D11FDF65AEEF /* GraphView.swift */,
 				AE1C63A1BCCEBBD832628DE5 /* Info.plist */,
 				A6CC8C7CA5884B6BA3B46864 /* Palette.swift */,
+				CBD862E69EA2241DB146619E /* PNG.swift */,
 				16CC04F055DA6F14A6AB946D /* Store.swift */,
 				1582ADCBFF6E67489C16C613 /* Theme.swift */,
 			);
@@ -146,6 +149,7 @@
 				10ED5084C4878F324C2DD049 /* Expression.swift in Sources */,
 				BDE5EA8CB870B36594AA188F /* GraphView.swift in Sources */,
 				423ED4A3183D015BE1632B37 /* GrapherApp.swift in Sources */,
+				13555941744209238AE2F8D5 /* PNG.swift in Sources */,
 				50D2EF1116576A815C3AF5FE /* Palette.swift in Sources */,
 				B0744CE193139FF2780911A3 /* Store.swift in Sources */,
 				476653002BAA07389E40B45F /* Theme.swift in Sources */,
