@@ -17,7 +17,7 @@ struct ContentView: View {
         .preferredColorScheme(.dark)
         .onAppear(perform: restore)
         .sheet(item: $exportedImage) { export in
-            ShareSheet(items: [export.image])
+            ExportSheet(export: export)
         }
     }
 
@@ -130,8 +130,10 @@ struct ContentView: View {
             .frame(width: 1200, height: 900)
         let renderer = ImageRenderer(content: snapshot)
         renderer.scale = 2
-        guard let image = renderer.uiImage else { return }
-        exportedImage = ExportedGraph(image: image)
+        // cgImage, not uiImage: UIImage does not exist on macOS and NSImage does not exist
+        // on iOS, so CoreGraphics is the one type both destinations share.
+        guard let cgImage = renderer.cgImage else { return }
+        exportedImage = ExportedGraph(image: Image(decorative: cgImage, scale: 2))
     }
 
     private func restore() {
@@ -146,15 +148,32 @@ struct ContentView: View {
 
 struct ExportedGraph: Identifiable {
     let id = UUID()
-    let image: UIImage
+    let image: Image
 }
 
-struct ShareSheet: UIViewControllerRepresentable {
-    let items: [Any]
+/// ponytail: replaced a `UIViewControllerRepresentable` over `UIActivityViewController`,
+/// which is iOS-only. `ShareLink` is the native share affordance on both destinations and
+/// needs no representable at all.
+struct ExportSheet: View {
+    let export: ExportedGraph
+    @Environment(\.dismiss) private var dismiss
 
-    func makeUIViewController(context: Context) -> UIActivityViewController {
-        UIActivityViewController(activityItems: items, applicationActivities: nil)
+    var body: some View {
+        VStack(spacing: 20) {
+            export.image
+                .resizable()
+                .scaledToFit()
+                .frame(maxWidth: 600)
+                .clipShape(RoundedRectangle(cornerRadius: 8))
+
+            ShareLink(item: export.image, preview: SharePreview("Graph", image: export.image)) {
+                Label("Share graph", systemImage: "square.and.arrow.up")
+            }
+            .buttonStyle(.borderedProminent)
+
+            Button("Done") { dismiss() }
+        }
+        .padding(24)
+        .frame(minWidth: 360, minHeight: 320)
     }
-
-    func updateUIViewController(_ controller: UIActivityViewController, context: Context) {}
 }

@@ -92,7 +92,11 @@ struct EquationRowView: View {
                 TextField("y =", text: binding)
                     .textFieldStyle(.plain)
                     .autocorrectionDisabled()
+                    // textInputAutocapitalization is iOS-only; a Mac has no software
+                    // keyboard to autocapitalize, so there is nothing to do there.
+                    #if os(iOS)
                     .textInputAutocapitalization(.never)
+                    #endif
                     .foregroundStyle(Theme.text)
                     .accessibilityLabel("Equation")
 

@@ -3,6 +3,7 @@ options:
   bundleIdPrefix: com.nulljosh
   deploymentTarget:
     iOS: "17.0"
+    macOS: "14.0"
   xcodeVersion: "16.0"
 
 settings:
@@ -14,7 +15,9 @@ settings:
 targets:
   Grapher-iOS:
     type: application
-    platform: iOS
+    # One target, two destinations — same shape as charwork/wordroot. There are no
+    # platform-specific sources to exclude, so a second target would be pure duplication.
+    supportedDestinations: [iOS, macOS]
     sources:
       - path: App
     settings:
@@ -31,6 +34,9 @@ targets:
         # that combination for TestFlight with ITMS-90886. Hand-committed rather
         # than generated via xcodegen `entitlements.properties` (drops keys).
         CODE_SIGN_ENTITLEMENTS: Grapher.entitlements
+        # Per-SDK, not one shared file: the iOS file's `application-identifier` is not a
+        # valid macOS entitlement and makes Mac profile creation fail outright.
+        CODE_SIGN_ENTITLEMENTS[sdk=macosx*]: Grapher-macOS.entitlements
 
 schemes:
   Grapher-iOS:
