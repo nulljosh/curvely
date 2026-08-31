@@ -214,3 +214,5 @@ written and pushed with `asc metadata push` before submitting.
 
 - [ ] macOS 1.2.2 WAITING_FOR_REVIEW (submission 945a47f2-f62f-427d-8292-786427483e56)
 - [ ] Restored equations lose their colour when the saved colorIndex is outside the palette
+
+- Upload the refreshed App Store screenshots (`ios/screenshots/` in curvely, `screenshots/` in charwork) with the next version bump — the live listing still shows the pre-rebrand shots, and screenshots can only change on a new, editable version. 2026-08-31
