@@ -212,4 +212,6 @@ written and pushed with `asc metadata push` before submitting.
   - **Status: DRAFTED, NOT FILED.** Filing is Resolution Center, which is browser-only (`asc web review` is read-only). Blocked on Joshua. Reply order in the draft is Talli, Curvely, Doorstock; hold Sparkjar and NYC Survive.
   - Verified via API 2026-08-27: submission is UNRESOLVED_ISSUES with a single appStoreVersion item REJECTED — no phantom-IAP item, so the "mislabeled inAppPurchaseVersion" trap does not apply. `asc validate` and `asc review doctor` are otherwise clean, confirming this is a guideline call and not a readiness gap.
 
-- [ ] macOS 1.2.2: upload App Store screenshots (1280x800) and submit. Build + description + metadata are done; blocked because this machine denies Screen Recording to the terminal, so no window capture is possible headlessly. Grant Terminal/Claude Screen Recording in System Settings > Privacy & Security, then capture the app window and `asc review submit`.
+
+- [ ] macOS 1.2.2 WAITING_FOR_REVIEW (submission 945a47f2-f62f-427d-8292-786427483e56)
+- [ ] Restored equations lose their colour when the saved colorIndex is outside the palette
