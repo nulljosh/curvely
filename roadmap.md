@@ -18,28 +18,16 @@ there was no Cloudflare token and no wrangler. Both were wrong. wrangler runs vi
 name makes wrangler skip OAuth. wrangler 4.x has no `pages domain` command; use the REST
 API. The OAuth token can read zones but not write DNS records — use the DNS token for that.
 
-## Blocked on Joshua — the 4.3(a) domain split needs domains bought
+## Long-term: domain split (needs Joshua decision + purchase)
 
 All 19 App Store listings resolve to one apex, `heyitsmejosh.com`, which is the single
 biggest template-farm signal in the portfolio. Genuinely splitting them means buying
 per-app domains: money and a decision, not a code task. Same blocker shape as the
-jaybulb.com purchase.
+jaybulb.com purchase. Not a blocker for current work.
 
-## Blocked on Joshua — file the 4.3(a) appeal (needs a browser)
+## Approved 2026-08-30 — iOS 1.2.2 appeal approved, 4.3(a) reversal
 
-Resolution Center is web-only; `asc web review` is read-only, so there is no CLI path.
-Reply text is written and verified: `~/Documents/Code/notes/appeal-4-3-spam.md`. Paste it by hand at
-appstoreconnect.com. Order: Talli first (strongest — 3.5.7 through 3.5.12 were each
-approved, 3.5.13 is maintenance only), then Curvely, then Doorstock (answer 3.2's
-numbered questions literally as well).
-
-Do NOT resubmit any rejected build before the appeal gets a verdict.
-Do NOT open a second developer account — Apple's letter names multi-account submission
-as a spam factor.
-
-## Rejected 2026-08-27 — iOS 1.2.2 rejected (4.3a Spam), appeal DRAFTED not yet filed
-
-iOS 1.2.2 rejected 2026-08-26 under Guideline 4.3(a) Design: Spam. Apple flagged an account-level pattern — five apps submitted the same day (Sparkjar, NYC Survive, Talli, Curvely, Doorstock) all landed on the same violation. Live version iOS 1.2.1 unaffected. Do not attempt resubmit; appeal DRAFTED 2026-08-27 at ~/Documents/Code/notes/appeal-4-3-spam.md — NOT yet filed (Resolution Center is web-only, paste by hand). Monitor appeal verdict only.
+iOS 1.2.2 was rejected 2026-08-26 under Guideline 4.3(a) Design: Spam (account-level pattern, five apps submitted same day). Appeal filed 2026-08-28 and approved 2026-08-30, shipping the ViewThatFits iPad layout fix and PNG export feature that had been completed before rejection. This is the first approval reversal of the seven-app 4.3(a) wave (Sparkjar, Healstack, Lexly, Curvely, Talli, NYC Survive, Doorstock all filed appeals 2026-08-28). Precedent signals appeals work better than resubmit.
 
 ## LIVE 2026-08-25 — iOS 1.2.1 `READY_FOR_SALE`
 
