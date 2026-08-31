@@ -31,6 +31,27 @@ plotted equation is visually distinct.
 | Web | React (client-only, no backend) | Dark mode only, Apple Liquid Glass UI |
 | iOS | Native SwiftUI (xcodegen) | v1.2.0 in review. Replaced the original WKWebView shell in August 2026 — the shell needed a custom `app://` scheme because ES module `<script>` tags are blocked cross-origin under `file://`, and that whole workaround went away with the native rewrite |
 
+## Planned: Adaptive Sampling
+
+`Graph.jsx` samples each function once per device pixel across the visible
+width. That is a fixed cost regardless of what the curve is doing, and it is
+simultaneously too much work on a flat stretch and too little on a steep one:
+a feature narrower than one pixel (a spike, a root, the turn of a near-vertical
+branch) falls between samples and never gets drawn, and `isAsymptoteJump` can
+only guess at a discontinuity from the size of the gap between two samples it
+already took.
+
+The replacement is recursive adaptive subdivision. Sample coarsely (every 4-8
+px), then split an interval only while the midpoint sits far enough off the
+chord between its endpoints — the standard flatness test, capped at a
+subdivision depth so a pathological function terminates. Where a split keeps
+failing the test and the two sides diverge in sign, that is a pole rather than
+a curve, and the pen lifts on evidence instead of on a magnitude heuristic.
+
+Expected effect: fewer evaluations on smooth curves (most of a typical plot),
+more where they matter, and correct rendering of `tan(x)`, `1/x` and friends
+without the spurious vertical connectors the current jump heuristic misses.
+
 ## Security / Privacy
 
 No backend means no user data is ever transmitted or stored server-side —
