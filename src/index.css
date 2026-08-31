@@ -88,8 +88,8 @@ input:focus { outline: none; }
 }
 
 .zoom-btn:hover {
-  border-color: var(--accent);
-  color: var(--accent);
+  border-color: var(--link, var(--accent));
+  color: var(--link, var(--accent));
   transform: translateY(-1px) scale(1.04);
 }
 
