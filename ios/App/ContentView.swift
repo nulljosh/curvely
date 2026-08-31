@@ -115,6 +115,9 @@ struct ContentView: View {
                 .font(.footnote)
                 .foregroundStyle(Theme.text)
                 .frame(width: 28, height: 28)
+                // ponytail: .plain hit-tests the drawn glyph, so thin symbols like
+                // "minus" were only clickable on the bar itself.
+                .contentShape(Rectangle())
         }
         .buttonStyle(.plain)
         .accessibilityLabel(label)
