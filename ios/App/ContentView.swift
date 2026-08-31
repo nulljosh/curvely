@@ -72,9 +72,12 @@ struct ContentView: View {
 
     private var header: some View {
         HStack(spacing: 10) {
+            // ponytail: the Mac window titlebar already says Curvely; a second one is duplicate chrome.
+            #if !os(macOS)
             Text("Curvely")
                 .font(.headline)
                 .foregroundStyle(Theme.text)
+            #endif
 
             Spacer()
 
