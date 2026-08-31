@@ -4,6 +4,8 @@
 
 ![version](https://img.shields.io/badge/version-v1.2.2-blue) [![App Store](https://img.shields.io/badge/App%20Store-Download-0D96F6?logo=appstore&logoColor=white)](https://apps.apple.com/us/app/curvely/id6794988370)
 
+**Live:** https://curvely.heyitsmejosh.com
+
 Desmos-style graphing calculator. Multi-equation, zoom/pan, Apple Liquid Glass UI.
 Native SwiftUI on iPhone, iPad and Mac, plus the web app.
 
