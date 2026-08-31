@@ -18,6 +18,10 @@
   .updated { color: #7d7d86; font-size: 0.875rem; margin: 0 0 2rem; }
   a { color: #e8e8ea; }
 </style>
+  <link rel="manifest" href="/app/manifest.webmanifest">
+  <meta name="theme-color" content="#111111">
+  <link rel="apple-touch-icon" href="/app/icon-192.png">
+  <meta name="apple-mobile-web-app-capable" content="yes">
 </head>
 <body>
   <h1>Privacy Policy</h1>
@@ -50,5 +54,6 @@
 
   <h2>Contact</h2>
   <p>Questions: <a href="mailto:trommatic@icloud.com">trommatic@icloud.com</a></p>
+  <script>if('serviceWorker' in navigator)addEventListener('load',()=>navigator.serviceWorker.register('/app/sw.js'));</script>
 </body>
 </html>
