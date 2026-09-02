@@ -10,5 +10,7 @@ export const COLORS = [
 ];
 
 export function colorAt(index) {
-  return COLORS[index % COLORS.length];
+  const n = COLORS.length;
+  const i = Number.isInteger(index) ? index : 0;
+  return COLORS[((i % n) + n) % n];
 }

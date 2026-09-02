@@ -15,6 +15,8 @@ describe('colorAt', () => {
   it('wraps around at palette length', () => {
     expect(colorAt(COLORS.length)).toBe(COLORS[0]);
     expect(colorAt(COLORS.length + 1)).toBe(COLORS[1]);
+    expect(colorAt(-1)).toBe(COLORS[COLORS.length - 1]);
+    expect(colorAt(NaN)).toBe(COLORS[0]);
   });
 
   it('all colors are hex strings', () => {

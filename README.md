@@ -14,7 +14,7 @@ iPhone, iPad and Mac with Apple's Liquid Glass look, and the same thing on the w
 ## Roadmap
 
 - [ ] Pass over equation input: error states, edge-case parsing
-- [ ] Restored equations lose their colour (grey dot) when the saved colorIndex
+- [x] (2026-09-02: both palettes wrap, web now also handles negative/NaN) Restored equations lose their colour (grey dot) when the saved colorIndex
       falls outside the palette
 
 ## Whitepaper
