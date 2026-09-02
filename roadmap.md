@@ -222,6 +222,5 @@ written and pushed with `asc metadata push` before submitting.
   - Verified via API 2026-08-27: submission is UNRESOLVED_ISSUES with a single appStoreVersion item REJECTED, no phantom-IAP item, so the "mislabeled inAppPurchaseVersion" trap does not apply. `asc validate` and `asc review doctor` are otherwise clean, confirming this is a guideline call and not a readiness gap.
 
 - [ ] macOS 1.2.2 WAITING_FOR_REVIEW (submission 945a47f2-f62f-427d-8292-786427483e56)
-- [x] (2026-09-02: both palettes wrap, web now also handles negative/NaN) Restored equations lose their colour when the saved colorIndex is outside the palette
 
 - Upload the refreshed App Store screenshots (`ios/screenshots/` in curvely, `screenshots/` in charwork) with the next version bump, the live listing still shows the pre-rebrand shots, and screenshots can only change on a new, editable version. 2026-08-31
