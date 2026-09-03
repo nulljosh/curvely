@@ -93,7 +93,7 @@ private indirect enum Node {
     case call(String, Node)
 }
 
-private let functions: [String: (Double) -> Double] = [
+private nonisolated(unsafe) let functions: [String: (Double) -> Double] = [
     "sin": sin, "cos": cos, "tan": tan,
     "asin": asin, "acos": acos, "atan": atan,
     "sinh": sinh, "cosh": cosh, "tanh": tanh,

@@ -24,7 +24,7 @@ struct PresetCurve: Identifiable {
 /// Mirrors ios/App/Equation.swift's `quickExamples`, trimmed to the six that read well on a
 /// small screen at a fixed scale (drops `tan(x)` and `1/x`: both are dominated by asymptote
 /// blowups at this zoom level and read as a near-blank plot rather than a recognizable curve).
-let presetCurves: [PresetCurve] = [
+nonisolated(unsafe) let presetCurves: [PresetCurve] = [
     PresetCurve("x^2", colorIndex: 0),
     PresetCurve("sin(x)", colorIndex: 1),
     PresetCurve("cos(x)", colorIndex: 2),
