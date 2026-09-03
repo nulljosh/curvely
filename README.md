@@ -37,3 +37,7 @@ read-only, writes you can undo, and the few that ask a human first.
 ## Architecture
 
 <img src="architecture.svg" width="600">
+
+## License
+
+MIT 2026, Joshua Trommel
