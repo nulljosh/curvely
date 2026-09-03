@@ -1,5 +1,14 @@
 # Curvely Roadmap
 
+- [ ] Verify iPad layout visually on simulator -- 2026-09-02. Code review found no
+  structural iPad issue: `ContentView` already branches on `horizontalSizeClass`
+  (compact -> stacked, regular -> 320pt sidebar + graph `HStack`), and the one
+  `.frame(maxWidth: 600)` found nearby is inside `ExportSheet`, bounding the exported PNG
+  preview, not the main canvas. This machine's Xcode only has the iOS 26.5 SDK with the
+  iOS 26.2 runtime downloaded, so `xcodebuild` won't recognize any simulator destination
+  even by explicit UDID -- needs the matching platform component installed, then a
+  screenshot check (portrait + landscape).
+
 ## In flight, grapher -> curvely hostname rename
 
 Done 2026-08-27: Pages custom domain `curvely.heyitsmejosh.com` added to the `grapher`
