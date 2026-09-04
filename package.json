@@ -3,6 +3,7 @@
   "private": true,
   "version": "1.1.0",
   "description": "A graphing calculator that feels like it belongs on your phone, native SwiftUI on iPhone, iPad and Mac.",
+  "keywords": ["graphing-calculator", "swiftui", "ios", "macos"],
   "type": "module",
   "scripts": {
     "dev": "vite",
