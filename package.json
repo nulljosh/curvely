@@ -2,6 +2,7 @@
   "name": "curvely",
   "private": true,
   "version": "1.1.0",
+  "description": "A graphing calculator that feels like it belongs on your phone, native SwiftUI on iPhone, iPad and Mac.",
   "type": "module",
   "scripts": {
     "dev": "vite",
