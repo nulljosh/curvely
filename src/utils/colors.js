@@ -1,12 +1,13 @@
+// clrs.cc palette (teal/purple/fuchsia skipped, house rule)
 export const COLORS = [
-  '#0071e3',
-  '#ff453a',
-  '#30d158',
-  '#ffd60a',
-  '#a2845e',
-  '#ff9f0a',
-  '#8e8e93',
-  '#ff375f',
+  '#0074D9', // blue
+  '#FF4136', // red
+  '#2ECC40', // green
+  '#FFDC00', // yellow
+  '#FF851B', // orange
+  '#3D9970', // olive
+  '#AAAAAA', // gray
+  '#001f3f', // navy
 ];
 
 export function colorAt(index) {

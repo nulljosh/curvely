@@ -3,9 +3,10 @@
 import SwiftUI
 
 enum Palette {
+    // clrs.cc palette (teal/purple/fuchsia skipped, house rule)
     static let curveHex = [
-        "0071e3", "ff453a", "30d158", "ffd60a",
-        "a2845e", "ff9f0a", "8e8e93", "ff375f",
+        "0074D9", "FF4136", "2ECC40", "FFDC00",
+        "FF851B", "3D9970", "AAAAAA", "001f3f",
     ]
 
     static func hex(at index: Int) -> String {
