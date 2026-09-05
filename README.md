@@ -6,6 +6,8 @@
 
 **Live:** https://curvely.heyitsmejosh.com
 
+**Terminal:** `swift build && ./.build/debug/curvely-tui "x^2" -5 5` — see [tui/](tui/)
+
 A graphing calculator that feels like it belongs on your phone.
 
 Type an equation and watch it draw. Add another. Pinch, pan, zoom. Native SwiftUI on
