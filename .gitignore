@@ -11,3 +11,4 @@ signing/
 
 # wrangler pages dev scratch state
 .wrangler/
+.build/
