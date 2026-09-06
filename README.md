@@ -20,6 +20,12 @@ There's no equation input on the watch (no practical keyboard for `sin(x)` at 40
 backend to sync against — Curvely's math is fully client-side on every platform — so this
 is a standalone `WKWatchOnly` app, not a paired companion with a pairing/sync screen.
 
+## Screenshots
+
+<p>
+<img src="screenshots/mac/01-graph.png" alt="Curvely">
+</p>
+
 ## Roadmap
 
 - [ ] Pass over equation input: error states, edge-case parsing
