@@ -1,6 +1,6 @@
 # Curvely Technical Whitepaper
 
-**v1.2.0** | August 2026
+**v1.2.2** | August 2026
 
 Type an equation. Watch it draw.
 
