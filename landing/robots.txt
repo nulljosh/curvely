@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://curvely.heyitsmejosh.com/sitemap.xml
