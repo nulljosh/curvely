@@ -19,6 +19,7 @@ const INITIAL = [
 
 export default function App() {
   const [equations, setEquations] = useState(INITIAL);
+  const isEmbed = typeof window !== 'undefined' && /[?&]embed\b/.test(window.location.search);
 
   const handleChange = useCallback((id, expr) => {
     setEquations((prev) =>
@@ -62,8 +63,8 @@ export default function App() {
         alignItems: 'center',
         gap: 10,
       }}>
-        <img src="/icon.svg" width={24} height={24} alt="" style={{ borderRadius: 6 }} />
-        <span style={{ fontSize: 16, fontWeight: 600, letterSpacing: '-0.01em' }}>Curvely</span>
+        {!isEmbed && <img src="/icon.svg" width={24} height={24} alt="" style={{ borderRadius: 6 }} />}
+        {!isEmbed && <span style={{ fontSize: 16, fontWeight: 600, letterSpacing: '-0.01em' }}>Curvely</span>}
         <span className="nav-hint" style={{
           marginLeft: 'auto', fontSize: 11,
           color: 'var(--text-secondary)',
