@@ -8,8 +8,8 @@ import { useWebMCP } from './lib/webmcp.js';
 let nextId = 3;
 
 function makeEq(id, expr = '') {
-  const { fn, error } = evaluate(expr);
-  return { id, expr, fn, error, color: colorAt(id - 1) };
+  const { fn, implicitFn, error } = evaluate(expr);
+  return { id, expr, fn, implicitFn, error, color: colorAt(id - 1) };
 }
 
 const INITIAL = [

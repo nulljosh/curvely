@@ -15,14 +15,38 @@ export function parseSlider(expr) {
   return { name: m[1], value: Number(m[2]) };
 }
 
+// Any `=` not of the form `y = ...` is an implicit equation (x^2+y^2=1, x=3, ...):
+// solved as f(x,y)=lhs-rhs=0 by marching squares instead of walking y=f(x) per pixel.
+export function isImplicit(expr) {
+  const cleaned = expr.trim();
+  return cleaned.includes('=') && !/^y\s*=/i.test(cleaned) && !parseSlider(cleaned);
+}
+
 export function evaluate(expr) {
-  if (parseSlider(expr)) return { fn: null, error: null };
-  const cleaned = expr.replace(/^y\s*=\s*/i, '').trim();
-  if (!cleaned) return { fn: null, error: null };
+  if (parseSlider(expr)) return { fn: null, implicitFn: null, error: null };
+  const cleaned = expr.trim();
+  if (!cleaned) return { fn: null, implicitFn: null, error: null };
+
+  if (isImplicit(cleaned)) {
+    const idx = cleaned.indexOf('=');
+    const lhs = cleaned.slice(0, idx).trim();
+    const rhs = cleaned.slice(idx + 1).trim();
+    try {
+      const lc = parse(lhs).compile();
+      const rc = parse(rhs).compile();
+      const implicitFn = (x, y, sliders) =>
+        lc.evaluate({ x, y, ...sliders }) - rc.evaluate({ x, y, ...sliders });
+      return { fn: null, implicitFn, error: null };
+    } catch (e) {
+      return { fn: null, implicitFn: null, error: e.message };
+    }
+  }
+
+  const stripped = cleaned.replace(/^y\s*=\s*/i, '').trim();
   try {
-    const compiled = parse(cleaned).compile();
-    return { fn: (x, sliders) => compiled.evaluate({ x, ...sliders }), error: null };
+    const compiled = parse(stripped).compile();
+    return { fn: (x, sliders) => compiled.evaluate({ x, ...sliders }), implicitFn: null, error: null };
   } catch (e) {
-    return { fn: null, error: e.message };
+    return { fn: null, implicitFn: null, error: e.message };
   }
 }

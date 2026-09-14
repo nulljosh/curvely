@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest';
-import { evaluate, isAsymptoteJump, parseSlider } from './evaluate.js';
+import { evaluate, isAsymptoteJump, parseSlider, isImplicit } from './evaluate.js';
 
 describe('evaluate', () => {
   it('returns null fn for empty string', () => {
@@ -75,6 +75,49 @@ describe('parseSlider', () => {
   it('rejects a curve expression', () => {
     expect(parseSlider('x^2')).toBeNull();
     expect(parseSlider('a = x + 1')).toBeNull();
+  });
+});
+
+describe('isImplicit', () => {
+  it('flags a circle equation', () => {
+    expect(isImplicit('x^2 + y^2 = 1')).toBe(true);
+  });
+
+  it('flags a vertical line', () => {
+    expect(isImplicit('x = 3')).toBe(true);
+  });
+
+  it('does not flag an explicit y= curve', () => {
+    expect(isImplicit('y = x^2')).toBe(false);
+  });
+
+  it('does not flag a curve with no equals sign', () => {
+    expect(isImplicit('x^2')).toBe(false);
+  });
+
+  it('does not flag a slider', () => {
+    expect(isImplicit('a = 3')).toBe(false);
+  });
+});
+
+describe('evaluate implicit', () => {
+  it('solves a circle as lhs - rhs', () => {
+    const { implicitFn, fn, error } = evaluate('x^2 + y^2 = 1');
+    expect(error).toBeNull();
+    expect(fn).toBeNull();
+    expect(implicitFn(0, 1)).toBeCloseTo(0);
+    expect(implicitFn(0, 0)).toBeCloseTo(-1);
+  });
+
+  it('honors slider scope in an implicit equation', () => {
+    const { implicitFn } = evaluate('x^2 + y^2 = r');
+    expect(implicitFn(1, 0, { r: 1 })).toBeCloseTo(0);
+  });
+
+  it('reports a parse error on the implicit path', () => {
+    const { implicitFn, error } = evaluate('x^2 =!! y');
+    expect(implicitFn).toBeNull();
+    expect(typeof error).toBe('string');
   });
 });
 

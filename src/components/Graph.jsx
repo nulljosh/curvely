@@ -16,6 +16,42 @@ const MAX_SCALE = 400;
 const DEFAULT_SCALE = 60;
 const clampScale = (s) => Math.min(MAX_SCALE, Math.max(MIN_SCALE, s));
 
+// Marching squares over a coarse pixel grid: sample f(x,y) at each corner, linear-interpolate
+// the zero crossing on edges that change sign, connect them per cell. The 4-crossing "saddle"
+// case is ambiguous by nature; pairing them in encounter order is visually fine at this scale.
+const GRID_STEP = 5;
+function traceImplicit(fn, W, H, cx, cy, scale, sliders) {
+  const cols = Math.ceil(W / GRID_STEP) + 1;
+  const rows = Math.ceil(H / GRID_STEP) + 1;
+  const val = new Array(rows);
+  for (let r = 0; r < rows; r++) {
+    const y = (cy - r * GRID_STEP) / scale;
+    const row = new Array(cols);
+    for (let c = 0; c < cols; c++) {
+      const x = (c * GRID_STEP - cx) / scale;
+      try { row[c] = fn(x, y, sliders); } catch { row[c] = NaN; }
+    }
+    val[r] = row;
+  }
+  const lerp = (a, va, b, vb) => a + (b - a) * (va / (va - vb));
+  const segments = [];
+  for (let r = 0; r < rows - 1; r++) {
+    for (let c = 0; c < cols - 1; c++) {
+      const v00 = val[r][c], v10 = val[r][c + 1], v01 = val[r + 1][c], v11 = val[r + 1][c + 1];
+      if (![v00, v10, v01, v11].every(isFinite)) continue;
+      const x0 = c * GRID_STEP, x1 = x0 + GRID_STEP, y0 = r * GRID_STEP, y1 = y0 + GRID_STEP;
+      const pts = [];
+      if ((v00 < 0) !== (v10 < 0)) pts.push([lerp(x0, v00, x1, v10), y0]);
+      if ((v10 < 0) !== (v11 < 0)) pts.push([x1, lerp(y0, v10, y1, v11)]);
+      if ((v01 < 0) !== (v11 < 0)) pts.push([lerp(x0, v01, x1, v11), y1]);
+      if ((v00 < 0) !== (v01 < 0)) pts.push([x0, lerp(y0, v00, y1, v01)]);
+      if (pts.length === 2) segments.push(pts);
+      else if (pts.length === 4) { segments.push([pts[0], pts[1]]); segments.push([pts[2], pts[3]]); }
+    }
+  }
+  return segments;
+}
+
 export default function Graph({ equations, sliders }) {
   const canvasRef = useRef(null);
   const transform = useRef({ scale: DEFAULT_SCALE, ox: 0, oy: 0 });
@@ -75,26 +111,37 @@ export default function Graph({ equations, sliders }) {
     }
 
     // curves
-    equations.forEach(({ fn, color }) => {
-      if (!fn) return;
-      ctx.strokeStyle = color;
-      ctx.lineWidth = 2.2;
-      ctx.lineJoin = 'round';
-      ctx.beginPath();
-      let penDown = false;
-      let prevY = 0;
-      for (let px = 0; px < W; px++) {
-        const x = (px - cx) / scale;
-        let y;
-        try { y = fn(x, sliders); } catch { penDown = false; continue; }
-        if (!isFinite(y)) { penDown = false; continue; }
-        const py = cy - y * scale;
-        if (penDown && isAsymptoteJump(prevY, y, scale, H)) penDown = false;
-        if (!penDown) { ctx.moveTo(px, py); penDown = true; }
-        else ctx.lineTo(px, py);
-        prevY = y;
+    equations.forEach(({ fn, implicitFn, color }) => {
+      if (fn) {
+        ctx.strokeStyle = color;
+        ctx.lineWidth = 2.2;
+        ctx.lineJoin = 'round';
+        ctx.beginPath();
+        let penDown = false;
+        let prevY = 0;
+        for (let px = 0; px < W; px++) {
+          const x = (px - cx) / scale;
+          let y;
+          try { y = fn(x, sliders); } catch { penDown = false; continue; }
+          if (!isFinite(y)) { penDown = false; continue; }
+          const py = cy - y * scale;
+          if (penDown && isAsymptoteJump(prevY, y, scale, H)) penDown = false;
+          if (!penDown) { ctx.moveTo(px, py); penDown = true; }
+          else ctx.lineTo(px, py);
+          prevY = y;
+        }
+        ctx.stroke();
+      } else if (implicitFn) {
+        ctx.strokeStyle = color;
+        ctx.lineWidth = 2.2;
+        ctx.lineJoin = 'round';
+        ctx.beginPath();
+        for (const [[ax, ay], [bx, by]] of traceImplicit(implicitFn, W, H, cx, cy, scale, sliders)) {
+          ctx.moveTo(ax, ay);
+          ctx.lineTo(bx, by);
+        }
+        ctx.stroke();
       }
-      ctx.stroke();
     });
 
     // hover trace: filled dot + coordinate readout at the nearest curve point
