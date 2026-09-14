@@ -28,6 +28,54 @@ struct GraphTransform: Equatable {
     }
 }
 
+// Marching squares over a coarse pixel grid, ported from Graph.jsx's traceImplicit. Same
+// 4-crossing saddle-ambiguity tradeoff: pairing crossings in encounter order is visually fine
+// at this grid resolution.
+private let implicitGridStep: Double = 5
+
+private func traceImplicit(
+    _ fn: (Double, Double) -> Double, size: CGSize, center: CGPoint, scale: Double
+) -> [(CGPoint, CGPoint)] {
+    let cols = Int((size.width / implicitGridStep).rounded(.up)) + 1
+    let rows = Int((size.height / implicitGridStep).rounded(.up)) + 1
+    var values = [[Double]](repeating: [Double](repeating: .nan, count: cols), count: rows)
+    for r in 0..<rows {
+        let y = (center.y - Double(r) * implicitGridStep) / scale
+        for c in 0..<cols {
+            let x = (Double(c) * implicitGridStep - center.x) / scale
+            values[r][c] = fn(x, y)
+        }
+    }
+
+    func lerp(_ a: Double, _ va: Double, _ b: Double, _ vb: Double) -> Double {
+        a + (b - a) * (va / (va - vb))
+    }
+
+    var segments: [(CGPoint, CGPoint)] = []
+    for r in 0..<(rows - 1) {
+        for c in 0..<(cols - 1) {
+            let v00 = values[r][c], v10 = values[r][c + 1]
+            let v01 = values[r + 1][c], v11 = values[r + 1][c + 1]
+            guard v00.isFinite, v10.isFinite, v01.isFinite, v11.isFinite else { continue }
+
+            let x0 = Double(c) * implicitGridStep, x1 = x0 + implicitGridStep
+            let y0 = Double(r) * implicitGridStep, y1 = y0 + implicitGridStep
+            var pts: [CGPoint] = []
+            if (v00 < 0) != (v10 < 0) { pts.append(CGPoint(x: lerp(x0, v00, x1, v10), y: y0)) }
+            if (v10 < 0) != (v11 < 0) { pts.append(CGPoint(x: x1, y: lerp(y0, v10, y1, v11))) }
+            if (v01 < 0) != (v11 < 0) { pts.append(CGPoint(x: lerp(x0, v01, x1, v11), y: y1)) }
+            if (v00 < 0) != (v01 < 0) { pts.append(CGPoint(x: x0, y: lerp(y0, v00, y1, v01))) }
+
+            if pts.count == 2 { segments.append((pts[0], pts[1])) }
+            else if pts.count == 4 {
+                segments.append((pts[0], pts[1]))
+                segments.append((pts[2], pts[3]))
+            }
+        }
+    }
+    return segments
+}
+
 struct GraphView: View {
     let equations: [Equation]
     @Binding var transform: GraphTransform
@@ -119,32 +167,44 @@ struct GraphView: View {
 
     private func drawCurves(_ context: inout GraphicsContext, size: CGSize, center: CGPoint) {
         for equation in equations {
-            guard let fn = equation.compiled.function else { continue }
-            var path = Path()
-            var penDown = false
-            var previousY = 0.0
+            if let fn = equation.compiled.function {
+                var path = Path()
+                var penDown = false
+                var previousY = 0.0
 
-            var px = 0.0
-            while px < size.width {
-                let x = (px - center.x) / transform.scale
-                let y = fn(x)
-                guard y.isFinite else { penDown = false; px += 1; continue }
+                var px = 0.0
+                while px < size.width {
+                    let x = (px - center.x) / transform.scale
+                    let y = fn(x)
+                    guard y.isFinite else { penDown = false; px += 1; continue }
 
-                let point = CGPoint(x: px, y: center.y - y * transform.scale)
-                if penDown, isAsymptoteJump(previous: previousY, current: y,
-                                            scale: transform.scale, height: size.height) {
-                    penDown = false
+                    let point = CGPoint(x: px, y: center.y - y * transform.scale)
+                    if penDown, isAsymptoteJump(previous: previousY, current: y,
+                                                scale: transform.scale, height: size.height) {
+                        penDown = false
+                    }
+                    if penDown { path.addLine(to: point) } else { path.move(to: point); penDown = true }
+                    previousY = y
+                    px += 1
                 }
-                if penDown { path.addLine(to: point) } else { path.move(to: point); penDown = true }
-                previousY = y
-                px += 1
-            }
 
-            context.stroke(
-                path,
-                with: .color(equation.color),
-                style: StrokeStyle(lineWidth: 2.2, lineCap: .round, lineJoin: .round)
-            )
+                context.stroke(
+                    path,
+                    with: .color(equation.color),
+                    style: StrokeStyle(lineWidth: 2.2, lineCap: .round, lineJoin: .round)
+                )
+            } else if let implicitFn = equation.compiled.implicitFunction {
+                var path = Path()
+                for segment in traceImplicit(implicitFn, size: size, center: center, scale: transform.scale) {
+                    path.move(to: segment.0)
+                    path.addLine(to: segment.1)
+                }
+                context.stroke(
+                    path,
+                    with: .color(equation.color),
+                    style: StrokeStyle(lineWidth: 2.2, lineCap: .round, lineJoin: .round)
+                )
+            }
         }
     }
 

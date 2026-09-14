@@ -82,7 +82,7 @@ private func tokenize(_ input: String) throws -> [Token] {
 
 private indirect enum Node {
     case constant(Double)
-    case variable
+    case variable(Character) // 'x' or 'y' -- 'y' only appears on the implicit-equation path
     case unaryMinus(Node)
     case binary(Character, Node, Node)
     case call(String, Node)
@@ -190,7 +190,8 @@ private struct Parser {
 
         case .identifier(let name):
             position += 1
-            if name == "x" { return .variable }
+            if name == "x" { return .variable("x") }
+            if name == "y" { return .variable("y") }
             if let value = constants[name] { return .constant(value) }
             guard functions[name] != nil else {
                 throw ExpressionError.message("Unknown name: \(name)")
@@ -215,19 +216,19 @@ private struct Parser {
     }
 }
 
-private func evaluate(_ node: Node, x: Double) -> Double {
+private func evaluate(_ node: Node, x: Double, y: Double = .nan) -> Double {
     switch node {
     case .constant(let value):
         return value
-    case .variable:
-        return x
+    case .variable(let name):
+        return name == "x" ? x : y
     case .unaryMinus(let operand):
-        return -evaluate(operand, x: x)
+        return -evaluate(operand, x: x, y: y)
     case .call(let name, let argument):
-        return functions[name]?(evaluate(argument, x: x)) ?? .nan
+        return functions[name]?(evaluate(argument, x: x, y: y)) ?? .nan
     case .binary(let op, let lhs, let rhs):
-        let a = evaluate(lhs, x: x)
-        let b = evaluate(rhs, x: x)
+        let a = evaluate(lhs, x: x, y: y)
+        let b = evaluate(rhs, x: x, y: y)
         switch op {
         case "+": return a + b
         case "-": return a - b
@@ -244,28 +245,65 @@ private func evaluate(_ node: Node, x: Double) -> Double {
 struct CompiledExpression {
     /// nil when the input was empty — an empty row is not an error, it just draws nothing.
     let function: ((Double) -> Double)?
+    /// Set instead of `function` for an implicit equation (x^2+y^2=1, x=3, ...): f(x,y) = lhs-rhs,
+    /// traced by marching squares rather than walked per pixel. Mirrors src/utils/evaluate.js.
+    let implicitFunction: ((Double, Double) -> Double)?
     let error: String?
 }
 
+/// Any `=` not of the form `y = ...` is an implicit equation.
+func isImplicitEquation(_ raw: String) -> Bool {
+    let cleaned = raw.trimmingCharacters(in: .whitespaces)
+    guard cleaned.contains("=") else { return false }
+    return cleaned.range(of: #"^y\s*=\s*"#, options: [.regularExpression, .caseInsensitive]) == nil
+}
+
+private func compileSide(_ raw: String) throws -> Node {
+    var parser = Parser(tokens: try tokenize(raw))
+    return try parser.parse()
+}
+
 func compileExpression(_ raw: String) -> CompiledExpression {
+    let trimmed = raw.trimmingCharacters(in: .whitespaces)
+    guard !trimmed.isEmpty else {
+        return CompiledExpression(function: nil, implicitFunction: nil, error: nil)
+    }
+
+    if isImplicitEquation(trimmed) {
+        let parts = trimmed.split(separator: "=", maxSplits: 1).map {
+            $0.trimmingCharacters(in: .whitespaces)
+        }
+        do {
+            let lhs = try compileSide(parts[0])
+            let rhs = try compileSide(parts.count > 1 ? parts[1] : "")
+            let implicitFn: (Double, Double) -> Double = { x, y in
+                evaluate(lhs, x: x, y: y) - evaluate(rhs, x: x, y: y)
+            }
+            return CompiledExpression(function: nil, implicitFunction: implicitFn, error: nil)
+        } catch let error as ExpressionError {
+            return CompiledExpression(function: nil, implicitFunction: nil, error: error.text)
+        } catch {
+            return CompiledExpression(function: nil, implicitFunction: nil, error: "Could not read that expression")
+        }
+    }
+
     // Strip a leading `y =`, same as the web version's /^y\s*=\s*/i.
-    var cleaned = raw.trimmingCharacters(in: .whitespaces)
+    var cleaned = trimmed
     if let match = cleaned.range(of: #"^y\s*=\s*"#, options: [.regularExpression, .caseInsensitive]) {
         cleaned = String(cleaned[match.upperBound...])
     }
     cleaned = cleaned.trimmingCharacters(in: .whitespaces)
-
-    guard !cleaned.isEmpty else { return CompiledExpression(function: nil, error: nil) }
+    guard !cleaned.isEmpty else {
+        return CompiledExpression(function: nil, implicitFunction: nil, error: nil)
+    }
 
     do {
-        let tokens = try tokenize(cleaned)
-        var parser = Parser(tokens: tokens)
-        let tree = try parser.parse()
-        return CompiledExpression(function: { evaluate(tree, x: $0) }, error: nil)
+        let tree = try compileSide(cleaned)
+        return CompiledExpression(function: { evaluate(tree, x: $0) }, implicitFunction: nil, error: nil)
     } catch let error as ExpressionError {
-        return CompiledExpression(function: nil, error: error.text)
+        return CompiledExpression(function: nil, implicitFunction: nil, error: error.text)
     } catch {
-        return CompiledExpression(function: nil, error: "Could not read that expression")
+        return CompiledExpression(function: nil, implicitFunction: nil, error: "Could not read that expression")
     }
 }
 

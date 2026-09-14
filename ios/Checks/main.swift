@@ -61,6 +61,27 @@ let invalid = compileExpression("!!invalid")
 check(invalid.function == nil, "invalid expression has no function")
 check((invalid.error?.count ?? 0) > 0, "invalid expression reports a non-empty error")
 
+// MARK: - implicit equations
+
+check(isImplicitEquation("x^2 + y^2 = 1"), "circle equation is implicit")
+check(isImplicitEquation("x = 3"), "vertical line is implicit")
+check(!isImplicitEquation("y = x^2"), "y = prefix is not implicit")
+check(!isImplicitEquation("x^2"), "no equals sign is not implicit")
+
+let circle = compileExpression("x^2 + y^2 = 1")
+check(circle.error == nil, "circle equation compiles")
+check(circle.function == nil, "circle equation has no explicit function")
+guard let circleFn = circle.implicitFunction else {
+    FileHandle.standardError.write("FAIL: circle did not compile an implicit function\n".data(using: .utf8)!)
+    exit(1)
+}
+check(near(circleFn(0, 1), 0), "circle satisfied at (0,1)")
+check(near(circleFn(0, 0), -1), "circle residual at origin")
+
+let badImplicit = compileExpression("x^2 =!! y")
+check(badImplicit.implicitFunction == nil, "malformed implicit equation has no function")
+check((badImplicit.error?.count ?? 0) > 0, "malformed implicit equation reports an error")
+
 // MARK: - isAsymptoteJump
 
 let scale = 60.0, height = 700.0
