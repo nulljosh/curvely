@@ -1,7 +1,7 @@
-import { useState, useCallback } from 'react';
+import { useState, useCallback, useMemo } from 'react';
 import Graph from './components/Graph.jsx';
 import EquationList from './components/EquationList.jsx';
-import { evaluate } from './utils/evaluate.js';
+import { evaluate, parseSlider } from './utils/evaluate.js';
 import { colorAt } from './utils/colors.js';
 import { useWebMCP } from './lib/webmcp.js';
 
@@ -19,7 +19,24 @@ const INITIAL = [
 
 export default function App() {
   const [equations, setEquations] = useState(INITIAL);
+  const [sliderValues, setSliderValues] = useState({});
   const isEmbed = typeof window !== 'undefined' && /[?&]embed\b/.test(window.location.search);
+
+  // `a = 3` rows drive a slider instead of plotting a curve. Value defaults from
+  // the row's own number but a dragged value overrides it until the row is edited.
+  const sliders = useMemo(() => equations
+    .map((eq) => parseSlider(eq.expr))
+    .filter(Boolean)
+    .map((s) => ({ ...s, value: sliderValues[s.name] ?? s.value })), [equations, sliderValues]);
+
+  const sliderScope = useMemo(() =>
+    Object.fromEntries(sliders.map((s) => [s.name, s.value])), [sliders]);
+
+  const curves = useMemo(() => equations.filter((eq) => !parseSlider(eq.expr)), [equations]);
+
+  const handleSliderChange = useCallback((name, value) => {
+    setSliderValues((prev) => ({ ...prev, [name]: value }));
+  }, []);
 
   const handleChange = useCallback((id, expr) => {
     setEquations((prev) =>
@@ -74,15 +91,17 @@ export default function App() {
 
       <div className="main-layout">
         <div className="graph-pane">
-          <Graph equations={equations} />
+          <Graph equations={curves} sliders={sliderScope} />
         </div>
 
         <div className="sidebar-pane">
           <EquationList
             equations={equations}
+            sliders={sliders}
             onChange={handleChange}
             onRemove={handleRemove}
             onAdd={() => handleAdd()}
+            onSliderChange={handleSliderChange}
           />
 
           <div style={{

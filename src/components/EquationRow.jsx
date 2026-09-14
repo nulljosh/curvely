@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
-import { evaluate } from '../utils/evaluate.js';
+import { evaluate, parseSlider } from '../utils/evaluate.js';
 
-export default function EquationRow({ eq, onChange, onRemove, showRemove }) {
+export default function EquationRow({ eq, slider, onChange, onRemove, onSliderChange, showRemove }) {
   const [invalid, setInvalid] = useState(false);
   useEffect(() => {
     const t = setTimeout(() => {
@@ -14,6 +14,9 @@ export default function EquationRow({ eq, onChange, onRemove, showRemove }) {
     }, 500);
     return () => clearTimeout(t);
   }, [eq.expr]);
+
+  const sliderDef = parseSlider(eq.expr);
+  const sliderState = sliderDef && slider?.[sliderDef.name];
 
   return (
     <div style={{ marginBottom: 10 }}>
@@ -70,6 +73,23 @@ export default function EquationRow({ eq, onChange, onRemove, showRemove }) {
       )}
       {invalid && !eq.error && (
         <span style={{ fontSize: '0.7rem', color: '#e55', marginTop: 2, marginLeft: 20, display: 'block' }}>invalid expression</span>
+      )}
+      {sliderState != null && (
+        <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginTop: 6, marginLeft: 20 }}>
+          <input
+            type="range"
+            min={Math.min(-10, sliderState.value - 5)}
+            max={Math.max(10, sliderState.value + 5)}
+            step={0.1}
+            value={sliderState.value}
+            onChange={(e) => onSliderChange(sliderDef.name, Number(e.target.value))}
+            style={{ flex: 1, accentColor: eq.color }}
+          />
+          <span style={{
+            fontSize: 12, color: 'var(--text-secondary)', minWidth: 40, textAlign: 'right',
+            fontFamily: '-apple-system, BlinkMacSystemFont, "Helvetica Neue", Helvetica, sans-serif',
+          }}>{sliderState.value.toFixed(1)}</span>
+        </div>
       )}
     </div>
   );

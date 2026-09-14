@@ -1,6 +1,7 @@
 import EquationRow from './EquationRow.jsx';
 
-export default function EquationList({ equations, onChange, onRemove, onAdd }) {
+export default function EquationList({ equations, sliders, onChange, onRemove, onAdd, onSliderChange }) {
+  const sliderByName = Object.fromEntries((sliders || []).map((s) => [s.name, s]));
   return (
     <div className="eq-list-container" style={{
       background: 'var(--bg)',
@@ -20,8 +21,10 @@ export default function EquationList({ equations, onChange, onRemove, onAdd }) {
         <EquationRow
           key={eq.id}
           eq={eq}
+          slider={sliderByName}
           onChange={onChange}
           onRemove={onRemove}
+          onSliderChange={onSliderChange}
           showRemove={equations.length > 1}
         />
       ))}

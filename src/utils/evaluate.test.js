@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest';
-import { evaluate, isAsymptoteJump } from './evaluate.js';
+import { evaluate, isAsymptoteJump, parseSlider } from './evaluate.js';
 
 describe('evaluate', () => {
   it('returns null fn for empty string', () => {
@@ -49,6 +49,32 @@ describe('evaluate', () => {
     const { fn, error } = evaluate('   ');
     expect(fn).toBeNull();
     expect(error).toBeNull();
+  });
+
+  it('resolves a slider variable passed as scope', () => {
+    const { fn, error } = evaluate('a*x');
+    expect(error).toBeNull();
+    expect(fn(3, { a: 2 })).toBe(6);
+  });
+});
+
+describe('parseSlider', () => {
+  it('recognizes a plain assignment as a slider', () => {
+    expect(parseSlider('a = 3')).toEqual({ name: 'a', value: 3 });
+  });
+
+  it('recognizes a negative decimal value', () => {
+    expect(parseSlider('k=-1.5')).toEqual({ name: 'k', value: -1.5 });
+  });
+
+  it('rejects y= and x= since those are reserved', () => {
+    expect(parseSlider('y = 3')).toBeNull();
+    expect(parseSlider('x = 3')).toBeNull();
+  });
+
+  it('rejects a curve expression', () => {
+    expect(parseSlider('x^2')).toBeNull();
+    expect(parseSlider('a = x + 1')).toBeNull();
   });
 });
 

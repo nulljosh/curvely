@@ -16,13 +16,14 @@ const MAX_SCALE = 400;
 const DEFAULT_SCALE = 60;
 const clampScale = (s) => Math.min(MAX_SCALE, Math.max(MIN_SCALE, s));
 
-export default function Graph({ equations }) {
+export default function Graph({ equations, sliders }) {
   const canvasRef = useRef(null);
   const transform = useRef({ scale: DEFAULT_SCALE, ox: 0, oy: 0 });
   const drag = useRef(null);
   const pinch = useRef(null);
   const lastTap = useRef(0);
   const [zoomPct, setZoomPct] = useState(100);
+  const [trace, setTrace] = useState(null); // { px, py, x, y, color }
 
   const draw = useCallback(() => {
     const canvas = canvasRef.current;
@@ -85,7 +86,7 @@ export default function Graph({ equations }) {
       for (let px = 0; px < W; px++) {
         const x = (px - cx) / scale;
         let y;
-        try { y = fn(x); } catch { penDown = false; continue; }
+        try { y = fn(x, sliders); } catch { penDown = false; continue; }
         if (!isFinite(y)) { penDown = false; continue; }
         const py = cy - y * scale;
         if (penDown && isAsymptoteJump(prevY, y, scale, H)) penDown = false;
@@ -95,7 +96,29 @@ export default function Graph({ equations }) {
       }
       ctx.stroke();
     });
-  }, [equations]);
+
+    // hover trace: filled dot + coordinate readout at the nearest curve point
+    if (trace) {
+      ctx.fillStyle = trace.color;
+      ctx.beginPath();
+      ctx.arc(trace.px, trace.py, 4.5, 0, Math.PI * 2);
+      ctx.fill();
+      ctx.strokeStyle = colors.bg;
+      ctx.lineWidth = 1.5;
+      ctx.stroke();
+
+      const label = `(${trace.x.toFixed(2)}, ${trace.y.toFixed(2)})`;
+      ctx.font = '12px -apple-system, BlinkMacSystemFont, "Helvetica Neue", Helvetica, system-ui, sans-serif';
+      const tw = ctx.measureText(label).width;
+      const lx = Math.min(Math.max(trace.px + 10, 4), W - tw - 12);
+      const ly = trace.py > 24 ? trace.py - 12 : trace.py + 22;
+      ctx.fillStyle = colors.bg;
+      ctx.fillRect(lx - 4, ly - 13, tw + 8, 18);
+      ctx.fillStyle = trace.color;
+      ctx.textAlign = 'left';
+      ctx.fillText(label, lx, ly);
+    }
+  }, [equations, sliders, trace]);
 
   // resize observer
   useEffect(() => {
@@ -173,13 +196,39 @@ export default function Graph({ equations }) {
   const onMouseDown = useCallback((e) => {
     drag.current = { x: e.clientX, y: e.clientY, ox: transform.current.ox, oy: transform.current.oy };
   }, []);
+  // find the closest curve point to a screen pixel, within a small snap radius
+  const findTrace = useCallback((px, py) => {
+    const canvas = canvasRef.current;
+    if (!canvas) return null;
+    const { scale, ox, oy } = transform.current;
+    const cx = canvas.offsetWidth / 2 + ox;
+    const cy = canvas.offsetHeight / 2 + oy;
+    const x = (px - cx) / scale;
+    let best = null;
+    for (const eq of equations) {
+      if (!eq.fn) continue;
+      let y;
+      try { y = eq.fn(x, sliders); } catch { continue; }
+      if (!isFinite(y)) continue;
+      const ppy = cy - y * scale;
+      const d = Math.abs(ppy - py);
+      if (d < 20 && (!best || d < best.d)) best = { d, px, py: ppy, x, y, color: eq.color };
+    }
+    return best;
+  }, [equations, sliders]);
+
   const onMouseMove = useCallback((e) => {
-    if (!drag.current) return;
-    transform.current.ox = drag.current.ox + (e.clientX - drag.current.x);
-    transform.current.oy = drag.current.oy + (e.clientY - drag.current.y);
-    draw();
-  }, [draw]);
+    if (drag.current) {
+      transform.current.ox = drag.current.ox + (e.clientX - drag.current.x);
+      transform.current.oy = drag.current.oy + (e.clientY - drag.current.y);
+      draw();
+      return;
+    }
+    const rect = e.currentTarget.getBoundingClientRect();
+    setTrace(findTrace(e.clientX - rect.left, e.clientY - rect.top));
+  }, [draw, findTrace]);
   const onMouseUp = useCallback(() => { drag.current = null; }, []);
+  const onMouseLeave = useCallback(() => { drag.current = null; setTrace(null); }, []);
 
   // touch: single-finger pan, two-finger pinch zoom
   const dist = (a, b) => Math.hypot(a.clientX - b.clientX, a.clientY - b.clientY);
@@ -228,7 +277,7 @@ export default function Graph({ equations }) {
         onMouseDown={onMouseDown}
         onMouseMove={onMouseMove}
         onMouseUp={onMouseUp}
-        onMouseLeave={onMouseUp}
+        onMouseLeave={onMouseLeave}
         onDoubleClick={resetView}
         onTouchStart={onTouchStart}
         onTouchMove={onTouchMove}
