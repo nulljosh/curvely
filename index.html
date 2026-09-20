@@ -44,5 +44,24 @@ cursor:pointer;box-shadow:0 1px 3px rgba(0,0,0,.12)}
   });
 })();
 </script>
+<script src="/onboarding.js"></script>
+<script>
+    // First-run onboarding. Signed-out newcomers only, once per browser.
+    Onboarding.start({
+        key: "curvely",
+        finishLabel: "Get started",
+        slides: [
+                { title: "Type an equation",
+                  body: "Curvely draws it the moment you finish typing. Several at once, all on one grid.",
+                  art: "<svg width=\"120\" height=\"120\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M4 20V4M4 20h16\"/><path d=\"M4 17c5 0 6-11 15-11\"/></svg>" },
+                { title: "Drag a slider",
+                  body: "Put a letter in your equation and pull the value around to see the shape respond.",
+                  art: "<svg width=\"120\" height=\"120\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M13 2 4 14h7l-1 8 9-12h-7z\"/></svg>" },
+                { title: "Read the curve",
+                  body: "Hover for exact points, intersections and roots instead of squinting at pixels.",
+                  art: "<svg width=\"120\" height=\"120\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M11 19a8 8 0 1 0 0-16 8 8 0 0 0 0 16zM21 21l-4.3-4.3\"/></svg>" }
+        ]
+    });
+</script>
 </body>
 </html>
