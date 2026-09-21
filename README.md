@@ -21,6 +21,8 @@ There's no equation input on the watch (no practical keyboard for `sin(x)` at 40
 backend to sync against — Curvely's math is fully client-side on every platform — so this
 is a standalone `WKWatchOnly` app, not a paired companion with a pairing/sync screen.
 
+<img src="progress.svg" width="460">
+
 ## Screenshots
 
 <p>
