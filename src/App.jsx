@@ -20,6 +20,7 @@ const INITIAL = [
 export default function App() {
   const [equations, setEquations] = useState(INITIAL);
   const [sliderValues, setSliderValues] = useState({});
+  const [panelCollapsed, setPanelCollapsed] = useState(false);
 
   // `a = 3` rows drive a slider instead of plotting a curve. Value defaults from
   // the row's own number but a dragged value overrides it until the row is edited.
@@ -75,7 +76,13 @@ export default function App() {
           <Graph equations={curves} sliders={sliderScope} />
         </div>
 
-        <div className="sidebar-pane">
+        <div className={`sidebar-pane${panelCollapsed ? ' collapsed' : ''}`}>
+          <button
+            className="panel-handle"
+            aria-label={panelCollapsed ? 'Show equations' : 'Hide equations'}
+            aria-expanded={!panelCollapsed}
+            onClick={() => setPanelCollapsed((c) => !c)}
+          >{panelCollapsed ? '\u25B4' : '\u25BE'}</button>
           <EquationList
             equations={equations}
             sliders={sliders}

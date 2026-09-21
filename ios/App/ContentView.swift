@@ -8,6 +8,7 @@ struct ContentView: View {
     @State private var equations: [Equation] = defaultEquations
     @State private var transform = GraphTransform()
     @State private var exportedImage: ExportedGraph?
+    @State private var panelCollapsed = false
 
     var body: some View {
         content
@@ -41,7 +42,13 @@ struct ContentView: View {
             .ignoresSafeArea()
             .overlay(alignment: compact ? .bottom : .trailing) {
                 if compact {
-                    sidebar.containerRelativeFrame(.vertical) { height, _ in height * 0.34 }
+                    // Collapsible, so the whole plot is reachable on a phone.
+                    VStack(spacing: 0) {
+                        panelHandle
+                        if !panelCollapsed {
+                            sidebar.containerRelativeFrame(.vertical) { height, _ in height * 0.34 }
+                        }
+                    }
                 } else {
                     sidebar.frame(width: 320)
                 }
@@ -54,6 +61,21 @@ struct ContentView: View {
                 .padding(16)
         }
         .background(.ultraThinMaterial)
+    }
+
+    private var panelHandle: some View {
+        Button {
+            withAnimation(.snappy) { panelCollapsed.toggle() }
+        } label: {
+            Image(systemName: panelCollapsed ? "chevron.up" : "chevron.down")
+                .font(.footnote.weight(.semibold))
+                .foregroundStyle(Theme.secondary)
+                .frame(maxWidth: .infinity, minHeight: 32)
+                .contentShape(Rectangle())
+        }
+        .buttonStyle(.plain)
+        .background(.ultraThinMaterial)
+        .accessibilityLabel(panelCollapsed ? "Show equations" : "Hide equations")
     }
 
     // ponytail: no title bar and no zoom buttons. The graph says what app this is, and

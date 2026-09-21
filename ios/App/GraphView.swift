@@ -82,6 +82,10 @@ struct GraphView: View {
 
     @State private var panStart: CGSize?
     @State private var pinchStart: Double?
+    #if os(macOS)
+    @State private var hoverPoint: CGPoint?
+    @State private var scrollMonitor: Any?
+    #endif
 
     var body: some View {
         GeometryReader { geometry in
@@ -97,8 +101,35 @@ struct GraphView: View {
             .gesture(panGesture(in: geometry.size))
             .gesture(pinchGesture(in: geometry.size))
             .onTapGesture(count: 2) { transform = GraphTransform() }
+            #if os(macOS)
+            .onContinuousHover { phase in
+                if case .active(let point) = phase { hoverPoint = point } else { hoverPoint = nil }
+            }
+            .onAppear { installScrollZoom(in: geometry.size) }
+            .onChange(of: geometry.size) { _, size in installScrollZoom(in: size) }
+            .onDisappear(perform: removeScrollZoom)
+            #endif
         }
     }
+
+    #if os(macOS)
+    // ponytail: SwiftUI has no scroll-wheel modifier, and a plain mouse cannot pinch, so
+    // the wheel zooms about the cursor like the web app. Only while hovering the plot,
+    // so the equation list still scrolls normally.
+    private func installScrollZoom(in size: CGSize) {
+        removeScrollZoom()
+        scrollMonitor = NSEvent.addLocalMonitorForEvents(matching: .scrollWheel) { event in
+            guard let anchor = hoverPoint, event.scrollingDeltaY != 0 else { return event }
+            transform.zoom(by: exp(event.scrollingDeltaY * 0.01), about: anchor, in: size)
+            return nil
+        }
+    }
+
+    private func removeScrollZoom() {
+        if let scrollMonitor { NSEvent.removeMonitor(scrollMonitor) }
+        scrollMonitor = nil
+    }
+    #endif
 
     // MARK: - Drawing
 

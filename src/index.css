@@ -55,9 +55,25 @@ input:focus { outline: none; }
   overflow-y: auto;
 }
 
+/* Phones only: the panel covers the bottom of the plot, so it collapses to its handle. */
+.panel-handle { display: none; }
+
 @media (max-width: 640px) {
   /* ponytail: drawer height in one place so the graph pane's calc can't drift */
   .main-layout { --drawer-h: 34dvh; }
+
+  .panel-handle {
+    display: block;
+    width: 100%;
+    margin: -10px 0 6px;
+    background: none;
+    border: none;
+    color: var(--text-secondary);
+    font-size: 16px;
+    cursor: pointer;
+  }
+
+  .sidebar-pane.collapsed { height: 44px; overflow: hidden; }
 
   .sidebar-pane {
     top: auto;

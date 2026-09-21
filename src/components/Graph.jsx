@@ -218,6 +218,20 @@ export default function Graph({ equations, sliders }) {
     draw();
   }, [draw]);
 
+  // + and - zoom about the middle, 0 resets. Skipped while typing an equation.
+  useEffect(() => {
+    const onKey = (e) => {
+      if (e.metaKey || e.ctrlKey || e.altKey || /^(INPUT|TEXTAREA)$/.test(e.target.tagName)) return;
+      const canvas = canvasRef.current;
+      if (!canvas) return;
+      if (e.key === '+' || e.key === '=') zoomAbout(1.3, canvas.offsetWidth / 2, canvas.offsetHeight / 2);
+      else if (e.key === '-') zoomAbout(1 / 1.3, canvas.offsetWidth / 2, canvas.offsetHeight / 2);
+      else if (e.key === '0') resetView();
+    };
+    window.addEventListener('keydown', onKey);
+    return () => window.removeEventListener('keydown', onKey);
+  }, [zoomAbout, resetView]);
+
   // scroll zoom about cursor
   const onWheel = useCallback((e) => {
     e.preventDefault();
