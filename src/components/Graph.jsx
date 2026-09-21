@@ -58,7 +58,6 @@ export default function Graph({ equations, sliders }) {
   const drag = useRef(null);
   const pinch = useRef(null);
   const lastTap = useRef(0);
-  const [zoomPct, setZoomPct] = useState(100);
   const [trace, setTrace] = useState(null); // { px, py, x, y, color }
 
   const draw = useCallback(() => {
@@ -197,10 +196,6 @@ export default function Graph({ equations, sliders }) {
     return () => mq.removeEventListener('change', draw);
   }, [draw]);
 
-  const syncReadout = useCallback(() => {
-    setZoomPct(Math.round(transform.current.scale / DEFAULT_SCALE * 100));
-  }, []);
-
   // zoom keeping the graph point under (px,py) fixed on screen
   const zoomAbout = useCallback((factor, px, py) => {
     const t = transform.current;
@@ -216,20 +211,12 @@ export default function Graph({ equations, sliders }) {
     t.oy = py - H / 2 - (py - cy) * ratio;
     t.scale = newScale;
     draw();
-    syncReadout();
-  }, [draw, syncReadout]);
-
-  const zoomBy = useCallback((factor) => {
-    const canvas = canvasRef.current;
-    if (!canvas) return;
-    zoomAbout(factor, canvas.offsetWidth / 2, canvas.offsetHeight / 2);
-  }, [zoomAbout]);
+  }, [draw]);
 
   const resetView = useCallback(() => {
     transform.current = { scale: DEFAULT_SCALE, ox: 0, oy: 0 };
     draw();
-    syncReadout();
-  }, [draw, syncReadout]);
+  }, [draw]);
 
   // scroll zoom about cursor
   const onWheel = useCallback((e) => {
@@ -330,12 +317,6 @@ export default function Graph({ equations, sliders }) {
         onTouchMove={onTouchMove}
         onTouchEnd={onTouchEnd}
       />
-      <div className="zoom-cluster">
-        <span className="zoom-readout">{zoomPct}%</span>
-        <button className="zoom-btn" aria-label="Zoom in" onClick={() => zoomBy(1.3)}>+</button>
-        <button className="zoom-btn" aria-label="Zoom out" onClick={() => zoomBy(1 / 1.3)}>&minus;</button>
-        <button className="zoom-btn zoom-reset" aria-label="Reset view" onClick={resetView}>&#x2302;</button>
-      </div>
     </div>
   );
 }

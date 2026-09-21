@@ -41,66 +41,6 @@ input:focus { outline: none; }
   flex: 1;
 }
 
-.zoom-cluster {
-  position: absolute;
-  bottom: 16px;
-  right: 16px;
-  display: flex;
-  flex-direction: column;
-  align-items: stretch;
-  gap: 4px;
-  padding: 6px;
-  background: color-mix(in srgb, var(--bg2) 78%, transparent);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  border: 1px solid var(--border);
-  border-radius: 14px;
-  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.18);
-  z-index: 5;
-}
-
-.zoom-readout {
-  text-align: center;
-  font-size: 11px;
-  font-weight: 600;
-  letter-spacing: 0.02em;
-  color: var(--text-secondary);
-  font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Helvetica, sans-serif;
-  padding: 2px 0 4px;
-  user-select: none;
-}
-
-.zoom-btn {
-  width: 44px;
-  height: 44px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: var(--bg);
-  border: 1px solid var(--border);
-  border-radius: 10px;
-  color: var(--text);
-  font-size: 22px;
-  line-height: 1;
-  cursor: pointer;
-  transition: transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1),
-              border-color 0.15s, color 0.15s;
-}
-
-.zoom-btn:hover {
-  border-color: var(--link, var(--accent));
-  color: var(--link, var(--accent));
-  transform: translateY(-1px) scale(1.04);
-}
-
-.zoom-btn:active {
-  transform: translateY(0) scale(0.96);
-}
-
-.zoom-reset {
-  font-size: 18px;
-}
-
 .sidebar-pane {
   width: 300px;
   padding: 16px;
@@ -114,7 +54,6 @@ input:focus { outline: none; }
   /* ponytail: drawer height in one place so the graph pane's calc can't drift */
   .main-layout { --drawer-h: 45dvh; }
 
-  .nav-hint { display: none; }
 
   .main-layout {
     flex-direction: column;

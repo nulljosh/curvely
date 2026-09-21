@@ -20,7 +20,6 @@ const INITIAL = [
 export default function App() {
   const [equations, setEquations] = useState(INITIAL);
   const [sliderValues, setSliderValues] = useState({});
-  const isEmbed = typeof window !== 'undefined' && /[?&]embed\b/.test(window.location.search);
 
   // `a = 3` rows drive a slider instead of plotting a curve. Value defaults from
   // the row's own number but a dragged value overrides it until the row is edited.
@@ -71,24 +70,6 @@ export default function App() {
       color: 'var(--text)',
       overflow: 'hidden',
     }}>
-      <div style={{
-        padding: '14px 20px 12px',
-        borderBottom: '1px solid var(--border)',
-        background: 'var(--bg)',
-        zIndex: 10,
-        display: 'flex',
-        alignItems: 'center',
-        gap: 10,
-      }}>
-        {!isEmbed && <img src="/icon.svg" width={24} height={24} alt="" style={{ borderRadius: 6 }} />}
-        {!isEmbed && <span style={{ fontSize: 16, fontWeight: 600, letterSpacing: '-0.01em' }}>Curvely</span>}
-        <span className="nav-hint" style={{
-          marginLeft: 'auto', fontSize: 11,
-          color: 'var(--text-secondary)',
-          fontFamily: '-apple-system, BlinkMacSystemFont, "Helvetica Neue", Helvetica, sans-serif',
-        }}>pinch or +/- to zoom · drag to pan</span>
-      </div>
-
       <div className="main-layout">
         <div className="graph-pane">
           <Graph equations={curves} sliders={sliderScope} />

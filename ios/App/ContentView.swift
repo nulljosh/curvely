@@ -10,17 +10,14 @@ struct ContentView: View {
     @State private var exportedImage: ExportedGraph?
 
     var body: some View {
-        VStack(spacing: 0) {
-            header
-            Divider().overlay(Theme.border)
-            content
-        }
-        .background(Theme.graphBackground)
-        .preferredColorScheme(.dark)
-        .onAppear(perform: restore)
-        .sheet(item: $exportedImage) { export in
-            ExportSheet(export: export)
-        }
+        content
+            .overlay(alignment: .topTrailing) { exportButton }
+            .background(Theme.graphBackground)
+            .preferredColorScheme(.dark)
+            .onAppear(perform: restore)
+            .sheet(item: $exportedImage) { export in
+                ExportSheet(export: export)
+            }
     }
 
     // MARK: - Layout
@@ -37,29 +34,18 @@ struct ContentView: View {
     /// graph. The size class is the actual signal for "is this a phone", so ask it directly.
     @ViewBuilder
     private var content: some View {
-        if horizontalSizeClass == .compact {
-            // The graph is the point of the app, so it takes the screen and the
-            // equation list gets a proportional slice of what is left. A fixed
-            // 300pt sidebar cap left the plot cramped on shorter iPhones.
-            VStack(spacing: 0) {
-                graph
-                    .frame(maxWidth: .infinity, maxHeight: .infinity)
-                    .layoutPriority(1)
-                Divider().overlay(Theme.border)
-                sidebar.containerRelativeFrame(.vertical) { height, _ in height * 0.34 }
-            }
-        } else {
-            HStack(spacing: 0) {
-                graph.frame(maxWidth: .infinity, maxHeight: .infinity)
-                Divider().overlay(Theme.border)
-                sidebar.frame(width: 320)
-            }
-        }
-    }
-
-    private var graph: some View {
+        // The graph is the whole screen, edge to edge; the equation list floats over it
+        // as glass instead of taking a slice of the layout away from the plot.
+        let compact = horizontalSizeClass == .compact
         GraphView(equations: equations, transform: $transform)
-            .overlay(alignment: .bottomTrailing) { zoomCluster }
+            .ignoresSafeArea()
+            .overlay(alignment: compact ? .bottom : .trailing) {
+                if compact {
+                    sidebar.containerRelativeFrame(.vertical) { height, _ in height * 0.34 }
+                } else {
+                    sidebar.frame(width: 320)
+                }
+            }
     }
 
     private var sidebar: some View {
@@ -67,69 +53,26 @@ struct ContentView: View {
             EquationListView(equations: $equations, onChange: persist)
                 .padding(16)
         }
-        .background(Theme.graphBackground)
+        .background(.ultraThinMaterial)
     }
 
-    private var header: some View {
-        HStack(spacing: 10) {
-            // ponytail: the Mac window titlebar already says Curvely; a second one is duplicate chrome.
-            #if !os(macOS)
-            Text("Curvely")
-                .font(.headline)
+    // ponytail: no title bar and no zoom buttons. The graph says what app this is, and
+    // pinch, drag and double-tap-to-reset already live in GraphView.
+    private var exportButton: some View {
+        Button(action: exportGraph) {
+            Image(systemName: "square.and.arrow.up")
                 .foregroundStyle(Theme.text)
-            #endif
-
-            Spacer()
-
-            Button(action: exportGraph) {
-                Image(systemName: "square.and.arrow.up")
-                    .foregroundStyle(Theme.text)
-            }
-            .buttonStyle(.plain)
-            .accessibilityLabel("Export graph as an image")
-        }
-        .padding(.horizontal, 20)
-        .padding(.vertical, 12)
-    }
-
-    private var zoomCluster: some View {
-        VStack(spacing: 8) {
-            Text("\(transform.zoomPercent)%")
-                .font(.caption2.monospacedDigit())
-                .foregroundStyle(Theme.secondary)
-
-            zoomButton("plus", label: "Zoom in") { zoom(by: 1.3) }
-            zoomButton("minus", label: "Zoom out") { zoom(by: 1 / 1.3) }
-            zoomButton("house", label: "Reset view") { transform = GraphTransform() }
-        }
-        .padding(10)
-        .background(Theme.panel.opacity(0.9))
-        .overlay(RoundedRectangle(cornerRadius: 12).strokeBorder(Theme.border, lineWidth: 1))
-        .clipShape(RoundedRectangle(cornerRadius: 12))
-        .padding(16)
-    }
-
-    private func zoomButton(_ symbol: String, label: String, action: @escaping () -> Void) -> some View {
-        Button(action: action) {
-            Image(systemName: symbol)
-                .font(.footnote)
-                .foregroundStyle(Theme.text)
-                .frame(width: 28, height: 28)
-                // ponytail: .plain hit-tests the drawn glyph, so thin symbols like
-                // "minus" were only clickable on the bar itself.
-                .contentShape(Rectangle())
+                .frame(width: 36, height: 36)
+                .background(.ultraThinMaterial, in: Circle())
+                .contentShape(Circle())
         }
         .buttonStyle(.plain)
-        .accessibilityLabel(label)
+        .accessibilityLabel("Export graph as an image")
+        .padding(.horizontal, 16)
+        .padding(.vertical, 8)
     }
 
     // MARK: - Actions
-
-    private func zoom(by factor: Double) {
-        // Buttons zoom about the middle of the plot, matching the web app's zoomBy().
-        let size = CGSize(width: 1, height: 1)
-        transform.zoom(by: factor, about: CGPoint(x: 0.5, y: 0.5), in: size)
-    }
 
     /// ponytail: ImageRenderer over the same GraphView — one source of truth for what a
     /// curve looks like, rather than a second drawing path just for export.
