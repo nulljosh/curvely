@@ -109,8 +109,6 @@ Done 2026-08-03:
 
 Loose end:
 
-## From Apple Notes (imported 2026-08-04)
-
 ## App Store submission freeze, LIFTED 2026-08-18
 Freeze lifted 2026-08-18 (Guideline 5.6 suspension expired). Submitted that day and now
 WAITING_FOR_REVIEW: Curvely iOS 1.2.0, Wiretext iOS 1.1.0, Wordroot iOS 1.0, Healstack iOS 2.3.4.
