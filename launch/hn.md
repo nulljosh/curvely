@@ -1,3 +1,3 @@
-Show HN: Curvely – implicit equations via marching squares, client-side
+Show HN: Curvely: implicit equations via marching squares, client-side
 
 Most simple graphers only handle y = f(x) and choke on something like x^2 + y^2 = 25. Curvely traces those with marching squares: it samples the equation across a coarse pixel grid, checks each grid cell for a sign change, linearly interpolates where the curve crosses each edge, and connects the crossing points into line segments. The same algorithm runs in JavaScript on the web build and in Swift on iOS and Mac, so a circle, a hyperbola or a Cassini oval draws the same way on every platform. Everything runs on the device, nothing is sent to a server for evaluation. It's $0.99 on the App Store and free on the web at curvely.heyitsmejosh.com. Source is on GitHub.
