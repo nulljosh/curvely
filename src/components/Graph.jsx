@@ -171,10 +171,10 @@ export default function Graph({ equations, sliders }) {
     const canvas = canvasRef.current;
     if (!canvas) return;
     const sync = () => {
+      // ponytail: CSS keeps the canvas at 100% of its pane. Pinning px sizes here froze
+      // it at its first layout, so it never grew when the pane did.
       canvas.width = canvas.offsetWidth * devicePixelRatio;
       canvas.height = canvas.offsetHeight * devicePixelRatio;
-      canvas.style.width = canvas.offsetWidth + 'px';
-      canvas.style.height = canvas.offsetHeight + 'px';
       const ctx = canvas.getContext('2d');
       ctx.setTransform(devicePixelRatio, 0, 0, devicePixelRatio, 0, 0);
       draw();
