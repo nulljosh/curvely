@@ -9,8 +9,8 @@ options:
 settings:
   base:
     SWIFT_VERSION: "5.9"
-    MARKETING_VERSION: "1.2.2"
-    CURRENT_PROJECT_VERSION: "202608302215"
+    MARKETING_VERSION: "1.2.4"
+    CURRENT_PROJECT_VERSION: "202609202015"
 
 targets:
   Grapher-iOS:

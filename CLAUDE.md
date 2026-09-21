@@ -1,6 +1,6 @@
 # Curvely
 
-v1.1.0, Desmos-style graphing calculator. Web + iOS + macOS, with a small stateless HTTP API.
+v1.2.4, Desmos-style graphing calculator. Web + iOS + macOS, with a small stateless HTTP API.
 
 ## Run
 
