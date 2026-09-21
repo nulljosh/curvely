@@ -28,10 +28,10 @@ struct ContentView: View {
     ///
     /// This branches on the size class rather than `ViewThatFits`. `ViewThatFits` measures
     /// each branch at its *ideal* size, and `graph` is a `GeometryReader`, which has no
-    /// intrinsic width — it reports SwiftUI's 10pt default against an unspecified proposal.
+    /// intrinsic width, it reports SwiftUI's 10pt default against an unspecified proposal.
     /// That made the side-by-side branch measure ~331pt (10 + divider + 320 sidebar), which
     /// "fits" every iPhone from the 375pt SE up, so iPhones took the HStack and the plot was
-    /// left with whatever the 320pt sidebar didn't eat — about 69pt. That is the squashed
+    /// left with whatever the 320pt sidebar didn't eat, about 69pt. That is the squashed
     /// graph. The size class is the actual signal for "is this a phone", so ask it directly.
     @ViewBuilder
     private var content: some View {
@@ -96,7 +96,7 @@ struct ContentView: View {
 
     // MARK: - Actions
 
-    /// ponytail: ImageRenderer over the same GraphView — one source of truth for what a
+    /// ponytail: ImageRenderer over the same GraphView, one source of truth for what a
     /// curve looks like, rather than a second drawing path just for export.
     private func exportGraph() {
         let snapshot = GraphView(equations: equations, transform: .constant(transform))
