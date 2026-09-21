@@ -1,6 +1,6 @@
 # Architecture
 
-Curvely is a Desmos-style graphing calculator. Plot implicit and explicit equations, use sliders to parameterize curves, export as PNG. Deployed as a web app (React on Cloudflare Pages), native apps (iOS, macOS, watchOS), Kotlin Multiplatform (Android, desktop), and a CLI (Swift one-liner). The network API uses an AST allowlist around mathjs to safely evaluate untrusted expressions.
+Curvely is a Desmos-style graphing calculator. Plot implicit and explicit equations, use sliders to parameterize curves, export as PNG. Deployed as a web app (React on Cloudflare Pages), native apps (iOS, macOS, watchOS), Kotlin Multiplatform (Android, desktop), and a CLI (Swift one-liner). When an equation arrives over the network, Curvely breaks it apart and checks every piece against a list of things that are allowed before it will work anything out, so a stranger cannot slip in code that does something else.
 
 ## How it runs
 
