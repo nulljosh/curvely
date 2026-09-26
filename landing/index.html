@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Curvely — a graphing calculator that stays out of the way</title>
+<title>Curvely, a graphing calculator that stays out of the way</title>
 <meta property="og:image" content="https://curvely.heyitsmejosh.com/og.png">
 <meta property="og:url" content="https://curvely.heyitsmejosh.com/">
 <meta name="twitter:card" content="summary_large_image">
@@ -11,36 +11,20 @@
 <link rel="canonical" href="https://curvely.heyitsmejosh.com/">
 <meta name="apple-itunes-app" content="app-id=6794988370">
 <meta name="description" content="Plot several equations at once, pan and zoom the plane, and read values straight off the curve. Free in the browser, native on iOS and macOS.">
-<meta name="theme-color" content="#5B9BD5">
-<meta property="og:title" content="Curvely — a graphing calculator that stays out of the way">
+<meta name="theme-color" content="#f5f0e4">
+<meta property="og:title" content="Curvely, a graphing calculator that stays out of the way">
 <meta property="og:description" content="Plot several equations at once, pan and zoom the plane, and read values straight off the curve.">
 <meta property="og:type" content="website">
 <link rel="icon" href="icon.svg">
+<link rel="stylesheet" href="https://heyitsmejosh.com/tokens.css">
 <style>
 :root {
-  --accent: #5B9BD5;
-  --link: #427099;
-  --accent-soft: #eaf2fa;
-  --bg: #ffffff;
-  --bg2: #f7f7f8;
-  --text: #1c1d22;
-  --text2: #5c5f6a;
-  --border: #e6e7ea;
+  --link: var(--clay-deep);
+  --accent-soft: color-mix(in srgb, var(--clay) 8%, var(--bg));
   --font-body: 'DM Sans', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
 }
-@media (prefers-color-scheme: dark) {
-  :root:not([data-theme="light"]) {
-    --bg: #111111;
-    --link: #5B9BD5; --bg2: #1a1a1a; --text: #e8e8f0;
-    --text2: rgba(232,232,240,0.60); --border: rgba(232,232,240,0.10);
-    --accent-soft: #1b2530;
-  }
-}
-:root[data-theme="dark"] {
-  --bg: #111111; --bg2: #1a1a1a; --text: #e8e8f0;
-  --text2: rgba(232,232,240,0.60); --border: rgba(232,232,240,0.10);
-  --accent-soft: #1b2530;
-}
+:root[data-theme="dark"] { --link: var(--clay); }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) { --link: var(--clay); } }
 * { box-sizing: border-box; }
 body { margin: 0; background: var(--bg); color: var(--text); font-family: var(--font-body); line-height: 1.6; -webkit-font-smoothing: antialiased; }
 .container { max-width: 62rem; margin: 0 auto; padding: 0 1.5rem; }
@@ -140,7 +124,7 @@ function fit(){i.style.transform='scale('+(i.parentNode.clientWidth/i.offsetWidt
     <div class="grid">
       <div class="feature"><h3>Several equations at once</h3><p>Stack as many expressions as you like and give each its own colour, so relationships between curves are obvious.</p></div>
       <div class="feature"><h3>Pan and zoom</h3><p>Drag the plane, pinch or scroll to zoom, double tap to reset. The axes and gridlines relabel themselves as you go.</p></div>
-      <div class="feature"><h3>Native on iOS and macOS</h3><p>A real SwiftUI app on Apple platforms, not a wrapped web page — built from the same maths as the web version.</p></div>
+      <div class="feature"><h3>Native on iOS and macOS</h3><p>A real SwiftUI app on Apple platforms, not a wrapped web page, built from the same maths as the web version.</p></div>
       <div class="feature"><h3>Runs in the browser</h3><p>Nothing to install and no account to make. Open the page and start plotting.</p></div>
       <div class="feature"><h3>Readable in the dark</h3><p>Light and dark themes that follow your system, with contrast tuned for long sessions.</p></div>
       <div class="feature"><h3>Free and open source</h3><p>No ads, no purchases, no tracking. The source is on GitHub.</p></div>
@@ -150,7 +134,7 @@ function fit(){i.style.transform='scale('+(i.parentNode.clientWidth/i.offsetWidt
 <section class="closing">
   <div class="container">
     <h2>Plot something</h2>
-    <p>The web version runs straight in the browser — nothing to download.</p>
+    <p>The web version runs straight in the browser, nothing to download.</p>
     <div class="buttons"><a href="/app" class="btn btn-primary">Open Curvely</a></div>
   </div>
 </section>
