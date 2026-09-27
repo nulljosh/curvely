@@ -90,6 +90,8 @@ struct ContentView: View {
         }
         .buttonStyle(.plain)
         .accessibilityLabel("Export graph as an image")
+        // Clear the 320pt sidebar on iPad and Mac, or it lands on row one's remove button.
+        .padding(.trailing, horizontalSizeClass == .compact ? 0 : 320)
         .padding(.horizontal, 16)
         .padding(.vertical, 8)
     }

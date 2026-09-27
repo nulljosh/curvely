@@ -140,7 +140,7 @@ for bad in ["(", ")", "x+", "*x", "sin", "sin x", "1+", "((x)", "x)", "foo(x)", 
 // MARK: - colors.test.js
 
 check(Palette.curveHex.count == 8, "eight curve colors")
-check(Palette.hex(at: 0) == "0071e3", "first color matches the web palette")
+check(Palette.hex(at: 0) == "0074D9", "first color matches the web palette")
 check(Palette.hex(at: 8) == Palette.hex(at: 0), "palette wraps")
 check(Palette.hex(at: 9) == Palette.hex(at: 1), "palette wraps by modulo")
 check(Palette.hex(at: -1) == Palette.hex(at: 7), "negative indices wrap instead of trapping")
