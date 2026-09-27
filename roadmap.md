@@ -6,7 +6,7 @@ equation panel. 1.2.5 work is on main: collapsible panel, Mac scroll-wheel zoom,
 
 - [ ] Recapture App Store screenshots (iPhone, iPad, Mac). Every live shot still shows the old
   header and zoom buttons. Upload with 1.2.5, screenshots only change on an editable version.
-- [ ] Ship 1.2.5 once 1.2.4 clears review: `asc workflow run ship-ios VERSION:1.2.5`. The
+- [x] Ship 1.2.5 once 1.2.4 clears review: `asc workflow run ship-ios VERSION:1.2.5`. The
   publish step is now `scripts/asc-submit.sh`. macOS is a raw xcodebuild archive + export
   with an automatic-signing plist, then `scripts/asc-submit.sh <app> <version> MAC_OS`.
 - [ ] Support URL on the listing still says grapher.heyitsmejosh.com; move it to curvely.
