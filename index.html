@@ -25,7 +25,7 @@
     <script>if('serviceWorker' in navigator)addEventListener('load',()=>navigator.serviceWorker.register('/app/sw.js'));</script>
 <script src="/onboarding.js"></script>
 <script>
-    // First-run onboarding. Signed-out newcomers only, once per browser.
+    // First-run onboarding. Shows once, right after registration.
     Onboarding.start({
         key: "curvely",
         finishLabel: "Get started",
