@@ -13,7 +13,10 @@ while [ $i -lt 40 ]; do
   BUILD=$(asc builds list --app "$APP" --limit 10 --output json 2>/dev/null | head -1 | python3 -c "
 import sys, json
 print(next((b['id'] for b in json.load(sys.stdin)['data']
-  if b['attributes']['version'] == '$BUILD_NUMBER' and b['attributes']['processingState'] == 'VALID'), ''))")
+  if b['attributes']['version'] == '$BUILD_NUMBER' and b['attributes']['processingState'] == 'VALID'
+  and (b['attributes'].get('lsMinimumSystemVersion') is not None) == ('$PLATFORM' == 'MAC_OS')), ''))")
+# builds carry no platform field; only Mac builds set lsMinimumSystemVersion, and iOS + Mac
+# share a build number, so without this the iOS submit grabs the Mac pkg.
   [ -n "$BUILD" ] && break
   i=$((i + 1)); sleep 30
 done
