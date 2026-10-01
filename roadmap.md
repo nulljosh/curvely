@@ -46,3 +46,6 @@ jaybulb.com purchase. Not a blocker for current work.
 
 ## TUI pilot (2026-09-05)
 - `curvely-tui` SwiftPM target (SwiftTUI). `swift build && ./.build/debug/curvely-tui "x^2" -5 5` fetches /api/sample and renders a text sparkline. mathjs stays server-side, not ported. Needs a real TTY.
+
+## Ingested 2026-10-01
+- [ ] App Store screenshots are stale, refresh them.
