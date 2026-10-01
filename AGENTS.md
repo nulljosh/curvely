@@ -1,1 +1,1 @@
-/Users/joshua/Documents/Code/curvely/CLAUDE.md
+CLAUDE.md
