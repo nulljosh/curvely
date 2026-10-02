@@ -13,7 +13,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "rm -rf dist && vite build && cp -r landing/. dist/",
+    "build": "rm -rf dist && vite build && cp -r landing/. dist/ && node -e \"const f='dist/index.html',fs=require('fs');fs.writeFileSync(f,fs.readFileSync(f,'utf8').replace('{{VERSION}}',require('./package.json').version))\"",
     "preview": "vite preview",
     "test": "vitest run"
   },
