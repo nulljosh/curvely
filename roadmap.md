@@ -49,3 +49,6 @@ jaybulb.com purchase. Not a blocker for current work.
 
 ## Ingested 2026-10-01
 - [ ] App Store screenshots are stale, refresh them.
+
+## Ingested 2026-10-05
+- [ ] QA
