@@ -1,5 +1,5 @@
 {
-  "source": "https://heyitsmejosh.com/tokens.css",
+  "source": "https://jaybulb.com/tokens.css",
   "colors": {
     "background": "#111111",
     "bg2": "#1a1a1a",
@@ -15,5 +15,5 @@
     "fontFamily": "ui-monospace, 'SF Mono', Monaco, 'Cascadia Code', monospace",
     "uiFontFamily": "'DM Sans', -apple-system, BlinkMacSystemFont, system-ui, sans-serif"
   },
-  "note": "App is dark-mode only (data-theme=\"dark\" set in index.html); synced from heyitsmejosh.com/tokens.css 2026-06-29"
+  "note": "App is dark-mode only (data-theme=\"dark\" set in index.html); synced from jaybulb.com/tokens.css 2026-06-29"
 }
