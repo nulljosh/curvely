@@ -7,4 +7,4 @@ Wanted a grapher that felt instant and didn't need a backend. Curvely plots on r
 
 The harder problem was implicit equations, things like x^2 + y^2 = 25 that don't reduce to y = f(x). Solved it with marching squares: sample the equation across a coarse grid, check each cell for a sign change, linearly interpolate the crossing point on each edge, connect the crossings into segments. It runs client-side with mathjs doing the expression evaluation.
 
-There's also a stateless HTTP API and an MCP endpoint if you want to evaluate or sample equations from code. Free on the web at curvely.heyitsmejosh.com, source on GitHub. Feedback on the rendering approach welcome.
+There's also a stateless HTTP API and an MCP endpoint if you want to evaluate or sample equations from code. Free on the web at curvely.jaybulb.com, source on GitHub. Feedback on the rendering approach welcome.
