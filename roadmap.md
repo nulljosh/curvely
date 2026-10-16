@@ -55,4 +55,3 @@ jaybulb.com purchase. Not a blocker for current work.
 
 ## Ingested 2026-10-16
 - [ ] Stale App Store screenshots (live 1.2.5 listing shows a blank icon in the preview). (screenshot: notes/attachments/2026-10-16/app-store-screenshots-1.png)
-- [ ] Stale App Store screenshots (live 1.2.5 listing shows a blank icon in the preview). (screenshot: notes/attachments/2026-10-16/app-store-screenshots-1.png)
