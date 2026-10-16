@@ -5,7 +5,7 @@
 ![version](https://img.shields.io/badge/version-v1.2.4-blue) [![App Store](https://img.shields.io/badge/App%20Store-Download-0D96F6?logo=appstore&logoColor=white)](https://apps.apple.com/us/app/curvely/id6794988370)
 ![license](https://img.shields.io/badge/license-MIT-green) [![GitHub](https://img.shields.io/badge/GitHub-nulljosh%2Fcurvely-black?logo=github)](https://github.com/nulljosh/curvely)
 
-**Live:** https://curvely.heyitsmejosh.com
+**Live:** https://curvely.jaybulb.com
 
 **Terminal:** `swift build && ./.build/debug/curvely-tui "x^2" -5 5` — see [tui/](tui/)
 
