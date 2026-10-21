@@ -1,6 +1,6 @@
 <img src="icon.svg" width="80">
 
-![version](https://img.shields.io/badge/version-v2.0.0-blue) [![tests](https://github.com/nulljosh/curvely/actions/workflows/test.yml/badge.svg)](https://github.com/nulljosh/curvely/actions/workflows/test.yml) ![license](https://img.shields.io/badge/license-MIT-green) [![App Store](https://img.shields.io/badge/App%20Store-Download-0D96F6?logo=appstore&logoColor=white)](https://apps.apple.com/us/app/curvely/id6794988370)
+![version](https://img.shields.io/badge/version-v2.0.0-blue) [![tests](https://github.com/nulljosh/curvely/actions/workflows/test.yml/badge.svg)](https://github.com/nulljosh/curvely/actions/workflows/test.yml) ![license](https://img.shields.io/badge/license-Apache%202.0-blue) [![App Store](https://img.shields.io/badge/App%20Store-Download-0D96F6?logo=appstore&logoColor=white)](https://apps.apple.com/us/app/curvely/id6794988370)
 
 **Live:** https://curvely.jaybulb.com
 
@@ -39,8 +39,8 @@ An agent can drive this app. [`docs/API.md`](docs/API.md) lists the HTTP API and
 
 ## More
 
-[Whitepaper](WHITEPAPER.md) · [Roadmap](roadmap.md) · [Changelog](CHANGELOG.md) · [Security](SECURITY.md)
+[Whitepaper](WHITEPAPER.md) · [Roadmap](roadmap.md) · [Changelog](CHANGELOG.md) · [Security](SECURITY.md) · [Privacy](PRIVACY.md)
 
 <img src="architecture.svg" width="600">
 
-MIT 2026, Joshua Trommel
+Apache 2.0, 2026 Joshua Trommel. See [LICENSE](LICENSE) and [NOTICE](NOTICE).

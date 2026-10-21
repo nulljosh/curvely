@@ -13,7 +13,7 @@ Pricing: $0.99 on the App Store. Free on web.
 Links
 Web: https://curvely.jaybulb.com
 App Store: https://apps.apple.com/app/id6794988370
-GitHub: https://github.com/nulljosh/labs/tree/main/curvely
+GitHub: https://github.com/nulljosh/curvely
 
 ## First comment
 

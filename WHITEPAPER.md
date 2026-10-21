@@ -68,4 +68,4 @@ every equation and graph exists only in the client's memory for that session.
 
 ## License
 
-MIT 2026, Joshua Trommel
+Apache 2.0, 2026 Joshua Trommel

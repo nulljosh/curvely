@@ -2,7 +2,7 @@
    Usage, at page load:
 
      Onboarding.start({
-       key: 'sparkjar',                 // localStorage namespace, one per app
+       key: 'curvely',                  // localStorage namespace, one per app
        signedIn: isLoggedIn(),          // omit to auto-detect a stored session
        slides: [{ title, body, art }],  // art is an inline SVG string, optional
        onDone: () => {}                 // optional, fires on finish (not skip)
