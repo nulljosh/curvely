@@ -24,10 +24,10 @@ One major per batch, same rule as above: all three platforms, tests, live check,
 Each item lands on web, iOS and Mac together. Submit 2.0.0 once all are in and 1.2.6 has cleared review.
 
 ## State 2026-10-21
-2.0.0 is in App Review on iOS and Mac (1.2.6 was pulled and folded in). The web is live with v3 to v5 and the patterns; native 3.0.0 ships once 2.0.0 clears. Light mode follows the system setting on all three. The landing hero is now the live app (pushed to main 2026-10-21, deploy pending).
+2.0.0 is in App Review on iOS and Mac (1.2.6 was pulled and folded in). The web is live with v3 to v5 and the patterns; native 3.0.0 ships once 2.0.0 clears. Light mode follows the system setting on all three. The landing hero is now the live app, deployed 2026-10-21.
 
 ## Rename to Tangent (after 2.0.0 clears review)
-- [ ] Rename Curvely to Tangent. Joshua said "you decide" on 2026-10-21 and the pick is Tangent over Tilde. Probe the App Store name first, then do the full rename: folder, GitHub repo, tangent.jaybulb.com and the store listing. Not before 2.0.0 clears App Review.
+- [ ] Rename Curvely to Tangent in the store. Joshua said "you decide" on 2026-10-21 and the pick is Tangent over Tilde. Repo, folder and tangent.jaybulb.com are done 2026-10-21; the App Store name waits on 2.0.0 clearing App Review, then the name probe and listing. Several Tangent apps exist and one is a math calculator, so probe first.
 
 ## In flight, grapher -> curvely hostname rename
 

@@ -8,18 +8,18 @@ Joshua's `/loop` for Curvely. It works down `roadmap.md` one major version at a 
 
 - 2.0.0 is in App Review on iOS and Mac. It replaces 1.2.6, which was pulled and folded in. It has light mode, points, parametric and polar curves, inequality shading, key points, tap a dot to hide a curve, and native sliders.
 - 3.0 is built and committed on all three surfaces: v3 functions, v4 lists and ranges, v5 slider bounds and a play button, and 85 one-tap patterns in 11 categories. The web is live. Native 3.0.0 waits for 2.0.0 to clear.
-- The repo is nulljosh/tangent, public, Apache 2.0, checked out at `~/Documents/Code/curvely`. Labs no longer tracks it. CI is green on web tests, Swift checks and docs.
-- The landing hero is the live app in a frame above a blue title strip, with the Apollo art in its own band above the footer. It is pushed to main but not deployed yet; the deploy waits for Joshua's go.
+- The repo is nulljosh/tangent, public, Apache 2.0, checked out at `~/Documents/Code/tangent`. Labs no longer tracks it. CI is green on web tests, Swift checks and docs.
+- The landing hero is the live app in a frame above a blue title strip, with the Apollo art in its own band above the footer. It is deployed and verified live.
 - The App Store privacy URL is tangent.jaybulb.com/app/privacy.html.
 - The roadmap runs to v100. v6 is the next open version.
-- The name is still Curvely. Joshua said "you decide" on 2026-10-21 and the pick is Tangent, over the earlier lead Tilde. The rename waits until 2.0.0 clears App Review. Nothing is renamed yet.
+- The repo, folder and domain are Tangent as of 2026-10-21 (tangent.jaybulb.com, Pages project grapher kept on purpose). The App Store name is still Curvely until Apple accepts 2.0.0. The Tangent name probe waits on that review.
 
 ## Next, in order
 
 1. Ship 3.0 (v3 to v5 and the patterns) the moment 2.0.0 is approved: bump to 3.0.0, build, upload, screenshots, submit.
 2. v6 saved graphs and share links. Web share links keep their state in the URL; native syncs through iCloud.
 3. v7 onward in `roadmap.md` order, on all three platforms each time.
-4. Rename to Tangent once 2.0.0 clears review. Run the asc name probe on Tangent first (asc-name-creator), then the full rename: folder, GitHub repo, tangent.jaybulb.com, store listing. Do not start it before 2.0.0 clears.
+4. Store rename to Tangent once 2.0.0 clears review. Repo, folder and domain are already done. Run the asc name probe on Tangent first (asc-name-creator), then the store listing. Do not start it before 2.0.0 clears.
 
 ## Restart prompt
 
