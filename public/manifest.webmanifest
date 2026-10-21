@@ -1,6 +1,6 @@
 {
-  "name": "Tangent",
-  "short_name": "Tangent",
+  "name": "Pan",
+  "short_name": "Pan",
   "description": "Plot any equation.",
   "start_url": "/app/",
   "scope": "/app/",

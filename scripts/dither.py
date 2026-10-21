@@ -1,5 +1,5 @@
 # usage: dither.py <engraving.jpg> <out.png> <x0,y0,x1,y1 crop fractions> <width>
-# landing/art/geometria.png: Met Sadeler engraving (after de Vos), crop 0.06,0.06,0.95,0.62, width 1800
+# landing/art/pan.png: Rijksmuseum Picart engraving RP-P-1906-2806, crop 0.17,0.145,0.825,0.765, width 1800
 # Halftone mask from a public domain engraving: bright areas become dots (opaque), dark areas stay clear.
 import sys
 from PIL import Image, ImageOps, ImageFilter

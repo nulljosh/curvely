@@ -3,13 +3,13 @@
 <plist version="1.0">
 <dict>
 	<key>CFBundleDisplayName</key>
-	<string>Tangent</string>
+	<string>Pan</string>
 	<key>CFBundleExecutable</key>
 	<string>$(EXECUTABLE_NAME)</string>
 	<key>CFBundleIdentifier</key>
 	<string>com.nulljosh.grapher</string>
 	<key>CFBundleName</key>
-	<string>Tangent</string>
+	<string>Pan</string>
 	<key>CFBundlePackageType</key>
 	<string>APPL</string>
 	<key>CFBundleShortVersionString</key>
@@ -22,9 +22,9 @@
 	<string>public.app-category.education</string>
 	<key>UIAppFonts</key>
 	<array>
-		<string>TangentSans-Regular.ttf</string>
-		<string>TangentSans-Medium.ttf</string>
-		<string>TangentSans-Semibold.ttf</string>
+		<string>PanSans-Regular.ttf</string>
+		<string>PanSans-Medium.ttf</string>
+		<string>PanSans-Semibold.ttf</string>
 	</array>
 	<key>ATSApplicationFontsPath</key>
 	<string>.</string>

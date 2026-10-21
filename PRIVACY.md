@@ -1,10 +1,10 @@
-# Tangent privacy policy
+# Pan privacy policy
 
-Last updated 21 October 2026. The same policy is on the web at https://tangent.jaybulb.com/app/privacy.html.
+Last updated 21 October 2026. The same policy is on the web at https://pan.jaybulb.com/app/privacy.html.
 
-Tangent is a graphing calculator that runs on your device. It has no accounts, no ads, no analytics and no tracking.
+Pan is a graphing calculator that runs on your device. It has no accounts, no ads, no analytics and no tracking.
 
-## What Tangent collects
+## What Pan collects
 
 Nothing. No personal data, no usage data, no device identifiers, no crash reports.
 
@@ -16,7 +16,7 @@ On the web, your equations live in the open tab and are not saved or sent anywhe
 
 ## The website and the API
 
-The website is served by Cloudflare. Like any web host, Cloudflare handles your IP address to deliver the page. Tangent itself keeps no logs, sets no cookies and runs no analytics.
+The website is served by Cloudflare. Like any web host, Cloudflare handles your IP address to deliver the page. Pan itself keeps no logs, sets no cookies and runs no analytics.
 
 The public API (`/api` and `/mcp`) only does maths on the expression you send it and sends the answer back. Nothing is stored.
 
@@ -26,8 +26,8 @@ No advertising, analytics or crash-reporting code. Nothing is sold or shared, be
 
 ## Children
 
-Tangent is fine for all ages. It collects nothing from anyone, children included.
+Pan is fine for all ages. It collects nothing from anyone, children included.
 
 ## Questions
 
-Open an issue at https://github.com/nulljosh/tangent/issues.
+Open an issue at https://github.com/nulljosh/pan/issues.

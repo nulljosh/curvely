@@ -3,22 +3,22 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-<title>Tangent. Type an equation, watch it draw.</title>
+<title>Pan. Type an equation, watch it draw.</title>
 <meta name="description" content="A graphing calculator that stays out of the way. Plot several equations at once, pan and zoom the plane, and read values straight off the curve. Free in the browser, native on iPhone, iPad and Mac.">
 <meta name="theme-color" content="#fdfdfd" media="(prefers-color-scheme: light)">
 <meta name="theme-color" content="#050505" media="(prefers-color-scheme: dark)">
 <meta name="apple-itunes-app" content="app-id=6794988370">
-<link rel="canonical" href="https://tangent.jaybulb.com/">
+<link rel="canonical" href="https://pan.jaybulb.com/">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
 <meta property="og:type" content="website">
-<meta property="og:site_name" content="Tangent">
-<meta property="og:title" content="Tangent. Type an equation, watch it draw.">
+<meta property="og:site_name" content="Pan">
+<meta property="og:title" content="Pan. Type an equation, watch it draw.">
 <meta property="og:description" content="Plot several equations at once, pan and zoom the plane, and read values straight off the curve.">
-<meta property="og:url" content="https://tangent.jaybulb.com/">
-<meta property="og:image" content="https://tangent.jaybulb.com/og.png">
+<meta property="og:url" content="https://pan.jaybulb.com/">
+<meta property="og:image" content="https://pan.jaybulb.com/og.png">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://tangent.jaybulb.com/og.png">
+<meta name="twitter:image" content="https://pan.jaybulb.com/og.png">
 <link rel="stylesheet" href="landing.css">
 <script src="landing.js" defer></script>
 </head>
@@ -30,18 +30,18 @@
     <a href="#agents">Agents</a>
     <a href="#get">Get it</a>
   </nav>
-  <a class="nav-brand" href="#top" aria-label="Tangent home"><img src="icon.svg" alt="" width="28" height="28"><span>Tangent</span></a>
+  <a class="nav-brand" href="#top" aria-label="Pan home"><img src="icon.svg" alt="" width="28" height="28"><span>Pan</span></a>
   <div class="nav-end"><a class="btn btn-solid" href="/app/">Open app</a></div>
 </header>
 
-<!-- Art: Geometria, engraved by Johann Sadeler I after Maarten de Vos (c. 1570-1600, Metropolitan Museum, CC0), cropped above the knee and
+<!-- Art: Pan pursuing Syrinx into the reeds that become his pipes, engraved by Bernard Picart (1733, Rijksmuseum, CC0), the scene without its frame,
      dithered to a halftone mask by hand. -->
 <main id="top">
 <section class="hero-band" id="hero">
-  <iframe class="app-bg" title="Tangent, live. Type an equation." src="/app/?embed"></iframe>
+  <iframe class="app-bg" title="Pan, live. Type an equation." src="/app/?embed"></iframe>
   <div class="hero-copy center">
     <p class="label">Graphing calculator</p>
-    <h1>Tangent</h1>
+    <h1>Pan</h1>
   </div>
 </section>
 
@@ -49,7 +49,7 @@
   <div class="wrap center">
     <p class="lead">Type an equation. Watch it draw.</p>
     <div class="cta">
-      <a class="btn btn-solid" href="/app/">Open Tangent</a>
+      <a class="btn btn-solid" href="/app/">Open Pan</a>
     </div>
     <p class="fine">Free. iPhone, iPad, Mac and the web.</p>
   </div>
@@ -87,7 +87,7 @@
     <div class="stage term-stage reveal">
       <div class="art art-bg" data-curves="cubic sin" aria-hidden="true"></div>
       <figure class="term glass" aria-label="Evaluating x squared over HTTP">
-<pre><span class="dim">$</span> curl -X POST tangent.jaybulb.com/api/evaluate \
+<pre><span class="dim">$</span> curl -X POST pan.jaybulb.com/api/evaluate \
     -d '{"expr":"x^2","xValues":[0,1,2]}'
 <span class="dim">points</span>  (0, 0)  (1, 1)  (2, 4)</pre>
         <figcaption>One call, three points.</figcaption>
@@ -95,8 +95,8 @@
     </div>
     <div class="prods">
       <article class="prod reveal"><div class="art" data-curves="parab" aria-hidden="true"></div><p class="label">HTTP</p><h3>Evaluate and sample</h3><p>Syntax, evaluate and sample endpoints.</p><a href="/api/syntax">/api/syntax &rarr;</a></article>
-      <article class="prod reveal"><div class="art" data-curves="damp" aria-hidden="true"></div><p class="label">MCP</p><h3>Tangent MCP server</h3><p>JSON-RPC at /mcp. No session, no SDK.</p><a href="https://github.com/nulljosh/tangent/blob/main/functions/mcp.js">functions/mcp.js &rarr;</a></article>
-      <article class="prod reveal"><div class="art" data-curves="beat" aria-hidden="true"></div><p class="label">WebMCP</p><h3>Drive the open app</h3><p>Plot, edit and clear equations from an agent.</p><a href="https://github.com/nulljosh/tangent/blob/main/docs/API.md">docs/API.md &rarr;</a></article>
+      <article class="prod reveal"><div class="art" data-curves="damp" aria-hidden="true"></div><p class="label">MCP</p><h3>Pan MCP server</h3><p>JSON-RPC at /mcp. No session, no SDK.</p><a href="https://github.com/nulljosh/pan/blob/main/functions/mcp.js">functions/mcp.js &rarr;</a></article>
+      <article class="prod reveal"><div class="art" data-curves="beat" aria-hidden="true"></div><p class="label">WebMCP</p><h3>Drive the open app</h3><p>Plot, edit and clear equations from an agent.</p><a href="https://github.com/nulljosh/pan/blob/main/docs/API.md">docs/API.md &rarr;</a></article>
     </div>
   </div>
 </section>
@@ -120,15 +120,15 @@
 
 <footer class="foot" id="footer">
   <div class="foot-top">
-    <div class="foot-brand"><img src="icon.svg" alt="" width="40" height="40"><b>Tangent</b><p>Type an equation. Watch it draw.</p></div>
+    <div class="foot-brand"><img src="icon.svg" alt="" width="40" height="40"><b>Pan</b><p>Type an equation. Watch it draw.</p></div>
     <nav class="foot-cols" aria-label="Footer">
-      <div><p class="label">Tangent</p><a href="https://apps.apple.com/app/id6794988370">App Store</a><a href="/app/">Web app</a><a href="#features">Features</a><a href="#agents">Agents</a></div>
-      <div><p class="label">Source</p><a href="https://github.com/nulljosh/tangent">GitHub</a><a href="https://github.com/nulljosh/tangent/blob/main/CHANGELOG.md">Changelog</a><a href="https://github.com/nulljosh/tangent/blob/main/WHITEPAPER.md">Whitepaper</a><a href="https://github.com/nulljosh/tangent/blob/main/SECURITY.md">Security</a><a href="/app/privacy.html">Privacy</a></div>
-      <div><p class="label">More</p><a href="https://github.com/nulljosh/tangent/issues">Report a bug</a><a href="https://jaybulb.com">More apps</a><a href="#top">Back to top</a></div>
+      <div><p class="label">Pan</p><a href="https://apps.apple.com/app/id6794988370">App Store</a><a href="/app/">Web app</a><a href="#features">Features</a><a href="#agents">Agents</a></div>
+      <div><p class="label">Source</p><a href="https://github.com/nulljosh/pan">GitHub</a><a href="https://github.com/nulljosh/pan/blob/main/CHANGELOG.md">Changelog</a><a href="https://github.com/nulljosh/pan/blob/main/WHITEPAPER.md">Whitepaper</a><a href="https://github.com/nulljosh/pan/blob/main/SECURITY.md">Security</a><a href="/app/privacy.html">Privacy</a></div>
+      <div><p class="label">More</p><a href="https://github.com/nulljosh/pan/issues">Report a bug</a><a href="https://jaybulb.com">More apps</a><a href="#top">Back to top</a></div>
     </nav>
   </div>
   <div class="word-band" aria-hidden="true"><canvas></canvas></div>
-  <p class="legal">Tangent v{{VERSION}} &middot; Apache 2.0 &middot; &copy; 2026 Joshua Trommel &middot; <a href="/app/privacy.html">Privacy</a></p>
+  <p class="legal">Pan v{{VERSION}} &middot; Apache 2.0 &middot; &copy; 2026 Joshua Trommel &middot; <a href="/app/privacy.html">Privacy</a></p>
 </footer>
 
 <script src="footer-band.js" defer></script>

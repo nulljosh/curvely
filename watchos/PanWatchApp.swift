@@ -1,7 +1,7 @@
 import SwiftUI
 
 @main
-struct TangentWatchApp: App {
+struct PanWatchApp: App {
     var body: some Scene {
         WindowGroup {
             ContentView()

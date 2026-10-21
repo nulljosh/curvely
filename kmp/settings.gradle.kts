@@ -1,4 +1,4 @@
-rootProject.name = "tangent"
+rootProject.name = "pan"
 
 pluginManagement {
     repositories {

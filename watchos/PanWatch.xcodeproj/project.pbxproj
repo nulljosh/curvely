@@ -1,0 +1,352 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 77;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		1D7C55D51B5127A46DE15529 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC258A19B5F348FCB728720C /* ContentView.swift */; };
+		41212AB54E5942507027F259 /* CurvePageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB8F6D7572B542B300E3C19C /* CurvePageView.swift */; };
+		6F21C4A567BA0EFF4BE393FF /* Expression.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93BDC27D979E3E8509084516 /* Expression.swift */; };
+		886B4342C24C142FB4F7529D /* PanWatchApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BB324646FE8B2A2AD83D1AF /* PanWatchApp.swift */; };
+		9287449D97790B694200CFC8 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = F08906CEE202B07E2126F3CB /* Theme.swift */; };
+		ADA51DB678727CC5383ACD26 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0A2306448D6E556A6016E91E /* Assets.xcassets */; };
+		BE4A6DE3FD0BAC329459A768 /* Presets.swift in Sources */ = {isa = PBXBuildFile; fileRef = E59FFBA49707440D067BA35F /* Presets.swift */; };
+		C9FD9FCC384798B121706537 /* PlotView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5956D13AEDCBA3A7F6822307 /* PlotView.swift */; };
+		CCD6C4A80DA27604067E637D /* Palette.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1FBC3432318F804B9460636 /* Palette.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		0A2306448D6E556A6016E91E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		5956D13AEDCBA3A7F6822307 /* PlotView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlotView.swift; sourceTree = "<group>"; };
+		8BB324646FE8B2A2AD83D1AF /* PanWatchApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PanWatchApp.swift; sourceTree = "<group>"; };
+		93BDC27D979E3E8509084516 /* Expression.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Expression.swift; sourceTree = "<group>"; };
+		B1FBC3432318F804B9460636 /* Palette.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Palette.swift; sourceTree = "<group>"; };
+		B43884B814ECD5483999369A /* PanWatch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PanWatch.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		E59FFBA49707440D067BA35F /* Presets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Presets.swift; sourceTree = "<group>"; };
+		EC258A19B5F348FCB728720C /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		F08906CEE202B07E2126F3CB /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
+		FB8F6D7572B542B300E3C19C /* CurvePageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurvePageView.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXGroup section */
+		3D7E9F8C22A113BCAB72A936 = {
+			isa = PBXGroup;
+			children = (
+				4A505D23D62D18208D655ABE /* Models */,
+				A65DE7D5A197C995042B64C1 /* Views */,
+				6C276A13AC2C027F9A806D5D /* watchos */,
+				6406137DD51AAC173F44334E /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		4A505D23D62D18208D655ABE /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				93BDC27D979E3E8509084516 /* Expression.swift */,
+				B1FBC3432318F804B9460636 /* Palette.swift */,
+				E59FFBA49707440D067BA35F /* Presets.swift */,
+				F08906CEE202B07E2126F3CB /* Theme.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		6406137DD51AAC173F44334E /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				B43884B814ECD5483999369A /* PanWatch.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		6C276A13AC2C027F9A806D5D /* watchos */ = {
+			isa = PBXGroup;
+			children = (
+				0A2306448D6E556A6016E91E /* Assets.xcassets */,
+				EC258A19B5F348FCB728720C /* ContentView.swift */,
+				8BB324646FE8B2A2AD83D1AF /* PanWatchApp.swift */,
+				4A505D23D62D18208D655ABE /* Models */,
+				A65DE7D5A197C995042B64C1 /* Views */,
+			);
+			name = watchos;
+			path = .;
+			sourceTree = "<group>";
+		};
+		A65DE7D5A197C995042B64C1 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				FB8F6D7572B542B300E3C19C /* CurvePageView.swift */,
+				5956D13AEDCBA3A7F6822307 /* PlotView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		1FB593ACCD6A52E5104E0136 /* PanWatch */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D4B836FF574B14918178D106 /* Build configuration list for PBXNativeTarget "PanWatch" */;
+			buildPhases = (
+				4BF570EB655B9BCDF8DC14C3 /* Sources */,
+				E0418C3AC5A4342A2B838921 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = PanWatch;
+			packageProductDependencies = (
+			);
+			productName = PanWatch;
+			productReference = B43884B814ECD5483999369A /* PanWatch.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		C277215ED704A77C18DBB3E3 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = YES;
+				LastUpgradeCheck = 1430;
+				TargetAttributes = {
+					1FB593ACCD6A52E5104E0136 = {
+						DevelopmentTeam = QMM486NPYC;
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = 71E31AA90AB614FF575C814A /* Build configuration list for PBXProject "PanWatch" */;
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				Base,
+				en,
+			);
+			mainGroup = 3D7E9F8C22A113BCAB72A936;
+			minimizedProjectReferenceProxies = 1;
+			preferredProjectObjectVersion = 77;
+			productRefGroup = 6406137DD51AAC173F44334E /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				1FB593ACCD6A52E5104E0136 /* PanWatch */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		E0418C3AC5A4342A2B838921 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				ADA51DB678727CC5383ACD26 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		4BF570EB655B9BCDF8DC14C3 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1D7C55D51B5127A46DE15529 /* ContentView.swift in Sources */,
+				41212AB54E5942507027F259 /* CurvePageView.swift in Sources */,
+				6F21C4A567BA0EFF4BE393FF /* Expression.swift in Sources */,
+				CCD6C4A80DA27604067E637D /* Palette.swift in Sources */,
+				886B4342C24C142FB4F7529D /* PanWatchApp.swift in Sources */,
+				C9FD9FCC384798B121706537 /* PlotView.swift in Sources */,
+				BE4A6DE3FD0BAC329459A768 /* Presets.swift in Sources */,
+				9287449D97790B694200CFC8 /* Theme.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		3E36B0B4049150CE151995CB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_STYLE = Automatic;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = QMM486NPYC;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"DEBUG=1",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MARKETING_VERSION = 1.0.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 6.0;
+				WATCHOS_DEPLOYMENT_TARGET = 10.0;
+			};
+			name = Debug;
+		};
+		59831F4EF6DC433D3A938C8A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "";
+				INFOPLIST_KEY_WKWatchOnly = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = com.nulljosh.grapher.watchos;
+				PRODUCT_NAME = Pan;
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = 4;
+			};
+			name = Debug;
+		};
+		DEFBA92CC3A057D2637A1E5D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_STYLE = Automatic;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = QMM486NPYC;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MARKETING_VERSION = 1.0.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 6.0;
+				WATCHOS_DEPLOYMENT_TARGET = 10.0;
+			};
+			name = Release;
+		};
+		FF161D7A6749DF3CF38550FB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "";
+				INFOPLIST_KEY_WKWatchOnly = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = com.nulljosh.grapher.watchos;
+				PRODUCT_NAME = Pan;
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = 4;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		71E31AA90AB614FF575C814A /* Build configuration list for PBXProject "PanWatch" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3E36B0B4049150CE151995CB /* Debug */,
+				DEFBA92CC3A057D2637A1E5D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		D4B836FF574B14918178D106 /* Build configuration list for PBXNativeTarget "PanWatch" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				59831F4EF6DC433D3A938C8A /* Debug */,
+				FF161D7A6749DF3CF38550FB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = C277215ED704A77C18DBB3E3 /* Project object */;
+}

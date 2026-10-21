@@ -10,6 +10,7 @@
 		10ED5084C4878F324C2DD049 /* Expression.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEEE028BDA5B5BFB0FA22153 /* Expression.swift */; };
 		13555941744209238AE2F8D5 /* PNG.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBD862E69EA2241DB146619E /* PNG.swift */; };
 		1B97E3DA499DF22514999A29 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1AADBB56C14E56A1BA678189 /* Assets.xcassets */; };
+		1E594DB054E74A10813DE749 /* PanSans-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B887867DB94F7D14EED731D9 /* PanSans-Medium.ttf */; };
 		2B9F9BF2B1C1A2A8E3B9C4D6 /* Rows.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1216A4B72D2BBBF8EAC585CF /* Rows.swift */; };
 		366480F8B5467F0269DAA286 /* OFL.txt in Resources */ = {isa = PBXBuildFile; fileRef = EF3E56A483F712B02ABC23CA /* OFL.txt */; };
 		3A62A93A1D017F23D9623420 /* Patterns.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37F64824113629562BB02B66 /* Patterns.swift */; };
@@ -21,11 +22,10 @@
 		70D1D8A270C979B9D809EA45 /* EquationListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF61276498AC7273D2C00E08 /* EquationListView.swift */; };
 		763E36341BDD9B3EE84E54FF /* Equation.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3D37B8DDED0C07F3A300D17 /* Equation.swift */; };
 		7DB8D3B0EFBCEA3705C6BEEB /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58B7D3F2C4A21689E3CBCC64 /* ContentView.swift */; };
+		8BF5F7FD1A1297391D89738C /* PanSans-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D899087C83E390BF8AA8E2A1 /* PanSans-Regular.ttf */; };
 		B0744CE193139FF2780911A3 /* Store.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16CC04F055DA6F14A6AB946D /* Store.swift */; };
 		BDE5EA8CB870B36594AA188F /* GraphView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0960079B53E2D11FDF65AEEF /* GraphView.swift */; };
-		DF8FFD1610A42097F0947C55 /* TangentSans-Semibold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C93DC2FA1DCB720B16460D6A /* TangentSans-Semibold.ttf */; };
-		EA9F286064623E5040B22375 /* TangentSans-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 689C23FE68FCC7E6AE228250 /* TangentSans-Medium.ttf */; };
-		FEEB54759675AD687CC3B18B /* TangentSans-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 271B2272AD3FAE1804731FFB /* TangentSans-Regular.ttf */; };
+		EA43A0C6E9323A27ED60BF3F /* PanSans-Semibold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1CEB7E1FA6ED9824E522A105 /* PanSans-Semibold.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,19 +35,19 @@
 		1582ADCBFF6E67489C16C613 /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
 		16CC04F055DA6F14A6AB946D /* Store.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Store.swift; sourceTree = "<group>"; };
 		1AADBB56C14E56A1BA678189 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		271B2272AD3FAE1804731FFB /* TangentSans-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "TangentSans-Regular.ttf"; sourceTree = "<group>"; };
+		1CEB7E1FA6ED9824E522A105 /* PanSans-Semibold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "PanSans-Semibold.ttf"; sourceTree = "<group>"; };
 		2DC5445519395497C6E4E954 /* Lists.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Lists.swift; sourceTree = "<group>"; };
 		33BAF1566E5B65359A8E905E /* GrapherApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GrapherApp.swift; sourceTree = "<group>"; };
 		37F64824113629562BB02B66 /* Patterns.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Patterns.swift; sourceTree = "<group>"; };
 		58B7D3F2C4A21689E3CBCC64 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
-		689C23FE68FCC7E6AE228250 /* TangentSans-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "TangentSans-Medium.ttf"; sourceTree = "<group>"; };
 		A3D37B8DDED0C07F3A300D17 /* Equation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Equation.swift; sourceTree = "<group>"; };
 		A6CC8C7CA5884B6BA3B46864 /* Palette.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Palette.swift; sourceTree = "<group>"; };
 		AE1C63A1BCCEBBD832628DE5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		AEEE028BDA5B5BFB0FA22153 /* Expression.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Expression.swift; sourceTree = "<group>"; };
+		B887867DB94F7D14EED731D9 /* PanSans-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "PanSans-Medium.ttf"; sourceTree = "<group>"; };
 		C1F29FE8F58495B83C60B6D7 /* Grapher-iOS.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = "Grapher-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
-		C93DC2FA1DCB720B16460D6A /* TangentSans-Semibold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "TangentSans-Semibold.ttf"; sourceTree = "<group>"; };
 		CBD862E69EA2241DB146619E /* PNG.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PNG.swift; sourceTree = "<group>"; };
+		D899087C83E390BF8AA8E2A1 /* PanSans-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "PanSans-Regular.ttf"; sourceTree = "<group>"; };
 		EF3E56A483F712B02ABC23CA /* OFL.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = OFL.txt; sourceTree = "<group>"; };
 		FF61276498AC7273D2C00E08 /* EquationListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EquationListView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -97,9 +97,9 @@
 			isa = PBXGroup;
 			children = (
 				EF3E56A483F712B02ABC23CA /* OFL.txt */,
-				689C23FE68FCC7E6AE228250 /* TangentSans-Medium.ttf */,
-				271B2272AD3FAE1804731FFB /* TangentSans-Regular.ttf */,
-				C93DC2FA1DCB720B16460D6A /* TangentSans-Semibold.ttf */,
+				B887867DB94F7D14EED731D9 /* PanSans-Medium.ttf */,
+				D899087C83E390BF8AA8E2A1 /* PanSans-Regular.ttf */,
+				1CEB7E1FA6ED9824E522A105 /* PanSans-Semibold.ttf */,
 			);
 			path = Fonts;
 			sourceTree = "<group>";
@@ -166,9 +166,9 @@
 			files = (
 				1B97E3DA499DF22514999A29 /* Assets.xcassets in Resources */,
 				366480F8B5467F0269DAA286 /* OFL.txt in Resources */,
-				EA9F286064623E5040B22375 /* TangentSans-Medium.ttf in Resources */,
-				FEEB54759675AD687CC3B18B /* TangentSans-Regular.ttf in Resources */,
-				DF8FFD1610A42097F0947C55 /* TangentSans-Semibold.ttf in Resources */,
+				1E594DB054E74A10813DE749 /* PanSans-Medium.ttf in Resources */,
+				8BF5F7FD1A1297391D89738C /* PanSans-Regular.ttf in Resources */,
+				EA43A0C6E9323A27ED60BF3F /* PanSans-Semibold.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -215,7 +215,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.nulljosh.grapher;
-				PRODUCT_NAME = Tangent;
+				PRODUCT_NAME = Pan;
 				SDKROOT = auto;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
 				SUPPORTS_MACCATALYST = NO;
@@ -241,7 +241,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.nulljosh.grapher;
-				PRODUCT_NAME = Tangent;
+				PRODUCT_NAME = Pan;
 				SDKROOT = auto;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
 				SUPPORTS_MACCATALYST = NO;

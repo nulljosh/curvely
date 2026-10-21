@@ -8,9 +8,9 @@ import androidx.compose.ui.window.rememberWindowState
 fun main() = application {
     Window(
         onCloseRequest = ::exitApplication,
-        title = "Tangent",
+        title = "Pan",
         state = rememberWindowState(width = 1040.dp, height = 720.dp),
     ) {
-        TangentTheme { AppScreen() }
+        PanTheme { AppScreen() }
     }
 }

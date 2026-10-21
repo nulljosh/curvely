@@ -23,7 +23,7 @@ import androidx.compose.ui.graphics.StrokeCap
 import androidx.compose.ui.unit.dp
 
 @Composable
-fun TangentTheme(content: @Composable () -> Unit) =
+fun PanTheme(content: @Composable () -> Unit) =
     MaterialTheme(colorScheme = lightColorScheme(), content = content)
 
 // ponytail: fixed [-10, 10] domain/range, no pan/zoom. The web/iOS apps let
@@ -35,7 +35,7 @@ fun AppScreen() {
 
     Surface {
         Column(Modifier.fillMaxSize().padding(24.dp)) {
-            Text("Tangent", style = MaterialTheme.typography.headlineMedium)
+            Text("Pan", style = MaterialTheme.typography.headlineMedium)
             OutlinedTextField(
                 value = input,
                 onValueChange = { input = it },

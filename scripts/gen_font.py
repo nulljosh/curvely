@@ -1,12 +1,12 @@
-"""Tangent Sans: Inter (Rasmus Andersson, SIL Open Font License 1.1, no reserved name), renamed, with its curly
+"""Pan Sans: Inter (Rasmus Andersson, SIL Open Font License 1.1, no reserved name), renamed, with its curly
 quote marks redrawn as waves: an opening quote is a crest, a closing quote is a trough, so every quote is a piece of a sine curve.
 Inter is drawn in the spirit of San Francisco and Helvetica: open shapes, even proportional spacing, built for screens.
 
 Same method as coda's Quip Sans and turing's Samantha Sans: pinned release, renamed, OFL shipped beside the fonts,
 original copyright kept in the name table, fixed timestamps so every build is the same bytes.
 
-    python3 scripts/gen_font.py            # writes brand/fonts/TangentSans-{Regular,Medium,Semibold,Bold}.{ttf,woff2} + OFL.txt
-    python3 scripts/gen_font.py --check    # named Tangent Sans, OFL present, original copyright kept
+    python3 scripts/gen_font.py            # writes brand/fonts/PanSans-{Regular,Medium,Semibold,Bold}.{ttf,woff2} + OFL.txt
+    python3 scripts/gen_font.py --check    # named Pan Sans, OFL present, original copyright kept
 Needs fonttools and brotli (uv run --with fonttools --with brotli).
 """
 import io
@@ -80,9 +80,9 @@ def redraw_quotes(font):
 
 
 def rename(font, style):
-    """Give the outlines the Tangent Sans name; copyright (0) and license (13, 14) stay as the authors wrote them."""
-    names = {1: "Tangent Sans", 2: style, 3: f"TangentSans-{style}", 4: f"Tangent Sans {style}", 5: "Version 1.000",
-             6: f"TangentSans-{style}", 16: "Tangent Sans", 17: style}
+    """Give the outlines the Pan Sans name; copyright (0) and license (13, 14) stay as the authors wrote them."""
+    names = {1: "Pan Sans", 2: style, 3: f"PanSans-{style}", 4: f"Pan Sans {style}", 5: "Version 1.000",
+             6: f"PanSans-{style}", 16: "Pan Sans", 17: style}
     table = font["name"]
     table.names = [n for n in table.names if n.nameID in (0, 13, 14)]
     for nid, text in names.items():
@@ -97,16 +97,16 @@ def check():
     assert os.path.exists(os.path.join(OUT, "OFL.txt")), "the OFL must ship with the fonts"
     for style in WEIGHTS:
         for ext in ("ttf", "woff2"):
-            f = TTFont(os.path.join(OUT, f"TangentSans-{style}.{ext}"))
-            assert f["name"].getDebugName(1) == "Tangent Sans", "family name"
-            assert f["name"].getDebugName(6) == f"TangentSans-{style}", "postscript name"
+            f = TTFont(os.path.join(OUT, f"PanSans-{style}.{ext}"))
+            assert f["name"].getDebugName(1) == "Pan Sans", "family name"
+            assert f["name"].getDebugName(6) == f"PanSans-{style}", "postscript name"
             assert f["name"].getDebugName(0), "the original copyright must stay in the name table"
             cmap, hmtx, glyf = f.getBestCmap(), f["hmtx"], f["glyf"]
             for cp, n in ((0x2019, 1), (0x201D, 2), (0x2018, 1), (0x201C, 2)):
                 g = glyf[cmap[cp]]
                 assert g.numberOfContours == n, f"U+{cp:04X} is not the wave"
                 assert 0 <= g.xMin and g.xMax <= hmtx[cmap[cp]][0], f"U+{cp:04X} spills out of its advance"
-    print(f"font ok: Tangent Sans (Inter, OFL), {len(WEIGHTS)} weights, quotes are waves")
+    print(f"font ok: Pan Sans (Inter, OFL), {len(WEIGHTS)} weights, quotes are waves")
 
 
 def main():
@@ -121,8 +121,8 @@ def main():
         rename(font, style)
         for ext, flavor in (("ttf", None), ("woff2", "woff2")):
             font.flavor = flavor
-            font.save(os.path.join(OUT, f"TangentSans-{style}.{ext}"), reorderTables=False)
-        print(f"TangentSans-{style}: Inter {weight}")
+            font.save(os.path.join(OUT, f"PanSans-{style}.{ext}"), reorderTables=False)
+        print(f"PanSans-{style}: Inter {weight}")
 
 
 if __name__ == "__main__":

@@ -24,11 +24,11 @@
         {
           "glass": false,
           "image-name": "glyph.png",
-          "name": "Tangent"
+          "name": "Pan"
         }
       ],
       "lighting": "individual",
-      "name": "Tangent",
+      "name": "Pan",
       "shadow": {
         "kind": "neutral",
         "opacity": 0.3

@@ -1,4 +1,4 @@
-/* Tangent web tokens. Follows the system light/dark setting, the accent is brand/tokens.css. Local, so the app never waits on another site's stylesheet. */
+/* Pan web tokens. Follows the system light/dark setting, the accent is brand/tokens.css. Local, so the app never waits on another site's stylesheet. */
 :root {
   color-scheme: light dark;
   --accent: #0f86c9;
@@ -16,7 +16,7 @@
   --grid: rgba(232, 232, 240, 0.07);
   --axis: rgba(232, 232, 240, 0.3);
   --axis-label: rgba(232, 232, 240, 0.5);
-  --font: "Tangent Sans", -apple-system, BlinkMacSystemFont, "SF Pro Text", "Helvetica Neue", Helvetica, system-ui, sans-serif;
+  --font: "Pan Sans", -apple-system, BlinkMacSystemFont, "SF Pro Text", "Helvetica Neue", Helvetica, system-ui, sans-serif;
 }
 @media (prefers-color-scheme: light) {
   :root {

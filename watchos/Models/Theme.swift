@@ -1,4 +1,4 @@
-// Subset of ios/App/Theme.swift needed to draw a plot. Tangent is dark-mode only, so this
+// Subset of ios/App/Theme.swift needed to draw a plot. Pan is dark-mode only, so this
 // (like the iOS original) carries just the dark palette.
 
 import SwiftUI

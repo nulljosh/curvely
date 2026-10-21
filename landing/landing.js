@@ -1,4 +1,4 @@
-// Tangent landing: the art is the app's own output. Every curve is generated here, so there is nothing to fetch.
+// Pan landing: the art is the app's own output. Every curve is generated here, so there is nothing to fetch.
 (function () {
   document.documentElement.classList.add('js');
   var NS = 'http://www.w3.org/2000/svg';

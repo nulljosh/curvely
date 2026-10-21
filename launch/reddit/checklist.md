@@ -9,8 +9,8 @@ Subs in this folder and how to post them:
 - r/webdev: standalone post, no gate, frame as a build story.
 
 Not drafted:
-- r/SoftwareRecommendations: reply-only, never post standalone. Watch for people asking for a graphing calculator and answer there, mention Tangent only if it fits.
-- r/AndroidApps, r/AlphaAndBetaUsers, r/BetaTestersNeeded, r/iOSBeta: skipped, Tangent is already public and has no Android build.
+- r/SoftwareRecommendations: reply-only, never post standalone. Watch for people asking for a graphing calculator and answer there, mention Pan only if it fits.
+- r/AndroidApps, r/AlphaAndBetaUsers, r/BetaTestersNeeded, r/iOSBeta: skipped, Pan is already public and has no Android build.
 - Never post to r/apps, r/Android, r/apple, r/technology.
 
 One at a time, space them out. Don't post all six in the same day.

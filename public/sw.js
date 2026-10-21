@@ -1,6 +1,6 @@
 // ponytail: network-first for pages, cache-first for the hashed assets they name.
 // Bump CACHE to evict everything a previous version stored.
-const CACHE = "tangent-v3";
+const CACHE = "pan-v3";
 const FILES = ["/app/", "/app/privacy.html", "/app/manifest.webmanifest"];
 
 self.addEventListener("install", e => {

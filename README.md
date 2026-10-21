@@ -1,8 +1,8 @@
 <img src="icon.svg" width="80">
 
-![version](https://img.shields.io/badge/version-v2.0.0-blue) [![tests](https://github.com/nulljosh/tangent/actions/workflows/test.yml/badge.svg)](https://github.com/nulljosh/tangent/actions/workflows/test.yml) ![license](https://img.shields.io/badge/license-Apache%202.0-blue) [![App Store](https://img.shields.io/badge/App%20Store-Download-0D96F6?logo=appstore&logoColor=white)](https://apps.apple.com/us/app/tangent/id6794988370)
+![version](https://img.shields.io/badge/version-v2.0.0-blue) [![tests](https://github.com/nulljosh/pan/actions/workflows/test.yml/badge.svg)](https://github.com/nulljosh/pan/actions/workflows/test.yml) ![license](https://img.shields.io/badge/license-Apache%202.0-blue) [![App Store](https://img.shields.io/badge/App%20Store-Download-0D96F6?logo=appstore&logoColor=white)](https://apps.apple.com/us/app/pan/id6794988370)
 
-**Live:** https://tangent.jaybulb.com (formerly Tangent; the App Store listing is still named Tangent until Apple accepts the new name)
+**Live:** https://pan.jaybulb.com (formerly Pan; the App Store listing is still named Pan until Apple accepts the new name)
 
 A graphing calculator that feels like it belongs on your phone. Type an equation and watch it draw. Native SwiftUI on iPhone, iPad and Mac, and the same app on the web. Everything runs on your device.
 
@@ -21,7 +21,7 @@ A graphing calculator that feels like it belongs on your phone. Type an equation
 - Lists: `L = [1...10]`, then `(L, L^2)` or `sin(x) + [0, 1, 2]` draws one copy per element.
 - Roots, peaks and crossings show as dots. Hover or tap one to read it.
 - 85 patterns in one tap: the flower of life, a sunflower, the golden spiral, a butterfly, roses, spirographs and more.
-- Light and dark, Liquid Glass panels, and Tangent Sans, a renamed Inter whose quote marks are drawn as waves.
+- Light and dark, Liquid Glass panels, and Pan Sans, a renamed Inter whose quote marks are drawn as waves.
 
 ## Run it
 
@@ -31,7 +31,7 @@ npm test                       # web tests
 cd ios && xcodegen generate    # then open Grapher.xcodeproj for iPhone, iPad and Mac
 ```
 
-A terminal sparkline lives in [tui/](tui/): `swift build && ./.build/debug/tangent-tui "x^2" -5 5`.
+A terminal sparkline lives in [tui/](tui/): `swift build && ./.build/debug/pan-tui "x^2" -5 5`.
 
 ## API and agent tools
 

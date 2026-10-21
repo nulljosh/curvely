@@ -1,11 +1,11 @@
-# Tangent brand kit and design system
+# Pan brand kit and design system
 
 a sine wave with one plotted point
 
 ## The mark
 One bold flat white glyph on an accent gradient tile. No text, no outline, no emblem.
 
-- `../Tangent.icon` is the source of truth (Icon Composer). Light and dark fills are set in it.
+- `../Pan.icon` is the source of truth (Icon Composer). Light and dark fills are set in it.
 - `../icon.svg` is the flat copy for READMEs (shown at 80 px). `icon-1024.png` is the App Store icon, no alpha.
 - `mark.svg` is the glyph alone in `currentColor` for your own background.
 - Clear space equal to the width of the glyph's thickest stroke. Smallest size 16 px.
@@ -22,7 +22,7 @@ One bold flat white glyph on an accent gradient tile. No text, no outline, no em
 The accent is for actions, links and the icon. Never brown, beige, purple or teal.
 
 ## Type
-**Tangent Sans**, in `fonts/`: Inter (SIL OFL 1.1) renamed, with the curly quotes redrawn as waves, a crest to open and a trough to close. `../scripts/gen_font.py` builds it and `--check` verifies it. Weights ExtraLight 200 (display caps), Regular, Medium, Semibold, Bold. The system stack is the fallback: `-apple-system, BlinkMacSystemFont, "SF Pro Text", "Helvetica Neue", Helvetica, Arial, sans-serif`. Scale 34/41 bold, 22/28, 17/24, 15/20, 13/18.
+**Pan Sans**, in `fonts/`: Inter (SIL OFL 1.1) renamed, with the curly quotes redrawn as waves, a crest to open and a trough to close. `../scripts/gen_font.py` builds it and `--check` verifies it. Weights ExtraLight 200 (display caps), Regular, Medium, Semibold, Bold. The system stack is the fallback: `-apple-system, BlinkMacSystemFont, "SF Pro Text", "Helvetica Neue", Helvetica, Arial, sans-serif`. Scale 34/41 bold, 22/28, 17/24, 15/20, 13/18.
 
 ## Glass
 Floating panes are Liquid Glass: `glassEffect` on iOS 26 and macOS 26, a blurred material before that, `backdrop-filter: blur(28px) saturate(180%)` on the web. A lit top edge and a hairline, never a drop shadow.

@@ -2,14 +2,14 @@
 import PackageDescription
 
 let package = Package(
-    name: "tangent-tui",
+    name: "pan-tui",
     platforms: [.macOS(.v13)],
     dependencies: [
         .package(url: "https://github.com/rensbreur/SwiftTUI", branch: "main")
     ],
     targets: [
         .executableTarget(
-            name: "tangent-tui",
+            name: "pan-tui",
             dependencies: ["SwiftTUI"],
             path: "tui"
         )

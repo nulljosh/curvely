@@ -2,7 +2,7 @@ import Foundation
 import SwiftTUI
 
 // ponytail: the graphing math is mathjs, AST-fenced server-side on purpose (see
-// functions/api/[[route]].js) — it must not be duplicated in Swift. `tangent-tui`
+// functions/api/[[route]].js) — it must not be duplicated in Swift. `pan-tui`
 // hits the same /api/sample the web canvas uses and renders the sampled points
 // as a plain-text plot.
 
@@ -12,14 +12,14 @@ struct Range: Decodable { let min: Double; let max: Double }
 
 let args = CommandLine.arguments.dropFirst()
 guard let expr = args.first else {
-    print("usage: tangent-tui <expr> [from] [to]")
+    print("usage: pan-tui <expr> [from] [to]")
     exit(1)
 }
 let from = args.count > 1 ? Double(Array(args)[1]) ?? -10 : -10
 let to = args.count > 2 ? Double(Array(args)[2]) ?? 10 : 10
 
 func fetchSample() async -> SampleResult? {
-    guard let url = URL(string: "https://tangent.jaybulb.com/api/sample") else { return nil }
+    guard let url = URL(string: "https://pan.jaybulb.com/api/sample") else { return nil }
     var req = URLRequest(url: url)
     req.httpMethod = "POST"
     req.setValue("application/json", forHTTPHeaderField: "content-type")
@@ -47,7 +47,7 @@ struct GraphCard: View {
                 Text(sparkline(result))
                 Text("range \(result.range.min) … \(result.range.max)")
             } else {
-                Text("Could not evaluate — check tangent.jaybulb.com/api/syntax")
+                Text("Could not evaluate — check pan.jaybulb.com/api/syntax")
             }
         }
         .padding()

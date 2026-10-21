@@ -98,7 +98,7 @@ export default function Graph({ equations, sliders }) {
 
     // axis labels
     ctx.fillStyle = colors.label;
-    ctx.font = '11px "Tangent Sans", -apple-system, BlinkMacSystemFont, "Helvetica Neue", Helvetica, system-ui, sans-serif';
+    ctx.font = '11px "Pan Sans", -apple-system, BlinkMacSystemFont, "Helvetica Neue", Helvetica, system-ui, sans-serif';
     ctx.textAlign = 'center';
     const labelStep = Math.round(Math.max(1, 80 / scale));
     for (let x = startX; x < W; x += step) {
@@ -223,7 +223,7 @@ export default function Graph({ equations, sliders }) {
       ctx.stroke();
 
       const label = `(${trace.x.toFixed(2)}, ${trace.y.toFixed(2)})`;
-      ctx.font = '12px "Tangent Sans", -apple-system, BlinkMacSystemFont, "Helvetica Neue", Helvetica, system-ui, sans-serif';
+      ctx.font = '12px "Pan Sans", -apple-system, BlinkMacSystemFont, "Helvetica Neue", Helvetica, system-ui, sans-serif';
       const tw = ctx.measureText(label).width;
       const lx = Math.min(Math.max(trace.px + 10, 4), W - tw - 12);
       const ly = trace.py > 24 ? trace.py - 12 : trace.py + 22;

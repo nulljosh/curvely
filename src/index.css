@@ -1,10 +1,10 @@
 @import './tokens.css';
 
-@font-face { font-family: "Tangent Sans"; src: url("/fonts/TangentSans-ExtraLight.woff2") format("woff2"); font-weight: 200; font-display: swap; }
-@font-face { font-family: "Tangent Sans"; src: url("/fonts/TangentSans-Regular.woff2") format("woff2"); font-weight: 400; font-display: swap; }
-@font-face { font-family: "Tangent Sans"; src: url("/fonts/TangentSans-Medium.woff2") format("woff2"); font-weight: 500; font-display: swap; }
-@font-face { font-family: "Tangent Sans"; src: url("/fonts/TangentSans-Semibold.woff2") format("woff2"); font-weight: 600; font-display: swap; }
-@font-face { font-family: "Tangent Sans"; src: url("/fonts/TangentSans-Bold.woff2") format("woff2"); font-weight: 700; font-display: swap; }
+@font-face { font-family: "Pan Sans"; src: url("/fonts/PanSans-ExtraLight.woff2") format("woff2"); font-weight: 200; font-display: swap; }
+@font-face { font-family: "Pan Sans"; src: url("/fonts/PanSans-Regular.woff2") format("woff2"); font-weight: 400; font-display: swap; }
+@font-face { font-family: "Pan Sans"; src: url("/fonts/PanSans-Medium.woff2") format("woff2"); font-weight: 500; font-display: swap; }
+@font-face { font-family: "Pan Sans"; src: url("/fonts/PanSans-Semibold.woff2") format("woff2"); font-weight: 600; font-display: swap; }
+@font-face { font-family: "Pan Sans"; src: url("/fonts/PanSans-Bold.woff2") format("woff2"); font-weight: 700; font-display: swap; }
 
 
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
