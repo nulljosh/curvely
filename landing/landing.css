@@ -207,7 +207,7 @@ html.js .reveal.in-view { opacity: 1; transform: none; transition: opacity .6s e
 .hero .demo-wrap { margin-top: var(--sp-7); }
 
 /* Hero background is the live app; copy sits over it and lets clicks through */
-.app-bg { position: absolute; --copy: clamp(100px, 17vw, 250px); top: 76px; left: 0; width: 100%; height: calc(100% - 76px - var(--copy)); border: 0; background: #000; }
+.app-bg { position: absolute; --copy: calc(clamp(100px, 17vw, 250px) + 32px); top: 76px; left: 0; width: 100%; height: calc(100% - 76px - var(--copy)); border: 0; background: #000; }
 .hero-copy { pointer-events: none; padding-top: 0; padding-bottom: var(--sp-5); }
 .gods { height: clamp(360px, 60vh, 640px); margin-top: var(--sp-8); }
 .gods .spot { inset: 0; }
