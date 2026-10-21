@@ -1,4 +1,4 @@
-# Curvely loop handoff (2026-10-21, morning)
+# Curvely loop handoff (2026-10-21, 10:44)
 
 ## What the loop is
 
@@ -9,6 +9,7 @@ Joshua's `/loop` for Curvely. It works down `roadmap.md` one major version at a 
 - 2.0.0 is in App Review on iOS and Mac. It replaces 1.2.6, which was pulled and folded in. It has light mode, points, parametric and polar curves, inequality shading, key points, tap a dot to hide a curve, and native sliders.
 - 3.0 is built and committed on all three surfaces: v3 functions, v4 lists and ranges, v5 slider bounds and a play button, and 85 one-tap patterns in 11 categories. The web is live. Native 3.0.0 waits for 2.0.0 to clear.
 - The repo is nulljosh/curvely, public, Apache 2.0, checked out at `~/Documents/Code/curvely`. Labs no longer tracks it. CI is green on web tests, Swift checks and docs.
+- The landing hero is the live app in a frame above a blue title strip, with the Apollo art in its own band above the footer. It is pushed to main but not deployed yet; the deploy waits for Joshua's go.
 - The App Store privacy URL is curvely.jaybulb.com/app/privacy.html.
 - The roadmap runs to v100. v6 is the next open version.
 - The name is still Curvely. Joshua said "you decide" on 2026-10-21 and the pick is Tangent, over the earlier lead Tilde. The rename waits until 2.0.0 clears App Review. Nothing is renamed yet.
