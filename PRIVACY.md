@@ -1,6 +1,6 @@
 # Curvely privacy policy
 
-Last updated 21 October 2026. The same policy is on the web at https://curvely.jaybulb.com/app/privacy.html.
+Last updated 21 October 2026. The same policy is on the web at https://tangent.jaybulb.com/app/privacy.html.
 
 Curvely is a graphing calculator that runs on your device. It has no accounts, no ads, no analytics and no tracking.
 
@@ -30,4 +30,4 @@ Curvely is fine for all ages. It collects nothing from anyone, children included
 
 ## Questions
 
-Open an issue at https://github.com/nulljosh/curvely/issues.
+Open an issue at https://github.com/nulljosh/tangent/issues.

@@ -46,7 +46,7 @@ CLI (TUI): calls `/api/sample` and renders points as an ASCII plot.
 | `watchos/CurvelyWatchApp.swift` | watchOS app entry |
 | `watchos/Models/` | Expression.swift (copy of iOS), Palette.swift, Presets.swift (fixed equation list), Theme.swift |
 | `watchos/Views/` | CurvePageView (equation label + plot), PlotView (fixed-scale canvas, no gestures) |
-| `kmp/shared/src/commonMain/kotlin/com/nulljosh/curvely/Expression.kt` | Kotlin parser ported from ios/App/Expression.swift; kept in lockstep |
+| `kmp/shared/src/commonMain/kotlin/com/nulljosh/tangent/Expression.kt` | Kotlin parser ported from ios/App/Expression.swift; kept in lockstep |
 | `kmp/composeApp/src/*/` | Android/desktop Compose UI, common AppScreen.kt |
 | `tui/main.swift` | CLI: hits /api/sample endpoint, renders as ASCII sparkline |
 | `vite.config.js` | Vite + React, app at `/app/` separate from landing at `/` |

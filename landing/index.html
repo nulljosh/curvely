@@ -8,17 +8,17 @@
 <meta name="theme-color" content="#fdfdfd" media="(prefers-color-scheme: light)">
 <meta name="theme-color" content="#050505" media="(prefers-color-scheme: dark)">
 <meta name="apple-itunes-app" content="app-id=6794988370">
-<link rel="canonical" href="https://curvely.jaybulb.com/">
+<link rel="canonical" href="https://tangent.jaybulb.com/">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Curvely">
 <meta property="og:title" content="Curvely. Type an equation, watch it draw.">
 <meta property="og:description" content="Plot several equations at once, pan and zoom the plane, and read values straight off the curve.">
-<meta property="og:url" content="https://curvely.jaybulb.com/">
-<meta property="og:image" content="https://curvely.jaybulb.com/og.png">
+<meta property="og:url" content="https://tangent.jaybulb.com/">
+<meta property="og:image" content="https://tangent.jaybulb.com/og.png">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://curvely.jaybulb.com/og.png">
+<meta name="twitter:image" content="https://tangent.jaybulb.com/og.png">
 <link rel="stylesheet" href="landing.css">
 <script src="landing.js" defer></script>
 </head>
@@ -88,7 +88,7 @@
     <div class="stage term-stage reveal">
       <div class="art art-bg" data-curves="cubic sin" aria-hidden="true"></div>
       <figure class="term glass" aria-label="Evaluating x squared over HTTP">
-<pre><span class="dim">$</span> curl -X POST curvely.jaybulb.com/api/evaluate \
+<pre><span class="dim">$</span> curl -X POST tangent.jaybulb.com/api/evaluate \
     -d '{"expr":"x^2","xValues":[0,1,2]}'
 <span class="dim">points</span>  (0, 0)  (1, 1)  (2, 4)</pre>
         <figcaption>One call, three points.</figcaption>
@@ -96,8 +96,8 @@
     </div>
     <div class="prods">
       <article class="prod reveal"><div class="art" data-curves="parab" aria-hidden="true"></div><p class="label">HTTP</p><h3>Evaluate and sample</h3><p>Syntax, evaluate and sample endpoints.</p><a href="/api/syntax">/api/syntax &rarr;</a></article>
-      <article class="prod reveal"><div class="art" data-curves="damp" aria-hidden="true"></div><p class="label">MCP</p><h3>Curvely MCP server</h3><p>JSON-RPC at /mcp. No session, no SDK.</p><a href="https://github.com/nulljosh/curvely/blob/main/functions/mcp.js">functions/mcp.js &rarr;</a></article>
-      <article class="prod reveal"><div class="art" data-curves="beat" aria-hidden="true"></div><p class="label">WebMCP</p><h3>Drive the open app</h3><p>Plot, edit and clear equations from an agent.</p><a href="https://github.com/nulljosh/curvely/blob/main/docs/API.md">docs/API.md &rarr;</a></article>
+      <article class="prod reveal"><div class="art" data-curves="damp" aria-hidden="true"></div><p class="label">MCP</p><h3>Curvely MCP server</h3><p>JSON-RPC at /mcp. No session, no SDK.</p><a href="https://github.com/nulljosh/tangent/blob/main/functions/mcp.js">functions/mcp.js &rarr;</a></article>
+      <article class="prod reveal"><div class="art" data-curves="beat" aria-hidden="true"></div><p class="label">WebMCP</p><h3>Drive the open app</h3><p>Plot, edit and clear equations from an agent.</p><a href="https://github.com/nulljosh/tangent/blob/main/docs/API.md">docs/API.md &rarr;</a></article>
     </div>
   </div>
 </section>
@@ -124,8 +124,8 @@
     <div class="foot-brand"><img src="icon.svg" alt="" width="40" height="40"><b>Curvely</b><p>Type an equation. Watch it draw.</p></div>
     <nav class="foot-cols" aria-label="Footer">
       <div><p class="label">Curvely</p><a href="https://apps.apple.com/app/id6794988370">App Store</a><a href="/app/">Web app</a><a href="#features">Features</a><a href="#agents">Agents</a></div>
-      <div><p class="label">Source</p><a href="https://github.com/nulljosh/curvely">GitHub</a><a href="https://github.com/nulljosh/curvely/blob/main/CHANGELOG.md">Changelog</a><a href="https://github.com/nulljosh/curvely/blob/main/WHITEPAPER.md">Whitepaper</a><a href="https://github.com/nulljosh/curvely/blob/main/SECURITY.md">Security</a><a href="/app/privacy.html">Privacy</a></div>
-      <div><p class="label">More</p><a href="https://github.com/nulljosh/curvely/issues">Report a bug</a><a href="https://jaybulb.com">More apps</a><a href="#top">Back to top</a></div>
+      <div><p class="label">Source</p><a href="https://github.com/nulljosh/tangent">GitHub</a><a href="https://github.com/nulljosh/tangent/blob/main/CHANGELOG.md">Changelog</a><a href="https://github.com/nulljosh/tangent/blob/main/WHITEPAPER.md">Whitepaper</a><a href="https://github.com/nulljosh/tangent/blob/main/SECURITY.md">Security</a><a href="/app/privacy.html">Privacy</a></div>
+      <div><p class="label">More</p><a href="https://github.com/nulljosh/tangent/issues">Report a bug</a><a href="https://jaybulb.com">More apps</a><a href="#top">Back to top</a></div>
     </nav>
   </div>
   <div class="word-band" aria-hidden="true"><canvas></canvas></div>

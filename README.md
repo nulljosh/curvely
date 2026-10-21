@@ -1,8 +1,8 @@
 <img src="icon.svg" width="80">
 
-![version](https://img.shields.io/badge/version-v2.0.0-blue) [![tests](https://github.com/nulljosh/curvely/actions/workflows/test.yml/badge.svg)](https://github.com/nulljosh/curvely/actions/workflows/test.yml) ![license](https://img.shields.io/badge/license-Apache%202.0-blue) [![App Store](https://img.shields.io/badge/App%20Store-Download-0D96F6?logo=appstore&logoColor=white)](https://apps.apple.com/us/app/curvely/id6794988370)
+![version](https://img.shields.io/badge/version-v2.0.0-blue) [![tests](https://github.com/nulljosh/tangent/actions/workflows/test.yml/badge.svg)](https://github.com/nulljosh/tangent/actions/workflows/test.yml) ![license](https://img.shields.io/badge/license-Apache%202.0-blue) [![App Store](https://img.shields.io/badge/App%20Store-Download-0D96F6?logo=appstore&logoColor=white)](https://apps.apple.com/us/app/curvely/id6794988370)
 
-**Live:** https://curvely.jaybulb.com
+**Live:** https://tangent.jaybulb.com (formerly Curvely; the App Store listing is still named Curvely until Apple accepts the new name)
 
 A graphing calculator that feels like it belongs on your phone. Type an equation and watch it draw. Native SwiftUI on iPhone, iPad and Mac, and the same app on the web. Everything runs on your device.
 
