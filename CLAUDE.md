@@ -99,3 +99,7 @@ AppIcon asset catalog at `ios/App/Assets.xcassets/AppIcon.appiconset` (1024×102
 - `src/utils/evaluate.js`: mathjs wrapper for the browser, strips `y =` prefix
 - `src/lib/tools.js`: the fenced server-side evaluator behind `/api/*` and `/mcp`
 - `src/utils/colors.js`: 8-color palette
+
+## The loop
+
+Joshua's `/loop` for Curvely runs toward v100. Current state, the next steps and the restart prompt are in `docs/LOOP-HANDOFF.md`. Read it before starting a loop.

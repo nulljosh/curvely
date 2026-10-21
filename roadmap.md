@@ -2,10 +2,6 @@
 
 ## v3 to v10 (Joshua's ask 2026-10-21: "loop to v5-10")
 One major version per real feature batch, each on web, iOS and Mac, submitted once the last one clears review. Order is a proposal, Joshua can reshuffle.
-- [x] v3 Functions: `f(x) = x^2` then `f(x+1)`, derivatives `f'(x)` and `d/dx`, piecewise `{x < 0: -x, x}`, domain limits `sin(x) {0 < x < 5}`. Built 2026-10-21 on web, iOS and Mac; web live, native ships as 3.0.0 after 2.0.0 clears review.
-- [x] v4 Lists: `L = [1, 2, 3]`, ranges `[1...10]`, `(L, L^2)` and `sin(x) + [0, 1, 2]` draw once per element, `[(1, 2), (2, 4)]` plots a point list. Built 2026-10-21 on all three. An editable table UI moves to v31-40.
-- [x] Patterns (Joshua's ask 2026-10-21, goal 50-100): 85 one-tap patterns in 11 categories (spirals, flowers incl. flower of life, hearts, classic curves, Lissajous, spirographs, waves, functions, dots, regions, implicit art). Adds rows, never replaces. Add one in src/utils/patterns.js, then `npm run gen:patterns` writes ios/App/Patterns.swift; a test fails if they drift.
-- [x] v5 Sliders grown up: play button sweeps between bounds, `a = 3 {0 < a < 10}` sets the range (fixed while dragging), `{0 < t < pi}` / `{0 < theta < 6pi}` set parametric and polar ranges. Built 2026-10-21 on all three. Per-slider step left out: continuous plus 2-decimal rounding covers it.
 - v6 Saved graphs: a list of named graphs, a share link on web (state in the URL), iCloud sync on native.
 - v7 Look: per-row colour picker, line style (solid, dashed, points), labels on points.
 - v8 Statistics: regressions `y1 ~ m x1 + b` over a table, mean, median, stdev.
@@ -26,29 +22,9 @@ One major per batch, same rule as above: all three platforms, tests, live check,
 
 ## v2.0.0 (Desmos basics), started 2026-10-21
 Each item lands on web, iOS and Mac together. Submit 2.0.0 once all are in and 1.2.6 has cleared review.
-- [x] Tap a curve's dot to hide or show it (persists on native).
-- [x] Points: `(1, 2)` plots a dot, `(a, a^2)` follows sliders. Native also got sliders, which it never had (dragging rewrites the row's text, like Desmos).
-- [x] Key points: roots, extrema and intersections as small dots; hover (web, Mac) or tap (iOS) to read the coordinates.
-- [x] Inequalities: `y > x^2`, `x^2+y^2 < 4` shade their region (strict edge thin and faded).
-- [x] Polar: `r = 1 + cos(theta)`, theta 0 to 2 pi.
-- [x] Parametric: `(cos(t), sin(t))` over t in 0 to 2 pi.
 
-## State 2026-09-20
-iOS + macOS 1.2.4 WAITING_FOR_REVIEW: full-screen graph, no header or zoom buttons, glass
-equation panel. 1.2.5 work is on main: collapsible panel, Mac scroll-wheel zoom, web +/-/0 keys.
-
-- [x] Recapture App Store screenshots (iPhone, iPad, Mac). 1.2.6 (build 202610210815) uploaded on iOS and Mac 2026-10-21 from committed code (carries the 10-17 brand icon fix). New iPhone, iPad and Mac shots are on the 1.2.6 draft. Superseded same day: the redesign (Curvely Sans, glass, new icon) plus light mode shipped as 1.2.6 build 202610210836, new shots, submitted on iOS and Mac 2026-10-21.
-- [x] Support and privacy URLs moved to curvely.jaybulb.com 2026-10-21 (heyitsmejosh.com has lapsed).
-- [x] Light mode on web, iOS and Mac, follows the system setting. 2026-10-21
-
-- [x] Verify iPad layout visually on simulator -- 2026-09-02, done 2026-10-21 (iPad 13 inch shot for 1.2.6). Code review found no
-  structural iPad issue: `ContentView` already branches on `horizontalSizeClass`
-  (compact -> stacked, regular -> 320pt sidebar + graph `HStack`), and the one
-  `.frame(maxWidth: 600)` found nearby is inside `ExportSheet`, bounding the exported PNG
-  preview, not the main canvas. This machine's Xcode only has the iOS 26.5 SDK with the
-  iOS 26.2 runtime downloaded, so `xcodebuild` won't recognize any simulator destination
-  even by explicit UDID -- needs the matching platform component installed, then a
-  screenshot check (portrait + landscape).
+## State 2026-10-21
+2.0.0 is in App Review on iOS and Mac (1.2.6 was pulled and folded in). The web is live with v3 to v5 and the patterns; native 3.0.0 ships once 2.0.0 clears. Light mode follows the system setting on all three.
 
 ## In flight, grapher -> curvely hostname rename
 
@@ -80,11 +56,6 @@ jaybulb.com purchase. Not a blocker for current work.
 ## TUI pilot (2026-09-05)
 - `curvely-tui` SwiftPM target (SwiftTUI). `swift build && ./.build/debug/curvely-tui "x^2" -5 5` fetches /api/sample and renders a text sparkline. mathjs stays server-side, not ported. Needs a real TTY.
 
-## Ingested 2026-10-01
-- [x] App Store screenshots are stale, refresh them. Done 2026-10-21, see the 1.2.6 note above.
-
 ## Ingested 2026-10-05
 - [ ] QA
 
-## Ingested 2026-10-16
-- [x] Stale App Store screenshots (live 1.2.5 listing shows a blank icon in the preview). New shots and the icon fix are staged on 1.2.6, live once it ships. (screenshot: notes/attachments/2026-10-16/app-store-screenshots-1.png)
