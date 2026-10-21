@@ -28,7 +28,7 @@
   ];
   function grid(w, h) {
     var n = GLYPHS.length, rows = w < h * 3 ? 2 : 1, per = Math.ceil(n / rows);
-    return { rows: rows, per: per, cell: Math.min(h / rows * 0.86, w / per) };
+    return { rows: rows, per: per, cell: Math.min(h / rows * 0.86, w / per * 0.9) };  // 0.9 leaves a margin so the end glyphs never touch the edge
   }
   function paint(c, w, h) {
     var g = grid(w, h), gap = (w - g.cell * g.per) / g.per, rowH = h / g.rows;
