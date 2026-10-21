@@ -90,7 +90,7 @@ AppIcon asset catalog at `ios/App/Assets.xcassets/AppIcon.appiconset` (1024×102
 
 ## Landing
 
-`landing/` (index.html, landing.css, landing.js, footer-band.js, art/, fonts/), after the Hermes landing: halftone Apollo (Lafreri engraving, Met, CC0) dithered with `dither.py` logic, curves drawn in JS, the real app in an iframe on the blue stage. `npm run build` copies it over `dist/`. QA: `node scripts/qa-web.mjs` against `python3 -m http.server 4173 -d dist`.
+`landing/` (index.html, landing.css, landing.js, footer-band.js, art/, fonts/), after the Hermes landing: halftone Geometria (Sadeler engraving after de Vos, Met, CC0) dithered with `dither.py` logic, curves drawn in JS, the real app in an iframe on the blue stage. `npm run build` copies it over `dist/`. QA: `node scripts/qa-web.mjs` against `python3 -m http.server 4173 -d dist`.
 
 ## Key files
 

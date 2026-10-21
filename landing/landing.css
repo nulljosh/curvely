@@ -188,9 +188,9 @@ html.js .reveal.in-view { opacity: 1; transform: none; transition: opacity .6s e
 .nav .btn { border-radius: 999px; height: 40px; }
 .band .glass, .stage .glass { background: color-mix(in srgb, var(--bg) 40%, transparent); }
 
-/* Apollo in a halftone, still: the engraving is a mask over the band tint */
+/* Geometria in a halftone, still: the engraving is a mask over the band tint */
 .hero-band { position: relative; margin: 0 clamp(0px, 3vw, 44px); height: clamp(520px, 92vh, 860px); background: var(--grain), var(--band); overflow: hidden; color: #fff; }
-.spot { position: absolute; inset: 0 0 96px 0; background: var(--band-art); opacity: .85; -webkit-mask-image: url(art/apollo.png); mask-image: url(art/apollo.png); -webkit-mask-size: cover; mask-size: cover; -webkit-mask-position: 40% 18%; mask-position: 40% 18%; -webkit-mask-repeat: no-repeat; mask-repeat: no-repeat; }
+.spot { position: absolute; inset: 0 0 96px 0; background: var(--band-art); opacity: .85; -webkit-mask-image: url(art/geometria.png); mask-image: url(art/geometria.png); -webkit-mask-size: cover; mask-size: cover; -webkit-mask-position: 38% 22%; mask-position: 38% 22%; -webkit-mask-repeat: no-repeat; mask-repeat: no-repeat; }
 .badge { display: inline-block; line-height: 0; }
 .badge img { display: block; height: 48px; width: auto; }
 .badge:focus-visible { outline: 3px solid var(--ring); outline-offset: 3px; }
@@ -204,5 +204,5 @@ html.js .reveal.in-view { opacity: 1; transform: none; transition: opacity .6s e
 /* Hero background is the live app; copy sits over it and lets clicks through */
 .app-bg { position: absolute; --copy: calc(clamp(100px, 17vw, 250px) + 32px); top: 76px; left: 0; width: 100%; height: calc(100% - 76px - var(--copy)); border: 0; background: #000; }
 .hero-copy { pointer-events: none; padding-top: 0; padding-bottom: var(--sp-5); }
-.gods { height: clamp(360px, 60vh, 640px); margin-top: var(--sp-8); }
+.gods { height: clamp(460px, 72vh, 740px); margin-top: var(--sp-8); }
 .gods .spot { inset: 0; }
