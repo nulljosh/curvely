@@ -1,8 +1,8 @@
-# Curvely loop handoff (2026-10-21, 10:44)
+# Tangent loop handoff (2026-10-21, 10:44)
 
 ## What the loop is
 
-Joshua's `/loop` for Curvely. It works down `roadmap.md` one major version at a time, toward v100. Each version lands on web, iOS and Mac together, gets tests and a live QA pass, is committed and pushed, and the web is deployed. Each major also goes to the App Store as soon as the version before it clears review: bump, build, upload, screenshots, submit, without asking.
+Joshua's `/loop` for Tangent. It works down `roadmap.md` one major version at a time, toward v100. Each version lands on web, iOS and Mac together, gets tests and a live QA pass, is committed and pushed, and the web is deployed. Each major also goes to the App Store as soon as the version before it clears review: bump, build, upload, screenshots, submit, without asking.
 
 ## Where things stand
 
@@ -12,7 +12,7 @@ Joshua's `/loop` for Curvely. It works down `roadmap.md` one major version at a 
 - The landing hero is the live app in a frame above a blue title strip, with the Apollo art in its own band above the footer. It is deployed and verified live.
 - The App Store privacy URL is tangent.jaybulb.com/app/privacy.html.
 - The roadmap runs to v100. v6 is the next open version.
-- The repo, folder and domain are Tangent as of 2026-10-21 (tangent.jaybulb.com, Pages project grapher kept on purpose). The App Store name is still Curvely until Apple accepts 2.0.0. The Tangent name probe waits on that review.
+- The repo, folder and domain are Tangent as of 2026-10-21 (tangent.jaybulb.com, Pages project grapher kept on purpose). The App Store name is still Tangent until Apple accepts 2.0.0. The Tangent name probe waits on that review.
 
 ## Next, in order
 
@@ -24,5 +24,5 @@ Joshua's `/loop` for Curvely. It works down `roadmap.md` one major version at a 
 ## Restart prompt
 
 ```
-/loop work on Curvely toward v100, forever: pick the next roadmap version (roadmap.md v6 onward), build it on web+iOS+macOS, test, QA, commit, push, deploy web; ship every major semver to the App Store (bump, build, upload, shots, submit, never ask) as soon as the previous version clears review. Next in order: v6 saved graphs and share links; ship 3.0 (v3-v5 plus patterns) the moment 2.0 is approved; rename to Tangent (Joshua said "you decide"; ASC name probe first) only once 2.0.0 has cleared review.
+/loop work on Tangent toward v100, forever: pick the next roadmap version (roadmap.md v6 onward), build it on web+iOS+macOS, test, QA, commit, push, deploy web; ship every major semver to the App Store (bump, build, upload, shots, submit, never ask) as soon as the previous version clears review. Next in order: v6 saved graphs and share links; ship 3.0 (v3-v5 plus patterns) the moment 2.0 is approved; rename to Tangent (Joshua said "you decide"; ASC name probe first) only once 2.0.0 has cleared review.
 ```

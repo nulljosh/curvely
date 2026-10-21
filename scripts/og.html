@@ -1,0 +1,14 @@
+<!doctype html><meta charset="utf-8">
+<!-- Source of landing/og.png. Serve the repo root (python3 -m http.server 4180) and screenshot at 1200x630:
+     chrome --headless=new --hide-scrollbars --window-size=1200,630 --screenshot=landing/og.png http://localhost:4180/scripts/og.html -->
+<style>
+@font-face { font-family: "Tangent Sans"; src: url("../landing/fonts/TangentSans-ExtraLight.woff2"); font-weight: 200; }
+@font-face { font-family: "Tangent Sans"; src: url("../landing/fonts/TangentSans-Medium.woff2"); font-weight: 500; }
+html, body { margin: 0; width: 1200px; height: 630px; overflow: hidden; }
+body { position: relative; background: #1d77b0; font-family: "Tangent Sans", sans-serif; color: #fff; }
+.art { position: absolute; inset: 0; background: #7ab9e3; opacity: .8; -webkit-mask: url(../landing/art/apollo.png) 40% 18% / cover no-repeat; mask: url(../landing/art/apollo.png) 40% 18% / cover no-repeat; }
+.label { position: absolute; left: 62px; top: 388px; font-weight: 500; font-size: 17px; letter-spacing: .1em; color: #d3e8f6; }
+h1 { position: absolute; left: 62px; top: 408px; margin: 0; font-weight: 200; font-size: 198px; line-height: 1; letter-spacing: -.005em; }
+img { position: absolute; right: 48px; bottom: 56px; width: 120px; height: 120px; border-radius: 22.5%; }
+</style>
+<div class="art"></div><p class="label">GRAPHING CALCULATOR</p><h1>TANGENT</h1><img src="../landing/icon.svg" alt="">

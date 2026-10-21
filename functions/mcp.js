@@ -49,7 +49,7 @@ export async function onRequest({ request: req }) {
       return reply({
         protocolVersion: params.protocolVersion || '2025-06-18',
         capabilities: { tools: {} },
-        serverInfo: { name: 'curvely', version: VERSION },
+        serverInfo: { name: 'tangent', version: VERSION },
       });
     case 'notifications/initialized':
       return new Response(null, { status: 202, headers: CORS });
@@ -65,7 +65,7 @@ export async function onRequest({ request: req }) {
         // A tool rejecting its input is a tool result, not a transport error — the client
         // should see the message and be able to retry, not get a dead connection.
         if (err instanceof ToolError) {
-          return reply({ content: [{ type: 'text', text: `curvely: ${err.message}` }], isError: true });
+          return reply({ content: [{ type: 'text', text: `tangent: ${err.message}` }], isError: true });
         }
         throw err;
       }

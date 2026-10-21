@@ -1,10 +1,10 @@
-@font-face { font-family: "Curvely Sans"; src: url("fonts/CurvelySans-ExtraLight.woff2") format("woff2"); font-weight: 200; font-display: swap; }
-@font-face { font-family: "Curvely Sans"; src: url("fonts/CurvelySans-Regular.woff2") format("woff2"); font-weight: 400; font-display: swap; }
-@font-face { font-family: "Curvely Sans"; src: url("fonts/CurvelySans-Medium.woff2") format("woff2"); font-weight: 500; font-display: swap; }
-@font-face { font-family: "Curvely Sans"; src: url("fonts/CurvelySans-Semibold.woff2") format("woff2"); font-weight: 600; font-display: swap; }
-@font-face { font-family: "Curvely Sans"; src: url("fonts/CurvelySans-Bold.woff2") format("woff2"); font-weight: 700; font-display: swap; }
-/* Curvely landing, dressed like Hermes: a near-black page in a thin blue frame, giant thin caps, tiny caps labels,
-   small square buttons, and full-bleed blue bands where plotted curves sit in scanlines. Curvely Sans (Inter, renamed, quotes drawn as waves) over the system stack.
+@font-face { font-family: "Tangent Sans"; src: url("fonts/TangentSans-ExtraLight.woff2") format("woff2"); font-weight: 200; font-display: swap; }
+@font-face { font-family: "Tangent Sans"; src: url("fonts/TangentSans-Regular.woff2") format("woff2"); font-weight: 400; font-display: swap; }
+@font-face { font-family: "Tangent Sans"; src: url("fonts/TangentSans-Medium.woff2") format("woff2"); font-weight: 500; font-display: swap; }
+@font-face { font-family: "Tangent Sans"; src: url("fonts/TangentSans-Semibold.woff2") format("woff2"); font-weight: 600; font-display: swap; }
+@font-face { font-family: "Tangent Sans"; src: url("fonts/TangentSans-Bold.woff2") format("woff2"); font-weight: 700; font-display: swap; }
+/* Tangent landing, dressed like Hermes: a near-black page in a thin blue frame, giant thin caps, tiny caps labels,
+   small square buttons, and full-bleed blue bands where plotted curves sit in scanlines. Tangent Sans (Inter, renamed, quotes drawn as waves) over the system stack.
    Colours are brand/tokens.css (the accent) plus the ink and band shades below. */
 :root {
   --accent: #0b6ba8;          /* links and actions on paper, AA */
@@ -20,8 +20,8 @@
   --line: #dcdde1;
   --text: #1d1d1f;
   --sub: #5c5e66;
-  --display: "Curvely Sans", -apple-system, BlinkMacSystemFont, "SF Pro Display", "Helvetica Neue", Helvetica, Arial, sans-serif;
-  --font: "Curvely Sans", -apple-system, BlinkMacSystemFont, "SF Pro Text", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  --display: "Tangent Sans", -apple-system, BlinkMacSystemFont, "SF Pro Display", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  --font: "Tangent Sans", -apple-system, BlinkMacSystemFont, "SF Pro Text", "Helvetica Neue", Helvetica, Arial, sans-serif;
   --sp-1: 4px; --sp-2: 8px; --sp-3: 12px; --sp-4: 16px; --sp-5: 24px; --sp-6: 32px; --sp-7: 48px; --sp-8: 64px; --sp-9: 96px;
   --wrap: 1120px;
   --r-sq: 2px;
@@ -188,17 +188,12 @@ html.js .reveal.in-view { opacity: 1; transform: none; transition: opacity .6s e
 .nav .btn { border-radius: 999px; height: 40px; }
 .band .glass, .stage .glass { background: color-mix(in srgb, var(--bg) 40%, transparent); }
 
-/* Header: Apollo in a halftone, lit from the pointer */
+/* Apollo in a halftone, still: the engraving is a mask over the band tint */
 .hero-band { position: relative; margin: 0 clamp(0px, 3vw, 44px); height: clamp(520px, 92vh, 860px); background: var(--grain), var(--band); overflow: hidden; color: #fff; }
-.spot { position: absolute; inset: 0 0 96px 0; background: none; }
-.spot::before, .spot::after { content: ""; position: absolute; inset: 0; -webkit-mask: var(--img) 40% 18% / cover no-repeat; mask: var(--img) 40% 18% / cover no-repeat; }
-.spot::before { background: var(--band-art); opacity: .5; }
-.spot::after {
-  background: #fff; opacity: .95;
-  -webkit-mask: var(--img) 40% 18% / cover no-repeat, radial-gradient(circle 260px at var(--mx, 62%) var(--my, 30%), #000 0, transparent 100%);
-  mask: var(--img) 40% 18% / cover no-repeat, radial-gradient(circle 260px at var(--mx, 62%) var(--my, 30%), #000 0, transparent 100%);
-  -webkit-mask-composite: source-in; mask-composite: intersect;
-}
+.spot { position: absolute; inset: 0 0 96px 0; background: var(--band-art); opacity: .85; -webkit-mask-image: url(art/apollo.png); mask-image: url(art/apollo.png); -webkit-mask-size: cover; mask-size: cover; -webkit-mask-position: 40% 18%; mask-position: 40% 18%; -webkit-mask-repeat: no-repeat; mask-repeat: no-repeat; }
+.badge { display: inline-block; line-height: 0; }
+.badge img { display: block; height: 48px; width: auto; }
+.badge:focus-visible { outline: 3px solid var(--ring); outline-offset: 3px; }
 .hero-copy { position: absolute; left: 0; right: 0; bottom: 0; padding: var(--sp-9) var(--sp-5) var(--sp-6); }
 .hero-copy .label { color: var(--band-sub); }
 .hero-copy h1 { margin-bottom: 0; }

@@ -1,4 +1,4 @@
-# Curvely Roadmap
+# Tangent Roadmap
 
 ## v3 to v10 (Joshua's ask 2026-10-21: "loop to v5-10")
 One major version per real feature batch, each on web, iOS and Mac, submitted once the last one clears review. Order is a proposal, Joshua can reshuffle.
@@ -27,17 +27,17 @@ Each item lands on web, iOS and Mac together. Submit 2.0.0 once all are in and 1
 2.0.0 is in App Review on iOS and Mac (1.2.6 was pulled and folded in). The web is live with v3 to v5 and the patterns; native 3.0.0 ships once 2.0.0 clears. Light mode follows the system setting on all three. The landing hero is now the live app, deployed 2026-10-21.
 
 ## Rename to Tangent (after 2.0.0 clears review)
-- [ ] Rename Curvely to Tangent in the store. Joshua said "you decide" on 2026-10-21 and the pick is Tangent over Tilde. Repo, folder and tangent.jaybulb.com are done 2026-10-21; the App Store name waits on 2.0.0 clearing App Review, then the name probe and listing. Several Tangent apps exist and one is a math calculator, so probe first.
+- [ ] Rename Tangent to Tangent in the store. Joshua said "you decide" on 2026-10-21 and the pick is Tangent over Tilde. Repo, folder and tangent.jaybulb.com are done 2026-10-21; the App Store name waits on 2.0.0 clearing App Review, then the name probe and listing. Several Tangent apps exist and one is a math calculator, so probe first.
 
-## In flight, grapher -> curvely hostname rename
+## In flight, grapher -> tangent hostname rename
 
 Done 2026-08-27: Pages custom domain `curvely.heyitsmejosh.com` added to the `grapher`
-project, and CNAME `curvely -> grapher-c2q.pages.dev` (proxied) created in the
+project, and CNAME `tangent -> grapher-c2q.pages.dev` (proxied) created in the
 heyitsmejosh.com zone. Cloudflare reports the domain `pending` while the cert issues.
 
 Done 2026-08-30: `curvely.heyitsmejosh.com` and its `/privacy.html` both return 200, so
 `ios/metadata/app-info/en-US.json` (privacyPolicyUrl) and
-`ios/metadata/version/1.2.2/en-US.json` (supportUrl) now point at curvely, not grapher.
+`ios/metadata/version/1.2.2/en-US.json` (supportUrl) now point at tangent, not grapher.
 Not yet pushed to ASC, `asc metadata` push is the next submission's job.
 
 Correction: an earlier version of this file said this could not be done headlessly because
@@ -54,10 +54,10 @@ biggest template-farm signal in the portfolio. Genuinely splitting them means bu
 per-app domains: money and a decision, not a code task. Same blocker shape as the
 jaybulb.com purchase. Not a blocker for current work.
 
-- Upload the refreshed App Store screenshots (`ios/screenshots/` in curvely, `screenshots/` in charwork) with the next version bump, the live listing still shows the pre-rebrand shots, and screenshots can only change on a new, editable version. 2026-08-31
+- Upload the refreshed App Store screenshots (`ios/screenshots/` in tangent, `screenshots/` in charwork) with the next version bump, the live listing still shows the pre-rebrand shots, and screenshots can only change on a new, editable version. 2026-08-31
 
 ## TUI pilot (2026-09-05)
-- `curvely-tui` SwiftPM target (SwiftTUI). `swift build && ./.build/debug/curvely-tui "x^2" -5 5` fetches /api/sample and renders a text sparkline. mathjs stays server-side, not ported. Needs a real TTY.
+- `tangent-tui` SwiftPM target (SwiftTUI). `swift build && ./.build/debug/tangent-tui "x^2" -5 5` fetches /api/sample and renders a text sparkline. mathjs stays server-side, not ported. Needs a real TTY.
 
 ## Ingested 2026-10-05
 - [ ] QA

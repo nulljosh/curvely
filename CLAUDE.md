@@ -1,4 +1,4 @@
-# Curvely
+# Tangent
 
 v2.0.0, Desmos-style graphing calculator. Web + iOS + macOS, with a small stateless HTTP API.
 
@@ -14,8 +14,8 @@ npm run build
 - The app itself is client-side: pure client math (mathjs on web, a hand-written parser on iOS).
   The only server code is the stateless API below; nothing is stored server-side.
 - Canvas rendering only, no chart libs
-- Apple Liquid Glass UI, follows system light/dark. Glass helper `curvelyGlass` in `ios/App/Theme.swift`, `.glass` in `src/index.css`
-- Type is Curvely Sans (`brand/fonts`, built by `scripts/gen_font.py`), an exception to the system-font rule because Joshua asked for it
+- Apple Liquid Glass UI, follows system light/dark. Glass helper `tangentGlass` in `ios/App/Theme.swift`, `.glass` in `src/index.css`
+- Type is Tangent Sans (`brand/fonts`, built by `scripts/gen_font.py`), an exception to the system-font rule because Joshua asked for it
 - Mobile-first responsive
 
 ## HTTP API + MCP
@@ -36,7 +36,7 @@ fails closed. `src/lib/tools.test.js` has a test per escape route, keep them.
 is evaluating their own expression in their own tab.
 
 ```bash
-npx wrangler pages dev   # Pages project is "grapher", NOT "curvely" — see wrangler.toml
+npx wrangler pages dev   # Pages project is "grapher", NOT "tangent" — see wrangler.toml
 ```
 
 ## iOS + macOS
@@ -59,12 +59,12 @@ assets are bundled any more; `npm run build:ios` is gone.
 ```bash
 cd ios && xcodegen generate
 xcodebuild build -scheme Grapher-iOS -destination 'generic/platform=iOS Simulator' \
-  -derivedDataPath /tmp/dd-curvely -skipPackagePluginValidation
+  -derivedDataPath /tmp/dd-tangent -skipPackagePluginValidation
 
 # macOS. -allowProvisioningUpdates is required the first time: no Mac profile existed for
 # com.nulljosh.grapher until 2026-08-30.
 xcodebuild build -scheme Grapher-iOS -destination 'platform=macOS' \
-  -derivedDataPath /tmp/dd-curvely-mac -skipPackagePluginValidation -allowProvisioningUpdates
+  -derivedDataPath /tmp/dd-tangent-mac -skipPackagePluginValidation -allowProvisioningUpdates
 
 # parser self-check, no framework needed
 swiftc -o /tmp/curvecheck ios/App/Expression.swift ios/App/Rows.swift ios/App/Lists.swift \
@@ -83,7 +83,7 @@ Two entitlements files, split by SDK. The iOS one's `application-identifier` is 
 macOS entitlement, with it present, Mac profile creation fails outright.
 
 The Xcode target and project are still named `Grapher`, bundle ID `com.nulljosh.grapher` is
-Apple-frozen, so the internal name stays even though the product is Curvely.
+Apple-frozen, so the internal name stays even though the product is Tangent.
 
 AppIcon asset catalog at `ios/App/Assets.xcassets/AppIcon.appiconset` (1024×1024, flattened from
 `icon.svg`), plus the ten `mac_*.png` idiom sizes, macOS gets no icon from a universal 1024 alone.
@@ -102,4 +102,4 @@ AppIcon asset catalog at `ios/App/Assets.xcassets/AppIcon.appiconset` (1024×102
 
 ## The loop
 
-Joshua's `/loop` for Curvely runs toward v100. Current state, the next steps and the restart prompt are in `docs/LOOP-HANDOFF.md`. Read it before starting a loop.
+Joshua's `/loop` for Tangent runs toward v100. Current state, the next steps and the restart prompt are in `docs/LOOP-HANDOFF.md`. Read it before starting a loop.

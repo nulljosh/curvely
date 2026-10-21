@@ -1,6 +1,6 @@
 # Architecture
 
-Curvely is a Desmos-style graphing calculator. Plot implicit and explicit equations, use sliders to parameterize curves, export as PNG. Deployed as a web app (React on Cloudflare Pages), native apps (iOS, macOS, watchOS), Kotlin Multiplatform (Android, desktop), and a CLI (Swift one-liner). When an equation arrives over the network, Curvely breaks it apart and checks every piece against a list of things that are allowed before it will work anything out, so a stranger cannot slip in code that does something else.
+Tangent is a Desmos-style graphing calculator. Plot implicit and explicit equations, use sliders to parameterize curves, export as PNG. Deployed as a web app (React on Cloudflare Pages), native apps (iOS, macOS, watchOS), Kotlin Multiplatform (Android, desktop), and a CLI (Swift one-liner). When an equation arrives over the network, Tangent breaks it apart and checks every piece against a list of things that are allowed before it will work anything out, so a stranger cannot slip in code that does something else.
 
 ## How it runs
 
@@ -43,7 +43,7 @@ CLI (TUI): calls `/api/sample` and renders points as an ASCII plot.
 | `ios/GrapherApp.swift` | SwiftUI app entry, window size (1280x800 on macOS) |
 | `ios/Checks/main.swift` | Parser self-check: ports evaluate.test.js and colors.test.js, PNG export validation |
 | `watchos/ContentView.swift` | Vertical TabView over preset curves |
-| `watchos/CurvelyWatchApp.swift` | watchOS app entry |
+| `watchos/TangentWatchApp.swift` | watchOS app entry |
 | `watchos/Models/` | Expression.swift (copy of iOS), Palette.swift, Presets.swift (fixed equation list), Theme.swift |
 | `watchos/Views/` | CurvePageView (equation label + plot), PlotView (fixed-scale canvas, no gestures) |
 | `kmp/shared/src/commonMain/kotlin/com/nulljosh/tangent/Expression.kt` | Kotlin parser ported from ios/App/Expression.swift; kept in lockstep |

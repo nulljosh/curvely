@@ -53,12 +53,12 @@ struct ContentView: View {
                             sidebar.containerRelativeFrame(.vertical) { height, _ in height * 0.34 }
                         }
                     }
-                    .curvelyGlass(in: RoundedRectangle(cornerRadius: 28))
+                    .tangentGlass(in: RoundedRectangle(cornerRadius: 28))
                     .padding(8)
                 } else {
                     sidebar
                         .frame(width: 320)
-                        .curvelyGlass(in: RoundedRectangle(cornerRadius: 28))
+                        .tangentGlass(in: RoundedRectangle(cornerRadius: 28))
                         .padding(12)
                         .frame(maxHeight: .infinity, alignment: .top)
                 }
@@ -119,7 +119,7 @@ struct ContentView: View {
             Image(systemName: "square.and.arrow.up")
                 .foregroundStyle(Theme.text)
                 .frame(width: 44, height: 44)
-                .curvelyGlass(in: Circle())
+                .tangentGlass(in: Circle())
                 .contentShape(Circle())
         }
         .buttonStyle(.plain)
@@ -203,7 +203,7 @@ struct ExportedGraph: Identifiable, Transferable {
 
     static var transferRepresentation: some TransferRepresentation {
         DataRepresentation(exportedContentType: .png) { $0.png }
-            .suggestedFileName("curvely-graph.png")
+            .suggestedFileName("tangent-graph.png")
     }
 }
 

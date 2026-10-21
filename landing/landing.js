@@ -1,4 +1,4 @@
-// Curvely landing: the art is the app's own output. Every curve is generated here, so there is nothing to fetch.
+// Tangent landing: the art is the app's own output. Every curve is generated here, so there is nothing to fetch.
 (function () {
   document.documentElement.classList.add('js');
   var NS = 'http://www.w3.org/2000/svg';
@@ -34,13 +34,6 @@
     return svg;
   }
   document.querySelectorAll('[data-curves]').forEach(function (box) { box.appendChild(plot(box.dataset.curves.split(' '))); });
-
-  // the light on Apollo follows the pointer; with no pointer it rests where the face is
-  var spot = document.getElementById('spot');
-  if (spot) spot.parentNode.addEventListener('pointermove', function (e) {
-    var r = spot.getBoundingClientRect();
-    spot.style.setProperty('--mx', (e.clientX - r.left) + 'px'); spot.style.setProperty('--my', (e.clientY - r.top) + 'px');
-  });
 
   var still = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
   if (!still && 'IntersectionObserver' in window) {

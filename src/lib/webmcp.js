@@ -1,4 +1,4 @@
-// WebMCP tool registration. Exposes curvely's plot actions to in-browser agents
+// WebMCP tool registration. Exposes tangent's plot actions to in-browser agents
 // via document.modelContext.
 //
 // ponytail: tools call the same handlers the sidebar buttons call, so anything

@@ -7,77 +7,77 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		13A637FBEE8FCABEA2A4E3ED /* Presets.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA8112421FCB33A02282C745 /* Presets.swift */; };
-		4D427520D6304BA24F00DA46 /* CurvelyWatchApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22DAF5AD69868994EDF2B1DD /* CurvelyWatchApp.swift */; };
-		5553E8EA5B75A672C88F0F16 /* PlotView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7E49904FC0932CD4F9B3E54 /* PlotView.swift */; };
-		62A56188276B64779E47BF72 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4D0BB5B71EEA72F693D076C /* Theme.swift */; };
-		7F822092EC48B81BFAD5CC40 /* Expression.swift in Sources */ = {isa = PBXBuildFile; fileRef = 969220420EFEB7A8EA3A9C77 /* Expression.swift */; };
-		84B73AE7016EDF7DBB0FB1BC /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDA94A661CBFAE17E53560C7 /* ContentView.swift */; };
-		D19A198698923B0CC28CFD15 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DD5621D075006DB36DB7CE83 /* Assets.xcassets */; };
-		ED3FF4A6C40DF304F5D6C670 /* CurvePageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F7AA808389A97842EBF9B67 /* CurvePageView.swift */; };
-		FCFB75D8B93231A32D711899 /* Palette.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BAA115A77E29E6707F1E6F3 /* Palette.swift */; };
+		0E5D85890690254FE35917A0 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E4D02F1C60F4BCF430C698D /* Theme.swift */; };
+		36793DE3C034A825C3BE4082 /* CurvePageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39372F33EDB8E7ED2F68AFAC /* CurvePageView.swift */; };
+		3EA1C2A91A1577DE6BE2A97B /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24D8BD0261B506178673E222 /* ContentView.swift */; };
+		62B0BC8FCADB719AC60C2D4E /* Expression.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3E58747E95744A856F77454 /* Expression.swift */; };
+		8251C86D48E5A919636315DA /* Palette.swift in Sources */ = {isa = PBXBuildFile; fileRef = 257C36A488FB3983ACFCD9E4 /* Palette.swift */; };
+		A550B3E2B7137ED441C16625 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 65BA52C13E141A641CE1B8C4 /* Assets.xcassets */; };
+		D65B72D26A13CA5F7F02041C /* TangentWatchApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2C07820E3E97638629E6D5E /* TangentWatchApp.swift */; };
+		D793465186AD6E5D53ED37A4 /* PlotView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF0AA32C295BCBC438E06FBA /* PlotView.swift */; };
+		F929E576424B53B26817E2CF /* Presets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28F3E0CBF97CE2224708C61C /* Presets.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		0B14AC7EC01A1F8C8C5782C2 /* CurvelyWatch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CurvelyWatch.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		22DAF5AD69868994EDF2B1DD /* CurvelyWatchApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurvelyWatchApp.swift; sourceTree = "<group>"; };
-		4F7AA808389A97842EBF9B67 /* CurvePageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurvePageView.swift; sourceTree = "<group>"; };
-		8BAA115A77E29E6707F1E6F3 /* Palette.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Palette.swift; sourceTree = "<group>"; };
-		969220420EFEB7A8EA3A9C77 /* Expression.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Expression.swift; sourceTree = "<group>"; };
-		A7E49904FC0932CD4F9B3E54 /* PlotView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlotView.swift; sourceTree = "<group>"; };
-		B4D0BB5B71EEA72F693D076C /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
-		BA8112421FCB33A02282C745 /* Presets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Presets.swift; sourceTree = "<group>"; };
-		DD5621D075006DB36DB7CE83 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		FDA94A661CBFAE17E53560C7 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		1E4D02F1C60F4BCF430C698D /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
+		24D8BD0261B506178673E222 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		257C36A488FB3983ACFCD9E4 /* Palette.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Palette.swift; sourceTree = "<group>"; };
+		28F3E0CBF97CE2224708C61C /* Presets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Presets.swift; sourceTree = "<group>"; };
+		39372F33EDB8E7ED2F68AFAC /* CurvePageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurvePageView.swift; sourceTree = "<group>"; };
+		65BA52C13E141A641CE1B8C4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		7AAC201E08C3CDF658619FAA /* TangentWatch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TangentWatch.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		B3E58747E95744A856F77454 /* Expression.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Expression.swift; sourceTree = "<group>"; };
+		CF0AA32C295BCBC438E06FBA /* PlotView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlotView.swift; sourceTree = "<group>"; };
+		D2C07820E3E97638629E6D5E /* TangentWatchApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TangentWatchApp.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXGroup section */
-		6C2DAA8F22887080656EB987 = {
+		0FCAACCD7D2BA10C52CC82B8 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				7E2F33FA66C737C29758A681 /* Models */,
-				B57D41CB057A7E3CA336528D /* Views */,
-				C95F7B587173A0AD89A0DA7C /* watchos */,
-				BF538C8AF150775BA23676FB /* Products */,
-			);
-			sourceTree = "<group>";
-		};
-		7E2F33FA66C737C29758A681 /* Models */ = {
-			isa = PBXGroup;
-			children = (
-				969220420EFEB7A8EA3A9C77 /* Expression.swift */,
-				8BAA115A77E29E6707F1E6F3 /* Palette.swift */,
-				BA8112421FCB33A02282C745 /* Presets.swift */,
-				B4D0BB5B71EEA72F693D076C /* Theme.swift */,
-			);
-			path = Models;
-			sourceTree = "<group>";
-		};
-		B57D41CB057A7E3CA336528D /* Views */ = {
-			isa = PBXGroup;
-			children = (
-				4F7AA808389A97842EBF9B67 /* CurvePageView.swift */,
-				A7E49904FC0932CD4F9B3E54 /* PlotView.swift */,
-			);
-			path = Views;
-			sourceTree = "<group>";
-		};
-		BF538C8AF150775BA23676FB /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				0B14AC7EC01A1F8C8C5782C2 /* CurvelyWatch.app */,
+				7AAC201E08C3CDF658619FAA /* TangentWatch.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		C95F7B587173A0AD89A0DA7C /* watchos */ = {
+		1B0B570C98B8F7530816054D /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				DD5621D075006DB36DB7CE83 /* Assets.xcassets */,
-				FDA94A661CBFAE17E53560C7 /* ContentView.swift */,
-				22DAF5AD69868994EDF2B1DD /* CurvelyWatchApp.swift */,
-				7E2F33FA66C737C29758A681 /* Models */,
-				B57D41CB057A7E3CA336528D /* Views */,
+				B3E58747E95744A856F77454 /* Expression.swift */,
+				257C36A488FB3983ACFCD9E4 /* Palette.swift */,
+				28F3E0CBF97CE2224708C61C /* Presets.swift */,
+				1E4D02F1C60F4BCF430C698D /* Theme.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		34F7A40523E29C6C7261357B = {
+			isa = PBXGroup;
+			children = (
+				1B0B570C98B8F7530816054D /* Models */,
+				4FCFCFC0500ACDB0E5349DC1 /* Views */,
+				AB27D973B8E9750B2E1B900A /* watchos */,
+				0FCAACCD7D2BA10C52CC82B8 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		4FCFCFC0500ACDB0E5349DC1 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				39372F33EDB8E7ED2F68AFAC /* CurvePageView.swift */,
+				CF0AA32C295BCBC438E06FBA /* PlotView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		AB27D973B8E9750B2E1B900A /* watchos */ = {
+			isa = PBXGroup;
+			children = (
+				65BA52C13E141A641CE1B8C4 /* Assets.xcassets */,
+				24D8BD0261B506178673E222 /* ContentView.swift */,
+				D2C07820E3E97638629E6D5E /* TangentWatchApp.swift */,
+				1B0B570C98B8F7530816054D /* Models */,
+				4FCFCFC0500ACDB0E5349DC1 /* Views */,
 			);
 			name = watchos;
 			path = .;
@@ -86,89 +86,104 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		951FD7A74B1CF1A2E97FF14C /* CurvelyWatch */ = {
+		24E01F4E4F6D16E089443AF7 /* TangentWatch */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = B126BDF4D933FB24854DB149 /* Build configuration list for PBXNativeTarget "CurvelyWatch" */;
+			buildConfigurationList = 609C917CF94BA1392A725DFD /* Build configuration list for PBXNativeTarget "TangentWatch" */;
 			buildPhases = (
-				5E0DB6EE6DD316E91D0DBC99 /* Sources */,
-				0B750F6A8AF50537BEF526B1 /* Resources */,
+				AE9D6D83A9B0C0221B77C24B /* Sources */,
+				6B9F992C9CA6F561A4F68B1B /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			name = CurvelyWatch;
+			name = TangentWatch;
 			packageProductDependencies = (
 			);
-			productName = CurvelyWatch;
-			productReference = 0B14AC7EC01A1F8C8C5782C2 /* CurvelyWatch.app */;
+			productName = TangentWatch;
+			productReference = 7AAC201E08C3CDF658619FAA /* TangentWatch.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		7062A23FE00BF4D326F02A8E /* Project object */ = {
+		38B2097F89DE90BF4F9C46BB /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = YES;
 				LastUpgradeCheck = 1430;
 				TargetAttributes = {
-					951FD7A74B1CF1A2E97FF14C = {
+					24E01F4E4F6D16E089443AF7 = {
 						DevelopmentTeam = QMM486NPYC;
 						ProvisioningStyle = Automatic;
 					};
 				};
 			};
-			buildConfigurationList = 9D0C44BD3FD0703EBCDCE33A /* Build configuration list for PBXProject "CurvelyWatch" */;
+			buildConfigurationList = 00633FC64D8F34BB31433A89 /* Build configuration list for PBXProject "TangentWatch" */;
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				Base,
 				en,
 			);
-			mainGroup = 6C2DAA8F22887080656EB987;
+			mainGroup = 34F7A40523E29C6C7261357B;
 			minimizedProjectReferenceProxies = 1;
 			preferredProjectObjectVersion = 77;
-			productRefGroup = BF538C8AF150775BA23676FB /* Products */;
+			productRefGroup = 0FCAACCD7D2BA10C52CC82B8 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				951FD7A74B1CF1A2E97FF14C /* CurvelyWatch */,
+				24E01F4E4F6D16E089443AF7 /* TangentWatch */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		0B750F6A8AF50537BEF526B1 /* Resources */ = {
+		6B9F992C9CA6F561A4F68B1B /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D19A198698923B0CC28CFD15 /* Assets.xcassets in Resources */,
+				A550B3E2B7137ED441C16625 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		5E0DB6EE6DD316E91D0DBC99 /* Sources */ = {
+		AE9D6D83A9B0C0221B77C24B /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				84B73AE7016EDF7DBB0FB1BC /* ContentView.swift in Sources */,
-				ED3FF4A6C40DF304F5D6C670 /* CurvePageView.swift in Sources */,
-				4D427520D6304BA24F00DA46 /* CurvelyWatchApp.swift in Sources */,
-				7F822092EC48B81BFAD5CC40 /* Expression.swift in Sources */,
-				FCFB75D8B93231A32D711899 /* Palette.swift in Sources */,
-				5553E8EA5B75A672C88F0F16 /* PlotView.swift in Sources */,
-				13A637FBEE8FCABEA2A4E3ED /* Presets.swift in Sources */,
-				62A56188276B64779E47BF72 /* Theme.swift in Sources */,
+				3EA1C2A91A1577DE6BE2A97B /* ContentView.swift in Sources */,
+				36793DE3C034A825C3BE4082 /* CurvePageView.swift in Sources */,
+				62B0BC8FCADB719AC60C2D4E /* Expression.swift in Sources */,
+				8251C86D48E5A919636315DA /* Palette.swift in Sources */,
+				D793465186AD6E5D53ED37A4 /* PlotView.swift in Sources */,
+				F929E576424B53B26817E2CF /* Presets.swift in Sources */,
+				D65B72D26A13CA5F7F02041C /* TangentWatchApp.swift in Sources */,
+				0E5D85890690254FE35917A0 /* Theme.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin XCBuildConfiguration section */
-		82C507089B87A381A3F03ECF /* Release */ = {
+		38B1A7B1FB3E05801433A5B8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "";
+				INFOPLIST_KEY_WKWatchOnly = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = com.nulljosh.grapher.watchos;
+				PRODUCT_NAME = Tangent;
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = 4;
+			};
+			name = Release;
+		};
+		4F473280723B63849D0A549B /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -228,7 +243,7 @@
 			};
 			name = Release;
 		};
-		A9B6E24640D9FAD529D7C890 /* Debug */ = {
+		B2F5F34BCDDC3A52B1D477D5 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -295,7 +310,7 @@
 			};
 			name = Debug;
 		};
-		AE2BCD40DE2DECB3682A3238 /* Release */ = {
+		F56F3F56C0AA77D87207BEF9 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -303,22 +318,7 @@
 				INFOPLIST_FILE = "";
 				INFOPLIST_KEY_WKWatchOnly = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = com.nulljosh.grapher.watchos;
-				PRODUCT_NAME = Curvely;
-				SDKROOT = watchos;
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = 4;
-			};
-			name = Release;
-		};
-		E3525B00B5AC4E3BA01BF3EE /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "";
-				INFOPLIST_KEY_WKWatchOnly = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = com.nulljosh.grapher.watchos;
-				PRODUCT_NAME = Curvely;
+				PRODUCT_NAME = Tangent;
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = 4;
@@ -328,25 +328,25 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		9D0C44BD3FD0703EBCDCE33A /* Build configuration list for PBXProject "CurvelyWatch" */ = {
+		00633FC64D8F34BB31433A89 /* Build configuration list for PBXProject "TangentWatch" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				A9B6E24640D9FAD529D7C890 /* Debug */,
-				82C507089B87A381A3F03ECF /* Release */,
+				B2F5F34BCDDC3A52B1D477D5 /* Debug */,
+				4F473280723B63849D0A549B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Debug;
 		};
-		B126BDF4D933FB24854DB149 /* Build configuration list for PBXNativeTarget "CurvelyWatch" */ = {
+		609C917CF94BA1392A725DFD /* Build configuration list for PBXNativeTarget "TangentWatch" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				E3525B00B5AC4E3BA01BF3EE /* Debug */,
-				AE2BCD40DE2DECB3682A3238 /* Release */,
+				F56F3F56C0AA77D87207BEF9 /* Debug */,
+				38B1A7B1FB3E05801433A5B8 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Debug;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = 7062A23FE00BF4D326F02A8E /* Project object */;
+	rootObject = 38B2097F89DE90BF4F9C46BB /* Project object */;
 }

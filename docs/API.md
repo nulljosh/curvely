@@ -1,4 +1,4 @@
-# Curvely API
+# Tangent API
 
 The app is client-only. Agents have three doors: a stateless HTTP API, an MCP server, and WebMCP in
 the open page.
@@ -14,7 +14,7 @@ Cloudflare Pages Functions in `functions/`, one definition in `src/lib/tools.js`
 
 ## WebMCP
 
-With the app open, curvely registers tools on `document.modelContext`.
+With the app open, tangent registers tools on `document.modelContext`.
 Source: `src/lib/webmcp.js`.
 
 ### Read-only

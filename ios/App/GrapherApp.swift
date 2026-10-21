@@ -1,7 +1,7 @@
 import SwiftUI
 
 @main
-struct CurvelyApp: App {
+struct TangentApp: App {
     var body: some Scene {
         WindowGroup {
             ContentView()

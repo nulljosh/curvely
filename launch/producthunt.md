@@ -1,6 +1,6 @@
 # Product Hunt
 
-Name: Curvely
+Name: Tangent
 
 Tagline (47): A graphing calculator that stays on your device
 
@@ -17,8 +17,8 @@ GitHub: https://github.com/nulljosh/tangent
 
 ## First comment
 
-Hi, I'm Josh, I built Curvely.
+Hi, I'm Josh, I built Tangent.
 
-I needed a grapher for Pre-Calc that opened instantly, worked offline and did not want an account. Curvely is that. Type equations, they plot together, pan and zoom, everything computed locally, including implicit equations traced with marching squares. There is also an API and an MCP endpoint if you want to graph from code or from an AI assistant.
+I needed a grapher for Pre-Calc that opened instantly, worked offline and did not want an account. Tangent is that. Type equations, they plot together, pan and zoom, everything computed locally, including implicit equations traced with marching squares. There is also an API and an MCP endpoint if you want to graph from code or from an AI assistant.
 
 $0.99 on the App Store, free on web. Happy to answer anything.

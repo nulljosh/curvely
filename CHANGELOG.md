@@ -1,5 +1,11 @@
 # Changelog
 
+## [Unreleased]
+
+Curvely is now Tangent. Repo, site, landing, web app, native product name, brand font and icon bundle are renamed. The App Store listing keeps the name Curvely until Apple accepts the new one. Bundle IDs, the Android package, the `grapher` Pages project and the old `curvely.jaybulb.com` host stay as they were.
+
+- Landing: the live app is the hero, the Apollo engraving moved to the bottom, official App Store and Mac App Store badges
+
 ## [v2.0.0] — 2026-10-21
 
 1.2.6 never reached the store; it was pulled from review and folded into 2.0.0.

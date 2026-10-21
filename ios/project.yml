@@ -22,7 +22,7 @@ targets:
       - path: App
     settings:
       base:
-        PRODUCT_NAME: Curvely
+        PRODUCT_NAME: Tangent
         PRODUCT_BUNDLE_IDENTIFIER: com.nulljosh.grapher
         INFOPLIST_FILE: App/Info.plist
         GENERATE_INFOPLIST_FILE: NO

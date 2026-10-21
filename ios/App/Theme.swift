@@ -37,16 +37,16 @@ enum Theme {
 }
 
 extension Theme {
-    /// Curvely Sans (Inter, renamed, brand/fonts), bundled in App/Fonts. Falls back to the system face if it fails to load.
+    /// Tangent Sans (Inter, renamed, brand/fonts), bundled in App/Fonts. Falls back to the system face if it fails to load.
     static func font(_ size: CGFloat, _ weight: Font.Weight = .regular) -> Font {
-        .custom(weight == .regular ? "CurvelySans-Regular" : weight == .semibold ? "CurvelySans-Semibold" : "CurvelySans-Medium", size: size)
+        .custom(weight == .regular ? "TangentSans-Regular" : weight == .semibold ? "TangentSans-Semibold" : "TangentSans-Medium", size: size)
     }
 }
 
 extension View {
     /// Liquid Glass on iOS 26 and macOS 26, a blurred material before that. One call site for every floating pane.
     @ViewBuilder
-    func curvelyGlass<S: InsettableShape>(in shape: S) -> some View {
+    func tangentGlass<S: InsettableShape>(in shape: S) -> some View {
         if #available(iOS 26, macOS 26, *) {
             self.glassEffect(.regular, in: shape)
         } else {

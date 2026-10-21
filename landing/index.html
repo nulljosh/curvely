@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-<title>Curvely. Type an equation, watch it draw.</title>
+<title>Tangent. Type an equation, watch it draw.</title>
 <meta name="description" content="A graphing calculator that stays out of the way. Plot several equations at once, pan and zoom the plane, and read values straight off the curve. Free in the browser, native on iPhone, iPad and Mac.">
 <meta name="theme-color" content="#fdfdfd" media="(prefers-color-scheme: light)">
 <meta name="theme-color" content="#050505" media="(prefers-color-scheme: dark)">
@@ -12,8 +12,8 @@
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
 <meta property="og:type" content="website">
-<meta property="og:site_name" content="Curvely">
-<meta property="og:title" content="Curvely. Type an equation, watch it draw.">
+<meta property="og:site_name" content="Tangent">
+<meta property="og:title" content="Tangent. Type an equation, watch it draw.">
 <meta property="og:description" content="Plot several equations at once, pan and zoom the plane, and read values straight off the curve.">
 <meta property="og:url" content="https://tangent.jaybulb.com/">
 <meta property="og:image" content="https://tangent.jaybulb.com/og.png">
@@ -30,18 +30,18 @@
     <a href="#agents">Agents</a>
     <a href="#get">Get it</a>
   </nav>
-  <a class="nav-brand" href="#top" aria-label="Curvely home"><img src="icon.svg" alt="" width="28" height="28"><span>Curvely</span></a>
+  <a class="nav-brand" href="#top" aria-label="Tangent home"><img src="icon.svg" alt="" width="28" height="28"><span>Tangent</span></a>
   <div class="nav-end"><a class="btn btn-solid" href="/app/">Open app</a></div>
 </header>
 
 <!-- Art: Apollo Belvedere, engraved by Antonio Lafreri (16th century, Metropolitan Museum, CC0), cropped above the waist and
-     dithered to a halftone mask by hand. The light that follows the pointer is CSS. -->
+     dithered to a halftone mask by hand. -->
 <main id="top">
 <section class="hero-band" id="hero">
-  <iframe class="app-bg" title="Curvely, live. Type an equation." src="/app/?embed"></iframe>
+  <iframe class="app-bg" title="Tangent, live. Type an equation." src="/app/?embed"></iframe>
   <div class="hero-copy center">
     <p class="label">Graphing calculator</p>
-    <h1>Curvely</h1>
+    <h1>Tangent</h1>
   </div>
 </section>
 
@@ -49,8 +49,8 @@
   <div class="wrap center">
     <p class="lead">Type an equation. Watch it draw.</p>
     <div class="cta">
-      <a class="btn btn-solid" href="/app/">Open Curvely</a>
-      <a class="btn btn-ghost glass" href="https://apps.apple.com/app/id6794988370">App Store</a>
+      <a class="btn btn-solid" href="/app/">Open Tangent</a>
+      <a class="badge" href="https://apps.apple.com/app/id6794988370"><img src="badges/app-store.svg" alt="Download on the App Store" height="48"></a>
     </div>
     <p class="fine">Free. iPhone, iPad, Mac and the web.</p>
   </div>
@@ -96,7 +96,7 @@
     </div>
     <div class="prods">
       <article class="prod reveal"><div class="art" data-curves="parab" aria-hidden="true"></div><p class="label">HTTP</p><h3>Evaluate and sample</h3><p>Syntax, evaluate and sample endpoints.</p><a href="/api/syntax">/api/syntax &rarr;</a></article>
-      <article class="prod reveal"><div class="art" data-curves="damp" aria-hidden="true"></div><p class="label">MCP</p><h3>Curvely MCP server</h3><p>JSON-RPC at /mcp. No session, no SDK.</p><a href="https://github.com/nulljosh/tangent/blob/main/functions/mcp.js">functions/mcp.js &rarr;</a></article>
+      <article class="prod reveal"><div class="art" data-curves="damp" aria-hidden="true"></div><p class="label">MCP</p><h3>Tangent MCP server</h3><p>JSON-RPC at /mcp. No session, no SDK.</p><a href="https://github.com/nulljosh/tangent/blob/main/functions/mcp.js">functions/mcp.js &rarr;</a></article>
       <article class="prod reveal"><div class="art" data-curves="beat" aria-hidden="true"></div><p class="label">WebMCP</p><h3>Drive the open app</h3><p>Plot, edit and clear equations from an agent.</p><a href="https://github.com/nulljosh/tangent/blob/main/docs/API.md">docs/API.md &rarr;</a></article>
     </div>
   </div>
@@ -108,28 +108,28 @@
     <h2 class="reveal">Everywhere you plot</h2>
     <p class="body reveal">Free on every platform.</p>
     <div class="plat-row">
-      <div class="reveal glass"><small>iOS 17 and up</small><b>iPhone</b><p>A native app, and it runs on iPad too.</p><a class="btn btn-solid" href="https://apps.apple.com/app/id6794988370">App Store</a></div>
-      <div class="reveal glass"><small>macOS 14 and up</small><b>Mac</b><p>Native, Apple silicon and Intel.</p><a class="btn btn-solid" href="https://apps.apple.com/app/id6794988370">Mac App Store</a></div>
+      <div class="reveal glass"><small>iOS 17 and up</small><b>iPhone</b><p>A native app, and it runs on iPad too.</p><a class="badge" href="https://apps.apple.com/app/id6794988370"><img src="badges/app-store.svg" alt="Download on the App Store" height="48"></a></div>
+      <div class="reveal glass"><small>macOS 14 and up</small><b>Mac</b><p>Native, Apple silicon and Intel.</p><a class="badge" href="https://apps.apple.com/app/id6794988370"><img src="badges/mac-app-store.svg" alt="Download on the Mac App Store" height="48"></a></div>
       <div class="reveal glass"><small>Any browser</small><b>Web</b><p>On Windows, Android and Linux, open it and install from the browser.</p><a class="btn btn-solid" href="/app/">Open the web app</a></div>
     </div>
   </div>
 </section>
 <section class="hero-band gods" id="gods">
-  <div class="art spot" id="spot" style="--img: url(art/apollo.png)" aria-hidden="true"></div>
+  <div class="spot" aria-hidden="true"></div>
 </section>
 </main>
 
 <footer class="foot" id="footer">
   <div class="foot-top">
-    <div class="foot-brand"><img src="icon.svg" alt="" width="40" height="40"><b>Curvely</b><p>Type an equation. Watch it draw.</p></div>
+    <div class="foot-brand"><img src="icon.svg" alt="" width="40" height="40"><b>Tangent</b><p>Type an equation. Watch it draw.</p></div>
     <nav class="foot-cols" aria-label="Footer">
-      <div><p class="label">Curvely</p><a href="https://apps.apple.com/app/id6794988370">App Store</a><a href="/app/">Web app</a><a href="#features">Features</a><a href="#agents">Agents</a></div>
+      <div><p class="label">Tangent</p><a href="https://apps.apple.com/app/id6794988370">App Store</a><a href="/app/">Web app</a><a href="#features">Features</a><a href="#agents">Agents</a></div>
       <div><p class="label">Source</p><a href="https://github.com/nulljosh/tangent">GitHub</a><a href="https://github.com/nulljosh/tangent/blob/main/CHANGELOG.md">Changelog</a><a href="https://github.com/nulljosh/tangent/blob/main/WHITEPAPER.md">Whitepaper</a><a href="https://github.com/nulljosh/tangent/blob/main/SECURITY.md">Security</a><a href="/app/privacy.html">Privacy</a></div>
       <div><p class="label">More</p><a href="https://github.com/nulljosh/tangent/issues">Report a bug</a><a href="https://jaybulb.com">More apps</a><a href="#top">Back to top</a></div>
     </nav>
   </div>
   <div class="word-band" aria-hidden="true"><canvas></canvas></div>
-  <p class="legal">Curvely v{{VERSION}} &middot; Apache 2.0 &middot; &copy; 2026 Joshua Trommel &middot; <a href="/app/privacy.html">Privacy</a></p>
+  <p class="legal">Tangent v{{VERSION}} &middot; Apache 2.0 &middot; &copy; 2026 Joshua Trommel &middot; <a href="/app/privacy.html">Privacy</a></p>
 </footer>
 
 <script src="footer-band.js" defer></script>

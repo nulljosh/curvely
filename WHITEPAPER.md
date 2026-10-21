@@ -1,11 +1,11 @@
-# Curvely Technical Whitepaper
+# Tangent Technical Whitepaper
 
 **v1.2.2** | August 2026
 
 Type an equation. Watch it draw.
 
 Graphing calculators either live behind a paywall or bury the plot under a
-full computer-algebra suite nobody asked for. Curvely exists to do the one
+full computer-algebra suite nobody asked for. Tangent exists to do the one
 thing well: type an equation, see the curve, nothing in between. Everything
 happens on the device, no backend, no round trip to evaluate anything,
 because the whole point is that typing and seeing the result should feel

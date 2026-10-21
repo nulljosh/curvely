@@ -1,4 +1,4 @@
-rootProject.name = "curvely"
+rootProject.name = "tangent"
 
 pluginManagement {
     repositories {

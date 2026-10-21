@@ -21,7 +21,7 @@ const curvePx = () => ev(`(()=>{const c=document.querySelector('canvas');const x
 
 await send('Page.enable'); await send('Page.navigate', { url: BASE }); await sleep(2500);
 ok('loads with 2 equations', await count('.eq-input') === 2);
-ok('fonts: Curvely Sans loaded', await ev(`document.fonts.check('16px "Curvely Sans"')`));
+ok('fonts: Tangent Sans loaded', await ev(`document.fonts.check('16px "Tangent Sans"')`));
 const base = await curvePx(); ok('curves drawn on canvas', base > 500, 'px=' + base);
 await sleep(400); const settled = await curvePx(); // key point dots land after the view settles
 await click('.dot-btn'); await sleep(400); const hiddenPx = await curvePx(); ok('dot hides its curve', hiddenPx < settled, `px=${hiddenPx}`);

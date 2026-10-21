@@ -1,6 +1,6 @@
-# Curvely Money
+# Tangent Money
 
-How Curvely makes money. The fleet-wide ledger is `GTM.md` in the Code root.
+How Tangent makes money. The fleet-wide ledger is `GTM.md` in the Code root.
 
 ## Price
 
@@ -22,6 +22,6 @@ Nothing to build. Watch App Store Connect sales. If a month passes with installs
 
 `asc pricing schedule create --app 6794988370 --price 0.99 --base-territory USA --start-date YYYY-MM-DD`. Swap `--price 0.99` for `--free` to revert. No build, no review.
 
-Anyone who got Curvely while it was free keeps it free. Only new customers pay.
+Anyone who got Tangent while it was free keeps it free. Only new customers pay.
 
 *ASC 6794988370. Set 2026-09-20.*

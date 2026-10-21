@@ -8,9 +8,9 @@ import androidx.compose.ui.window.rememberWindowState
 fun main() = application {
     Window(
         onCloseRequest = ::exitApplication,
-        title = "Curvely",
+        title = "Tangent",
         state = rememberWindowState(width = 1040.dp, height = 720.dp),
     ) {
-        CurvelyTheme { AppScreen() }
+        TangentTheme { AppScreen() }
     }
 }
