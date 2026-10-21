@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Curvely. Type an equation, watch it draw.</title>
+<meta name="description" content="A graphing calculator that stays out of the way. Plot several equations at once, pan and zoom the plane, and read values straight off the curve. Free in the browser, native on iPhone, iPad and Mac.">
+<meta name="theme-color" content="#fdfdfd" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#050505" media="(prefers-color-scheme: dark)">
+<meta name="apple-itunes-app" content="app-id=6794988370">
+<link rel="canonical" href="https://curvely.jaybulb.com/">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Curvely">
+<meta property="og:title" content="Curvely. Type an equation, watch it draw.">
+<meta property="og:description" content="Plot several equations at once, pan and zoom the plane, and read values straight off the curve.">
+<meta property="og:url" content="https://curvely.jaybulb.com/">
+<meta property="og:image" content="https://curvely.jaybulb.com/og.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://curvely.jaybulb.com/og.png">
+<link rel="stylesheet" href="landing.css">
+<script src="landing.js" defer></script>
+</head>
+<body>
+
+<header class="nav glass" aria-label="Site">
+  <nav class="nav-links" aria-label="Main">
+    <a href="#features">Features</a>
+    <a href="#agents">Agents</a>
+    <a href="#get">Get it</a>
+  </nav>
+  <a class="nav-brand" href="#top" aria-label="Curvely home"><img src="icon.svg" alt="" width="28" height="28"><span>Curvely</span></a>
+  <div class="nav-end"><a class="btn btn-solid" href="/app/">Open app</a></div>
+</header>
+
+<!-- Art: Apollo Belvedere, engraved by Antonio Lafreri (16th century, Metropolitan Museum, CC0), cropped above the waist and
+     dithered to a halftone mask by hand. The light that follows the pointer is CSS. -->
+<main id="top">
+<section class="hero-band" id="hero">
+  <div class="art spot" id="spot" style="--img: url(art/apollo.png)" aria-hidden="true"></div>
+  <div class="hero-copy center">
+    <p class="label">Graphing calculator</p>
+    <h1>Curvely</h1>
+  </div>
+</section>
+
+<section class="hero">
+  <div class="wrap center">
+    <p class="lead">Type an equation. Watch it draw.</p>
+    <div class="cta">
+      <a class="btn btn-solid" href="/app/">Open Curvely</a>
+      <a class="btn btn-ghost glass" href="https://apps.apple.com/app/id6794988370">App Store</a>
+    </div>
+    <p class="fine">Free. iPhone, iPad, Mac and the web.</p>
+  </div>
+
+  <div class="demo-wrap reveal" id="demo">
+    <div class="stage">
+      <div class="art art-bg" data-curves="sin parab tanh" aria-hidden="true"></div>
+      <iframe class="app" title="Curvely, live. Type an equation." src="/app/?embed" loading="lazy"></iframe>
+    </div>
+    <p class="demo-hint">The real app, running here. Click an equation and type.</p>
+  </div>
+</section>
+
+<section class="band" id="features">
+  <div class="band-head">
+    <div class="art art-bg" data-curves="beat cos damp" aria-hidden="true"></div>
+    <div class="band-copy reveal">
+      <p class="label">Plot anything</p>
+      <h2>Read a curve</h2>
+      <p>Stack equations, drag the plane, read values straight off the line.</p>
+    </div>
+  </div>
+  <div class="frows">
+    <article class="frow reveal"><div class="art" data-curves="sin cos" aria-hidden="true"></div><div><p class="label">Equations</p><h3>Several at once</h3><p>Give each its own colour and see how the curves relate.</p></div></article>
+    <article class="frow reveal"><div class="art" data-curves="tanh" aria-hidden="true"></div><div><p class="label">Plane</p><h3>Pan and zoom</h3><p>Drag the plane, pinch or scroll to zoom, double tap to reset. The axes relabel as you go.</p></div></article>
+    <article class="frow reveal"><div class="art" data-curves="parab abs" aria-hidden="true"></div><div><p class="label">Native</p><h3>Real SwiftUI on Apple platforms</h3><p>Equations stay between launches. The graph exports as a PNG through the share sheet.</p></div></article>
+  </div>
+  <div class="cells">
+    <article class="cell reveal"><p class="label">Web</p><h3>Nothing to install</h3><p>Open the page and start plotting.</p></article>
+    <article class="cell reveal"><p class="label">Dark</p><h3>Easy on the eyes</h3><p>Dark by design, with glass panels that let the graph show through.</p></article>
+    <article class="cell reveal"><p class="label">Free</p><h3>Free and open source</h3><p>No ads, no account, no tracking.</p></article>
+  </div>
+</section>
+
+<section class="sec field" id="agents">
+  <div class="wrap center">
+    <div class="reveal">
+      <i class="mark" aria-hidden="true"></i>
+      <p class="label">An API and an MCP server</p>
+      <h2>Curves on call</h2>
+      <p class="body">Scripts and agents can evaluate expressions too. The API is stateless and nothing is stored.</p>
+    </div>
+    <div class="stage term-stage reveal">
+      <div class="art art-bg" data-curves="cubic sin" aria-hidden="true"></div>
+      <figure class="term glass" aria-label="Evaluating x squared over HTTP">
+<pre><span class="dim">$</span> curl -X POST curvely.jaybulb.com/api/evaluate \
+    -d '{"expr":"x^2","xValues":[0,1,2]}'
+<span class="dim">points</span>  (0, 0)  (1, 1)  (2, 4)</pre>
+        <figcaption>One call, three points.</figcaption>
+      </figure>
+    </div>
+    <div class="prods">
+      <article class="prod reveal"><div class="art" data-curves="parab" aria-hidden="true"></div><p class="label">HTTP</p><h3>Evaluate and sample</h3><p>Syntax, evaluate and sample endpoints.</p><a href="/api/syntax">/api/syntax &rarr;</a></article>
+      <article class="prod reveal"><div class="art" data-curves="damp" aria-hidden="true"></div><p class="label">MCP</p><h3>Curvely MCP server</h3><p>JSON-RPC at /mcp. No session, no SDK.</p><a href="https://github.com/nulljosh/labs/blob/main/curvely/functions/mcp.js">functions/mcp.js &rarr;</a></article>
+      <article class="prod reveal"><div class="art" data-curves="beat" aria-hidden="true"></div><p class="label">WebMCP</p><h3>Drive the open app</h3><p>Plot, edit and clear equations from an agent.</p><a href="https://github.com/nulljosh/labs/blob/main/curvely/docs/API.md">docs/API.md &rarr;</a></article>
+    </div>
+  </div>
+</section>
+
+<section class="sec plats" id="get">
+  <div class="wrap center">
+    <p class="label reveal">Get it</p>
+    <h2 class="reveal">Everywhere you plot</h2>
+    <p class="body reveal">Free on every platform.</p>
+    <div class="plat-row">
+      <div class="reveal glass"><small>iOS 17 and up</small><b>iPhone</b><p>A native app, and it runs on iPad too.</p><a class="btn btn-solid" href="https://apps.apple.com/app/id6794988370">App Store</a></div>
+      <div class="reveal glass"><small>macOS 14 and up</small><b>Mac</b><p>Native, Apple silicon and Intel.</p><a class="btn btn-solid" href="https://apps.apple.com/app/id6794988370">Mac App Store</a></div>
+      <div class="reveal glass"><small>Any browser</small><b>Web</b><p>On Windows, Android and Linux, open it and install from the browser.</p><a class="btn btn-solid" href="/app/">Open the web app</a></div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="foot" id="footer">
+  <div class="foot-top">
+    <div class="foot-brand"><img src="icon.svg" alt="" width="40" height="40"><b>Curvely</b><p>Type an equation. Watch it draw.</p></div>
+    <nav class="foot-cols" aria-label="Footer">
+      <div><p class="label">Curvely</p><a href="https://apps.apple.com/app/id6794988370">App Store</a><a href="/app/">Web app</a><a href="#features">Features</a><a href="#agents">Agents</a></div>
+      <div><p class="label">Source</p><a href="https://github.com/nulljosh/labs/tree/main/curvely">GitHub</a><a href="https://github.com/nulljosh/labs/blob/main/curvely/CHANGELOG.md">Changelog</a><a href="https://github.com/nulljosh/labs/blob/main/curvely/WHITEPAPER.md">Whitepaper</a><a href="https://github.com/nulljosh/labs/blob/main/curvely/SECURITY.md">Security</a><a href="/app/privacy.html">Privacy</a></div>
+      <div><p class="label">More</p><a href="https://github.com/nulljosh/labs/issues">Report a bug</a><a href="https://jaybulb.com">More apps</a><a href="#top">Back to top</a></div>
+    </nav>
+  </div>
+  <div class="word-band" aria-hidden="true"><canvas></canvas></div>
+  <p class="legal">Curvely v{{VERSION}} &middot; MIT License &middot; &copy; 2026 Joshua Trommel &middot; <a href="/app/privacy.html">Privacy</a></p>
+</footer>
+
+<script src="footer-band.js" defer></script>
+</body>
+</html>

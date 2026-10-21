@@ -1,0 +1,38 @@
+/* Curvely web tokens. Follows the system light/dark setting, the accent is brand/tokens.css. Local, so the app never waits on another site's stylesheet. */
+:root {
+  color-scheme: light dark;
+  --accent: #0f86c9;
+  --accent-text: #4fb3ea;
+  --bg: #0d0c0b;
+  --bg2: rgba(255, 255, 255, 0.07);
+  --text: #e8e8f0;
+  --text2: rgba(232, 232, 240, 0.58);
+  --border: rgba(255, 255, 255, 0.14);
+  --glass: rgba(24, 25, 28, 0.55);
+  --glass-edge: rgba(255, 255, 255, 0.2);
+  --glass-lit: rgba(255, 255, 255, 0.34);
+  --error: #ff453a;
+  --tint: rgba(255, 255, 255, 0.05);
+  --grid: rgba(232, 232, 240, 0.07);
+  --axis: rgba(232, 232, 240, 0.3);
+  --axis-label: rgba(232, 232, 240, 0.5);
+  --font: "Curvely Sans", -apple-system, BlinkMacSystemFont, "SF Pro Text", "Helvetica Neue", Helvetica, system-ui, sans-serif;
+}
+@media (prefers-color-scheme: light) {
+  :root {
+    --accent-text: #0a6fa8;
+    --bg: #fbfbfd;
+    --bg2: rgba(0, 0, 0, 0.05);
+    --text: #1d1d1f;
+    --text2: rgba(29, 29, 31, 0.58);
+    --border: rgba(0, 0, 0, 0.12);
+    --glass: rgba(255, 255, 255, 0.62);
+    --glass-edge: rgba(0, 0, 0, 0.08);
+    --glass-lit: rgba(255, 255, 255, 0.9);
+    --error: #d70015;
+    --tint: rgba(0, 0, 0, 0.03);
+    --grid: rgba(0, 0, 0, 0.07);
+    --axis: rgba(0, 0, 0, 0.35);
+    --axis-label: rgba(0, 0, 0, 0.55);
+  }
+}

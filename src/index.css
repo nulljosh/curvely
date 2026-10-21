@@ -1,0 +1,153 @@
+@import './tokens.css';
+
+@font-face { font-family: "Curvely Sans"; src: url("/fonts/CurvelySans-ExtraLight.woff2") format("woff2"); font-weight: 200; font-display: swap; }
+@font-face { font-family: "Curvely Sans"; src: url("/fonts/CurvelySans-Regular.woff2") format("woff2"); font-weight: 400; font-display: swap; }
+@font-face { font-family: "Curvely Sans"; src: url("/fonts/CurvelySans-Medium.woff2") format("woff2"); font-weight: 500; font-display: swap; }
+@font-face { font-family: "Curvely Sans"; src: url("/fonts/CurvelySans-Semibold.woff2") format("woff2"); font-weight: 600; font-display: swap; }
+@font-face { font-family: "Curvely Sans"; src: url("/fonts/CurvelySans-Bold.woff2") format("woff2"); font-weight: 700; font-display: swap; }
+
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html, body, #root {
+  height: 100%;
+  overscroll-behavior: none;
+}
+
+:root {
+  --text-secondary: var(--text2);
+}
+
+body {
+  font-family: var(--font);
+  background: var(--bg);
+  color: var(--text);
+  margin: 0;
+  -webkit-font-smoothing: antialiased;
+}
+
+input::placeholder { color: var(--text-secondary); }
+@media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
+input:focus { outline: none; }
+
+::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: var(--border); border-radius: 2px; }
+
+/* The graph is the whole viewport; the equation list floats over it as glass. */
+.main-layout {
+  flex: 1;
+  position: relative;
+  overflow: hidden;
+}
+
+.graph-pane {
+  position: absolute;
+  inset: 0;
+}
+
+.sidebar-pane {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  width: 308px;
+  max-height: calc(100% - 24px);
+  box-sizing: border-box;
+  padding: 12px;
+  overflow-y: auto;
+}
+
+/* Liquid glass: blurs and saturates the plot behind it, lit top edge, hairline, no drop shadow. */
+.glass {
+  background: var(--glass);
+  -webkit-backdrop-filter: blur(28px) saturate(180%);
+  backdrop-filter: blur(28px) saturate(180%);
+  border: 1px solid var(--glass-edge);
+  box-shadow: inset 0 1px 0 var(--glass-lit), inset 0 -1px 0 var(--tint);
+  border-radius: 28px;
+}
+.glass-card {
+  background: var(--tint);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  padding: 16px 16px 12px;
+}
+.card-title { font-size: 11px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text2); margin-bottom: 12px; }
+
+/* Controls are 48 point capsules */
+.eq-input {
+  flex: 1; min-width: 0; min-height: 48px; padding: 0 16px; font: inherit; font-size: 16px; color: var(--text);
+  background: var(--bg2); border: 1px solid var(--border); border-radius: 24px; outline: none;
+  transition: border-color 0.2s ease;
+}
+.eq-input:focus { border-color: var(--accent); }
+.eq-input.bad { border-color: color-mix(in srgb, var(--error) 70%, transparent); }
+.add-btn {
+  width: 100%; min-height: 48px; margin-top: 4px; font: inherit; font-size: 15px; color: var(--accent-text); cursor: pointer;
+  background: color-mix(in srgb, var(--accent) 22%, transparent); border: 1px solid color-mix(in srgb, var(--accent) 50%, transparent); border-radius: 24px;
+  transition: background 0.2s ease;
+}
+.add-btn:hover { background: color-mix(in srgb, var(--accent) 34%, transparent); }
+.chip {
+  display: inline-block; margin: 3px 4px 3px 0; min-height: 32px; padding: 0 12px; font: inherit; font-size: 13px; color: var(--text2); cursor: pointer;
+  background: var(--bg2); border: 1px solid var(--border); border-radius: 16px; transition: color 0.2s ease, border-color 0.2s ease;
+}
+.chip:hover { color: var(--accent-text); border-color: var(--accent); }
+.pattern-tabs { display: flex; gap: 4px; overflow-x: auto; margin: 0 -4px 8px; padding: 0 4px 4px; scrollbar-width: none; }
+.pattern-tabs::-webkit-scrollbar { display: none; }
+.pattern-tab { flex-shrink: 0; min-height: 32px; padding: 0 12px; font: inherit; font-size: 13px; font-weight: 500; color: var(--text2); cursor: pointer; background: none; border: 1px solid transparent; border-radius: 16px; }
+.pattern-tab[aria-pressed="true"] { color: var(--accent-text); background: color-mix(in srgb, var(--accent) 18%, transparent); border-color: color-mix(in srgb, var(--accent) 45%, transparent); }
+.play-btn { display: flex; align-items: center; justify-content: center; width: 32px; height: 32px; padding: 0; border-radius: 16px; border: 1px solid var(--border); background: var(--bg2); color: var(--text); cursor: pointer; flex-shrink: 0; }
+.play-btn[aria-pressed="true"] { color: var(--accent-text); border-color: var(--accent); }
+.dot-btn { display: flex; align-items: center; justify-content: center; min-width: 32px; min-height: 44px; padding: 0; background: none; border: none; cursor: pointer; flex-shrink: 0; }
+.rm-btn { background: none; border: none; color: var(--text2); cursor: pointer; font-size: 18px; line-height: 1; padding: 0 2px; flex-shrink: 0; min-height: 44px; min-width: 44px; }
+button:focus-visible, .eq-input:focus-visible { outline: 3px solid color-mix(in srgb, var(--accent) 45%, transparent); outline-offset: 2px; }
+
+/* Phones only: the panel covers the bottom of the plot, so it collapses to its handle. */
+.panel-handle { display: none; }
+
+@media (max-width: 640px) {
+  /* ponytail: drawer height in one place so the graph pane's calc can't drift */
+  .main-layout { --drawer-h: 34dvh; }
+
+  .panel-handle {
+    display: block;
+    width: 100%;
+    margin: -10px 0 6px;
+    background: none;
+    border: none;
+    color: var(--text-secondary);
+    font-size: 16px;
+    cursor: pointer;
+  }
+
+  .sidebar-pane.collapsed { height: 52px; overflow: hidden; }
+
+  .sidebar-pane {
+    top: auto;
+    left: 8px;
+    right: 8px;
+    bottom: 8px;
+    width: auto;
+    height: var(--drawer-h);
+    max-height: var(--drawer-h);
+    padding: 10px 12px;
+  }
+
+  .eq-list-container {
+    max-height: calc(var(--drawer-h) - 40px);
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  button {
+    min-height: 44px;
+    min-width: 44px;
+  }
+
+  canvas {
+    width: 100% !important;
+    display: block;
+    touch-action: none;
+  }
+}

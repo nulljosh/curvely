@@ -1,0 +1,19 @@
+{
+  "source": "https://jaybulb.com/tokens.css",
+  "colors": {
+    "background": "#111111",
+    "bg2": "#1a1a1a",
+    "text": "#e8e8f0",
+    "muted": "rgba(232,232,240,0.60)",
+    "subtle": "rgba(232,232,240,0.30)",
+    "accent": "#5B9BD5",
+    "border": "rgba(232,232,240,0.10)",
+    "border2": "rgba(232,232,240,0.05)",
+    "navy": "#252a49"
+  },
+  "typography": {
+    "fontFamily": "ui-monospace, 'SF Mono', Monaco, 'Cascadia Code', monospace",
+    "uiFontFamily": "'DM Sans', -apple-system, BlinkMacSystemFont, system-ui, sans-serif"
+  },
+  "note": "App is dark-mode only (data-theme=\"dark\" set in index.html); synced from jaybulb.com/tokens.css 2026-06-29"
+}

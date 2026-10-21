@@ -1,0 +1,31 @@
+{
+  "name": "curvely",
+  "license": "MIT",
+  "private": true,
+  "version": "2.0.0",
+  "description": "A graphing calculator that feels like it belongs on your phone, native SwiftUI on iPhone, iPad and Mac.",
+  "keywords": [
+    "graphing-calculator",
+    "swiftui",
+    "ios",
+    "macos"
+  ],
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "rm -rf dist && vite build && cp -r landing/. dist/ && node -e \"const f='dist/index.html',fs=require('fs');fs.writeFileSync(f,fs.readFileSync(f,'utf8').replace('{{VERSION}}',require('./package.json').version))\"",
+    "preview": "vite preview",
+    "gen:patterns": "node scripts/gen-patterns.mjs",
+    "test": "vitest run"
+  },
+  "dependencies": {
+    "mathjs": "^15.2.0",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-react": "^4.3.0",
+    "vite": "^6.0.0",
+    "vitest": "^3.2.4"
+  }
+}

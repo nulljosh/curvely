@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Curvely brand kit</title>
+<meta name="description" content="The Curvely mark, colour, type and glass, with files to download.">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="landing.css">
+<style>
+.kit h2{font-size:clamp(40px,6vw,72px);margin-bottom:var(--sp-6)}
+.kit section{padding:var(--sp-8) 0;border-top:1px solid var(--line)}
+.sizes{display:flex;align-items:flex-end;gap:var(--sp-5);flex-wrap:wrap}
+.sizes img{border-radius:22.5%;display:block}
+.sizes figure{display:grid;gap:var(--sp-2);justify-items:center;font-size:13px;color:var(--sub)}
+.sw{display:grid;grid-template-columns:repeat(4,1fr);gap:var(--sp-3)}
+@media (max-width:700px){.sw{grid-template-columns:repeat(2,1fr)}}
+.sw div{padding:var(--sp-4);min-height:112px;display:flex;flex-direction:column;justify-content:flex-end;font-size:13px;line-height:18px;border:1px solid var(--line)}
+.sw b{font-size:15px}
+.spec p{margin:0}
+.spec .big{font-size:clamp(48px,9vw,112px);line-height:1;font-weight:200;text-transform:uppercase}
+.spec .row{display:flex;gap:var(--sp-6);flex-wrap:wrap;margin:var(--sp-5) 0;font-size:28px;line-height:1.3}
+.pane{position:relative;overflow:hidden;min-height:300px;background:var(--grain),var(--band);display:grid;place-items:center;padding:var(--sp-6)}
+.pane .g{width:min(420px,100%);padding:var(--sp-5);border-radius:28px}
+.pane .g .btn{width:100%;justify-content:center;height:48px;border-radius:999px;margin-top:var(--sp-3)}
+.dl{display:flex;flex-wrap:wrap;gap:var(--sp-2)}
+</style>
+</head>
+<body>
+<header class="nav glass" aria-label="Site"><nav class="nav-links"><a href="./">Home</a></nav><a class="nav-brand" href="./"><img src="icon.svg" alt="" width="28" height="28"><span>Curvely</span></a><div class="nav-end"><a class="btn btn-solid" href="/app/">Open app</a></div></header>
+<main class="wrap kit" style="padding-top:var(--sp-9)">
+<p class="label">Brand kit</p>
+<h1 style="font-size:clamp(56px,10vw,140px)">Curvely</h1>
+<p class="lead" style="margin-left:0">A sine wave with one plotted point, in white on a blue tile. Type is Curvely Sans. Panels are glass.</p>
+
+<section><p class="label">The mark</p><h2>One curve, one point</h2>
+<div class="sizes"><figure><img src="icon-1024.png" width="256" height="256" alt="Curvely icon"><span>256</span></figure><figure><img src="icon-1024.png" width="128" height="128" alt=""><span>128</span></figure><figure><img src="icon-1024.png" width="60" height="60" alt=""><span>60</span></figure><figure><img src="icon-1024.png" width="29" height="29" alt=""><span>29</span></figure><figure><img src="icon-1024.png" width="16" height="16" alt=""><span>16</span></figure></div>
+<p class="body">Bold flat glyph, no text, no outline. Clear space is the stroke width. Smallest size 16.</p>
+<div class="dl" style="margin-top:var(--sp-5)"><a class="btn btn-solid" href="icon-1024.png" download>Icon 1024 png</a><a class="btn btn-ghost" href="mark.svg" download>Mark svg</a><a class="btn btn-ghost" href="icon.svg" download>Icon svg</a></div></section>
+
+<section><p class="label">Colour</p><h2>Blue, and not much else</h2>
+<div class="sw">
+<div style="background:#0f86c9;color:#fff"><b>Accent</b>#0f86c9</div>
+<div style="background:#38c8f0;color:#05212e"><b>Gradient top</b>#38c8f0</div>
+<div style="background:#0b6ba8;color:#fff"><b>Band, buttons</b>#0b6ba8</div>
+<div style="background:#4fb3ea;color:#05212e"><b>Accent text, dark</b>#4fb3ea</div>
+<div style="background:#fbfbfd;color:#1d1d1f"><b>Graph, light</b>#fbfbfd</div>
+<div style="background:#1d1d1f;color:#fbfbfd"><b>Text, light</b>#1d1d1f</div>
+<div style="background:#0d0c0b;color:#e8e8f0"><b>Graph, dark</b>#0d0c0b</div>
+<div style="background:#e8e8f0;color:#0d0c0b"><b>Text, dark</b>#e8e8f0</div>
+</div><p class="body">The accent is for actions, links and the icon. The graph follows the system's light or dark setting. Curves take eight plot colours, blue first.</p></section>
+
+<section class="spec"><p class="label">Type</p><h2>Curvely Sans</h2>
+<p class="big">Curvely</p>
+<p style="font-size:28px;margin-top:var(--sp-4)">“Plot anything,” she said. ‘Type x^2’ and watch it draw.</p>
+<div class="row"><span style="font-weight:200">ExtraLight</span><span>Regular</span><span style="font-weight:500">Medium</span><span style="font-weight:600">Semibold</span><span style="font-weight:700">Bold</span></div>
+<p class="body">Inter under the SIL Open Font License, renamed. The curly quotes are redrawn as waves: a crest opens, a trough closes. Built by scripts/gen_font.py.</p>
+<div class="dl" style="margin-top:var(--sp-5)"><a class="btn btn-ghost" href="fonts/CurvelySans-Regular.woff2" download>Regular woff2</a><a class="btn btn-ghost" href="fonts/OFL.txt">OFL license</a></div></section>
+
+<section><p class="label">Glass</p><h2>Panes that let the graph through</h2>
+<div class="pane"><div class="g glass"><p class="label" style="margin-bottom:var(--sp-3)">Equations</p><div class="btn btn-ghost" style="width:100%;border-radius:999px;height:48px;justify-content:flex-start;padding:0 var(--sp-4);font-family:var(--font);text-transform:none;letter-spacing:0;font-size:16px">sin(x)</div><a class="btn btn-solid" href="#">Add equation</a></div></div>
+<p class="body">Liquid Glass on iOS 26 and macOS 26, a blurred material before that, backdrop-filter on the web. A lit top edge and a hairline. Never a drop shadow.</p></section>
+
+<section><p class="label">Space and shape</p><h2>The shared system</h2>
+<p class="body" style="margin-top:0">8 point grid. Controls are 48 point capsules. Cards 28, grouped lists 20, icon 22.5 percent. Motion is 0.2 s ease and honours reduced motion.</p></section>
+</main>
+<footer class="foot"><p class="legal">&copy; 2026 Joshua Trommel &middot; MIT License &middot; <a href="./">Curvely</a></p></footer>
+<script src="landing.js" defer></script>
+</body>
+</html>
