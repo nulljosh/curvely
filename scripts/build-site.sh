@@ -5,6 +5,7 @@ cd "$(dirname "$0")/.."
 rm -rf dist
 npx vite build --base=/app/ --outDir=dist/app
 cp -R landing/. dist/
+node -e "const f='dist/index.html',fs=require('fs');fs.writeFileSync(f,fs.readFileSync(f,'utf8').replace('{{VERSION}}',require('./package.json').version))"
 # The App Store listing links /privacy.html; without this copy Pages falls back to the landing page.
 cp dist/app/privacy.html dist/privacy.html
 echo "built dist/ (landing at /, app at /app)"
