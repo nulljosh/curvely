@@ -62,3 +62,8 @@ jaybulb.com purchase. Not a blocker for current work.
 ## Ingested 2026-10-05
 - [ ] QA
 
+
+## Ingested 2026-10-21
+- [ ] [P1] App Store name still stale (Curvely). Waits on Apple accepting Pan, see Store rename above. (notes/attachments/2026-10-21/curvely-2.png)
+- [ ] [P2] What's with the scrolling? Find the odd scroll behaviour (equation sheet over the graph) and fix it. (notes/attachments/2026-10-21/curvely-2.png)
+- [ ] [P2] What are the gaps vs Desmos? https://apps.apple.com/ca/app/desmos-graphing-calculator/id653517540 Diff the feature list and file the gaps here.
